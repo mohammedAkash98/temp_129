@@ -13,7 +13,7 @@
   </div><!-- End Page Title -->
 
 
-  <div class="container mt-5">
+  <div class="container">
     <h2>Edit Chapter</h2>
     <form action="{{ route('chapter.update',$chapter->id) }}" method="POST">
         @csrf

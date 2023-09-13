@@ -51,7 +51,7 @@ class LessonController extends Controller
 
     public function delete($id)
     {
-        $lesson =  Lesson::find($id);
+        $lesson =  Lesson::where('id', $id)->first();
 
 
         if ($lesson->image) {
@@ -105,19 +105,23 @@ class LessonController extends Controller
     public function uploadImage($title, $image)
     {
 
-        $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString());
+        // $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString());
 
 
-        $file_name = $timestamp . '-' . $title . '.' . $image->getClientOriginalExtension();
+        // $file_name = $timestamp . '-' . $title . '.' . $image->getClientOriginalExtension();
 
-        $pathToUpload = storage_path() . '/app/public/lesson/';
+        // $pathToUpload = storage_path() . '/app/public/lesson/';
 
-        if (!is_dir($pathToUpload)) {
+        // if (!is_dir($pathToUpload)) {
 
-            mkdir($pathToUpload, 0755, true);
-        }
+        //     mkdir($pathToUpload, 0755, true);
+        // }
 
-        Image::make($image)->resize(650, 342)->save($pathToUpload . $file_name);
+        // Image::make($image)->resize(650, 342)->save($pathToUpload . $file_name);
+
+        $file_name = time() . '-' . $title . '.' . $image->getClientOriginalExtension();
+
+        $image->move('storage/lesson',$file_name);
 
         return $file_name;
     }

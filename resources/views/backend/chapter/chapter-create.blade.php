@@ -13,7 +13,7 @@
   </div><!-- End Page Title -->
 
 
-  <div class="container mt-5">
+  <div class="container">
     <h2>Add Chapter</h2>
     <form action="{{ route('chapter.store') }}" method="POST">
         @csrf
