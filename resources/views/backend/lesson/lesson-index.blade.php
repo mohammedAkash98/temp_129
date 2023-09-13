@@ -29,6 +29,7 @@
                     <th>Sl No</th>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>Chapter</th>
                     <th>Image</th>
                     <th>Actions</th>
                 </tr>
@@ -42,8 +43,10 @@
                         <td>{{ $sl++ }}</td>
                         <td>{{ $lesson->name ?? '' }}</td>
                         <td>{{ $lesson->description ?? '' }}</td>
+                        <td>{{ $lesson->chapter->name ?? '' }}</td>
                         <td><img width="100" src="{{ asset('storage/lesson/'. $lesson->image) }}" alt="{{ $lesson->name }}"></td>
                         <td>
+                         <a href="{{ route('lesson.info', $lesson->id) }}" class="btn btn-info btn-sm text-white"> <i class="fa-solid fa-circle-info"></i> Info</a>
                             <a href="{{ route('lesson.edit', $lesson->id) }}" class="btn btn-primary btn-sm text-white"> <i
                                     class="fa-solid fa-file-pen"></i> Edit</a>
                             <a href="{{ route('lesson.delete', $lesson->id) }}" class="btn btn-danger btn-sm text-white"><i

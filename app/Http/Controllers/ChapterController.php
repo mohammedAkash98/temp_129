@@ -26,7 +26,7 @@ class ChapterController extends Controller
         ]);
 
         Chapter::create([
-            'user_id' => auth()->user()->id,
+
             'name' => $request->name,
         ]);
         return redirect()->route('chapter.index');
@@ -53,7 +53,7 @@ class ChapterController extends Controller
         $chapter = Chapter::where('id', $id)->first();
 
         $chapter->update([
-            'user_id' => auth()->user()->id,
+
             'name' => $request->name,
         ]);
         return redirect()->route('chapter.index');

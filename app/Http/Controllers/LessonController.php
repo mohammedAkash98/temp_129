@@ -41,7 +41,7 @@ class LessonController extends Controller
 
         $data['image'] = $image;
         $data['chapter_id'] = $request->chapter_id;
-        $data['user_id'] = auth()->user()->id;
+
 
 
         Lesson::create($data);
@@ -89,11 +89,16 @@ class LessonController extends Controller
         }
 
         $data['chapter_id'] = $request->chapter_id;
-        $data['user_id'] = auth()->user()->id;
+
 
 
         Lesson::where('id', $id)->update($data);
         return redirect()->route('lesson.index');
+    }
+    public function info($id)
+    {
+        $lesson = Lesson::find($id);
+        return view('backend.lesson.lesson-info', compact('lesson'));
     }
     //image function
 

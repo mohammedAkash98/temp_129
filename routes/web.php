@@ -56,4 +56,5 @@ Route::prefix('admin/lesson')->group(function () {
     Route::get('/delete/{id}', [LessonController::class, 'delete'])->name('lesson.delete');
     Route::get('/edit/{id}', [LessonController::class, 'edit'])->name('lesson.edit');
     Route::post('/update/{id}', [LessonController::class, 'update'])->name('lesson.update');
+    Route::get('/info/{id}', [LessonController::class, 'info'])->name('lesson.info');
 });
