@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            // $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('chapter_id');
             $table->string('name');
             $table->text('description');
             $table->string('image');
-
-
             $table->timestamps();
         });
     }
