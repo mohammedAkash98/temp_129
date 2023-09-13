@@ -58,7 +58,27 @@
               </li>
               <li>
                 <a href="{{ route('lesson.create') }}">
-                  <i class="bi bi-circle"></i><span>Add Chapter</span>
+                  <i class="bi bi-circle"></i><span>Add Lesson</span>
+                </a>
+              </li>
+        </ul>
+      </li>
+
+       {{-- Quiz --}}
+       <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-navLesson" data-bs-toggle="collapse" href="{{ route('lesson.index') }}">
+            <i class="fa-solid fa-person-chalkboard"></i><span>Lesson</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-navLesson" class="nav-content collapse " data-bs-parent="#sidebar-navLesson">
+
+            <li>
+                <a href="{{ route('lesson.index') }}">
+                  <i class="bi bi-circle"></i><span>Lesson List</span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('lesson.create') }}">
+                  <i class="bi bi-circle"></i><span>Add Lesson</span>
                 </a>
               </li>
         </ul>
