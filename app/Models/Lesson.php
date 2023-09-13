@@ -17,8 +17,8 @@ class Lesson extends Model
     {
         return $this->belongsTo(Chapter::class);
     }
-    public function quiz()
+    public function quizzes()
     {
-        return $this->hasOne(Quiz::class);
+        return $this->hasMany(Quiz::class);
     }
 }
