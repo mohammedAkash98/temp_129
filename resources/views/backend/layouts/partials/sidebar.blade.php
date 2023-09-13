@@ -77,7 +77,7 @@
                 </a>
               </li>
               <li>
-                <a href="{{ route('lesson.create') }}">
+                <a href="">
                   <i class="bi bi-circle"></i><span>Add Quiz</span>
                 </a>
               </li>
