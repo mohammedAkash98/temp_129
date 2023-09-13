@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->integer('age');
+            $table->string('type')->default('student');
+            $table->boolean('enrolled')->default(1); // only input 0 or 1
             $table->text('school_name');
             $table->string('class');
             $table->string('gender');
