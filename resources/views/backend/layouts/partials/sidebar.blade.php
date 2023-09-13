@@ -66,19 +66,19 @@
 
        {{-- Quiz --}}
        <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-navLesson" data-bs-toggle="collapse" href="{{ route('lesson.index') }}">
+        <a class="nav-link collapsed" data-bs-target="#components-navQuiz" data-bs-toggle="collapse" href="">
             <i class="fa-solid fa-person-chalkboard"></i><span>Lesson</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-navLesson" class="nav-content collapse " data-bs-parent="#sidebar-navLesson">
+        <ul id="components-navQuiz" class="nav-content collapse " data-bs-parent="#sidebar-navQuiz">
 
             <li>
-                <a href="{{ route('lesson.index') }}">
-                  <i class="bi bi-circle"></i><span>Lesson List</span>
+                <a href="">
+                  <i class="bi bi-circle"></i><span>Quiz List</span>
                 </a>
               </li>
               <li>
                 <a href="{{ route('lesson.create') }}">
-                  <i class="bi bi-circle"></i><span>Add Lesson</span>
+                  <i class="bi bi-circle"></i><span>Add Quiz</span>
                 </a>
               </li>
         </ul>
