@@ -64,7 +64,7 @@
         </ul>
       </li>
 
-       {{-- Quiz --}}
+       {{-- Quiz start --}}
        <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-navQuiz" data-bs-toggle="collapse" href="#">
             <i class="fa-solid fa-person-chalkboard"></i><span>Lesson</span><i class="bi bi-chevron-down ms-auto"></i>
