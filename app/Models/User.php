@@ -40,10 +40,10 @@ class User extends Authenticatable
     ];
 
 
-    public function chapters()
-    {
-        return $this->hasMany(Chapter::class);
-    }
+    // public function chapters()
+    // {
+    //     return $this->hasMany(Chapter::class);
+    // }
 
     // public function lessons()
     // {
