@@ -16,7 +16,7 @@ return new class extends Migration
             // $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('chapter_id');
             $table->unsignedBigInteger('lesson_id');
-            $table->string('name');
+            $table->string('question');
             $table->string('option_1');
             $table->string('option_2');
             $table->string('option_3');
