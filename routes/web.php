@@ -18,10 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('dashboard');
-// });
-Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::get('/', [DashboardController::class, 'home'])->name('home');
+// Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/admin', [BackendController::class, 'admin'])->name('admin');
 
 Route::get('/register', [UserController::class, 'register'])->name('register');
@@ -29,6 +27,11 @@ Route::post('/register/store', [UserController::class, 'registerStore'])->name('
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login/store', [UserController::class, 'loginStore'])->name('login.store');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+
+// header fields
+Route::get('/courses', [ChapterController::class, 'courses'])->name('courses');
+Route::get('/courses/{course_name}', [ChapterController::class, 'courses_name'])->name('courses.show');
+
 
 // user route
 

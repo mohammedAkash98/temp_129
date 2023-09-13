@@ -55,6 +55,7 @@ class UserController extends Controller
     {
         return view('frontend.user.login');
     }
+
     public function loginStore(Request $request)
     {
         $request->validate([
@@ -82,11 +83,13 @@ class UserController extends Controller
         $users = User::all();
         return view('backend.user.user-index', compact('users'));
     }
+
     public function delete($id)
     {
         User::find($id)->delete();
         return redirect()->back();
     }
+    
     public function edit($id)
     {
         $user = User::find($id);
