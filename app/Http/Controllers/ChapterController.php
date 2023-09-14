@@ -14,11 +14,16 @@ class ChapterController extends Controller
         return view('frontend.courses__lessons.course_chapter', compact('courses'));
     }
 
-    public function courses_name(string $course_name)
+    public function courses_name($id)
     {
+
+        $chapters = Chapter::all();
+
+
+
         // $course_name = ['food_and_nutrition','healthy_life','mental_health','leadership','social_scope'];
         //dd($name);
-        return view('frontend.courses__lessons.course_2',  compact('course_name'));
+        return view('frontend.courses__lessons.course_2',  compact('chapters'));
     }
 
 

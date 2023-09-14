@@ -37,7 +37,7 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 //student route
 Route::prefix('student')->middleware(['auth'])->group(function () {
     Route::get('/courses', [ChapterController::class, 'courses'])->name('courses');
-    Route::get('/courses/{course_name}', [ChapterController::class, 'courses_name'])->name('courses.show');
+    Route::get('/courses/{id}', [ChapterController::class, 'courses_name'])->name('courses.show');
     Route::get('/profile', [StudentController::class, 'profile'])->name('student.profile');
     Route::post('/profile/update/{id}', [StudentController::class, 'update'])->name('student.update');
     Route::get('/profile/delete/{id}', [StudentController::class, 'delete'])->name('student.delete');
@@ -92,4 +92,3 @@ Route::prefix('pdf')->middleware(['auth'])->group(function () {
     Route::get('/user/report', [PdfController::class, 'userPdfReport'])->name('user.pdf.report');
     Route::get('/chapter/report', [PdfController::class, 'chapterPdfReport'])->name('chapter.pdf.report');
 });
-

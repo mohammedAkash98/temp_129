@@ -28,7 +28,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Sl No</th>
+                        <th>Lesson No</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Chapter</th>
@@ -37,14 +37,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @php
-                        $sl = 1;
-                    @endphp
                     @foreach ($lessons as $lesson)
                         <tr>
-                            <td>{{ $sl++ }}</td>
+                            <td>{{ $lesson->lesson_no_bangla }}</td>
                             <td>{{ $lesson->name ?? '' }}</td>
-                            <td>{{ $lesson->description ?? '' }}</td>
+                            <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ $lesson->description ?? '' }}</td>
                             <td>{{ $lesson->chapter->name ?? '' }}</td>
                             <td><img width="100" src="{{ asset('storage/lesson/' . $lesson->image) }}"
                                     alt="{{ $lesson->name }}"></td>
@@ -62,6 +59,7 @@
                     <!-- Add more rows as needed -->
                 </tbody>
             </table>
+            {{ $lessons->links('pagination::bootstrap-4') }}
         </div>
     @endif
 

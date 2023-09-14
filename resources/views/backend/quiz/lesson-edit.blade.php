@@ -36,6 +36,15 @@
         </div>
 
         <div class="form-group">
+            <label for="lesson_no_bangla">Lesson No(Bangala):</label>
+            <input value="{{ $lesson->lesson_no_bangla }}" type="text" class="form-control" id="lesson_no_bangla" name="lesson_no_bangla">
+            @if ($errors->has('lesson_no_bangla'))
+                <span class="text-danger">{{ $errors->first('lesson_no_bangla') }}</span>
+            @endif
+        </div>
+
+
+        <div class="form-group">
             <label for="lessonImage">Image:</label>
             <input type="file" class="form-control-file my-3" id="lessonImage" name="image">
           <div>
