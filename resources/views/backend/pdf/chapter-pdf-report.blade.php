@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Report</title>
+    <title>Chapter Report</title>
 
     <style>
         .table {
@@ -59,7 +59,6 @@
                 <tr>
                     <td>{{ $sl++ }}</td>
                     <td>{{ $chapter->name }}</td>
-
                 </tr>
             @endforeach
 
