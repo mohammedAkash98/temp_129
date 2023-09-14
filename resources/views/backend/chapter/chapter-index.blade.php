@@ -1,5 +1,6 @@
 @extends('backend.layouts.master')
 @section('content')
+
     <div class="pagetitle">
         <h1>Chapter</h1>
         <nav>
@@ -34,12 +35,9 @@
                 </tr>
             </thead>
             <tbody>
-                @php
-                    $sl = 1;
-                @endphp
                 @foreach ($chapters as $chapter)
                     <tr>
-                        <td>{{ $sl++ }}</td>
+                        <td>{{ $chapter->chapter_no_bangla }}</td>
                         <td>{{ $chapter->name ?? '' }}</td>
                         <td>
                             <a href="{{ route('chapter.edit', $chapter->id) }}" class="btn btn-primary btn-sm text-white"> <i
