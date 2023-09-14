@@ -31,17 +31,28 @@
                                 <?php echo csrf_field(); ?>
                                 <div class="form-group">
                                     <div class="form-group">
-                                        <label for="mobile">Mobile Number:</label>
-                                        <input type="tel" class="form-control" id="mobile" name="phone_no" >
+                                        <label for="mobile">মোবাইল নাম্বার:</label>
+                                        <input type="tel" class="form-control border border-round shadow-sm p-4" id="mobile" name="phone_no" placeholder='আপনার মোবাইল নাম্বার দিন'>
+                                    </div>
+                                    <div>
+                                        <?php if($errors->has('phone_no')): ?>
+                                            <span class="text-danger"><?php echo e($errors->first('phone_no')); ?></span>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Password:</label>
-                                    <input type="password" class="form-control" id="password" name="password" >
+                                    <label for="password">পাসওয়ার্ড:</label>
+                                    <input type="password" class="form-control border border-round shadow-sm p-4" id="password" name="password" placeholder="আপনার পাসওয়ার্ড দিন">
+                                    <div>
+                                        <?php if($errors->has('password')): ?>
+                                            <span class="text-danger"><?php echo e($errors->first('password')); ?></span>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                <button type="submit" class="btn btn-success btn-block border border-round">লগ ইন</button>
                             </form>
-                            <p class="text-center mt-3">Already have an account? <a href="<?php echo e(route('register')); ?>">রেজিস্ট্রেশন</a></p>
+                            <p class="text-center mt-3">একাউন্ট নেই? <a
+                                    href="<?php echo e(route('register')); ?>">রেজিস্ট্রেশন</a></p>
                         </div>
 
                     </div>
@@ -51,10 +62,9 @@
     </section>
 
     
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <button id="myButton" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Success message
     </button>
-
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content p-4 border-round">
@@ -70,5 +80,7 @@
         </div>
     </div>
 
+
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH G:\laragon\www\e-pushti-laravel\resources\views/frontend/user/login.blade.php ENDPATH**/ ?>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chapter;
+use App\Models\Lesson;
 use Illuminate\Http\Request;
 
 class ChapterController extends Controller
@@ -25,7 +26,12 @@ class ChapterController extends Controller
         //dd($name);
         return view('frontend.courses__lessons.course_2',  compact('chapters'));
     }
-
+    public function courses_view($id)
+    {
+        $chapters = Chapter::all();
+        $lesson = Lesson::find($id);
+        return view('frontend.courses__lessons.course_view', compact('lesson', 'chapters'));
+    }
 
     public function index()
     {

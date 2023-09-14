@@ -59,8 +59,8 @@
         </div>
 
         <div class="form-group">
-            <label for="lessonDescription">Description:</label>
-            <textarea class="form-control" id="lessonDescription" name="description" rows="4"></textarea>
+            <label for="editor">Description:</label>
+            <textarea class="form-control" id="editor" name="description" rows="4"></textarea>
             <?php if($errors->has('description')): ?>
                 <span class="text-danger"><?php echo e($errors->first('description')); ?></span>
             <?php endif; ?>
@@ -72,7 +72,8 @@
     </form>
 </div>
 <?php endif; ?>
-
+<?php echo $__env->make('backend.layouts.partials.ckeditor', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php $__env->stopSection(); ?>
+
 
 <?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH G:\laragon\www\e-pushti-laravel\resources\views/backend/lesson/lesson-create.blade.php ENDPATH**/ ?>
