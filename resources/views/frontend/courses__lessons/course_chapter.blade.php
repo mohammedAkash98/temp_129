@@ -1,5 +1,5 @@
 @extends('main_master')
-@dd(auth()->user()->overviewRelation)
+
 @section('page_content')
     <div class="top-navbar">
         <div class="container ">

@@ -21,7 +21,7 @@ class Lesson extends Model
         return $this->hasMany(Quiz::class);
     }
 
-    public function overviewRelation()
+    public function overview()
     {
         return $this->hasOne(Overview::class);
     }
