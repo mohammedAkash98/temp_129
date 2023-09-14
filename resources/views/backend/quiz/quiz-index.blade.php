@@ -42,7 +42,7 @@
                         <td>{{ $sl++ }}</td>
                         <td>{{ $quiz->chapter->name ?? '' }}</td>
                         <td>{{ $quiz->lesson->name ?? '' }}</td>
-                        <td></td>
+                        <td>{{ $quiz->lesson->quiz }}</td>
                         <td>
                          <a href="" class="btn btn-info btn-sm text-white"> <i class="fa-solid fa-circle-info"></i> Info</a>
                             <a href="" class="btn btn-primary btn-sm text-white"> <i
