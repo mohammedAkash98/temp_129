@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'home'])->name('home');
+Route::get('/', [FrontendController::class, 'home'])->name('home');
 // Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/admin', [BackendController::class, 'admin'])->name('admin');
 
