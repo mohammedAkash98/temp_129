@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Overview;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,10 +19,5 @@ class Chapter extends Model
     public function quizzes()
     {
         return $this->hasMany(Quiz::class);
-    }
-
-    public function overview()
-    {
-        return $this->hasOne(Overview::class);
     }
 }

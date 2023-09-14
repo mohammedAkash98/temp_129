@@ -1,4 +1,4 @@
-<?php dd(auth()->user()->overviewRelation); ?>
+<?php dd(Auth::user()->overview->id); ?>
 <?php $__env->startSection('page_content'); ?>
     <div class="top-navbar">
         <div class="container ">
