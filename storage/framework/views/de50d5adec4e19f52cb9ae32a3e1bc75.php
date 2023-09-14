@@ -11,11 +11,11 @@
                 <ul class="navbar-nav ml-auto">
                 <?php if(!Auth::user()): ?>
                     <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo e(Route('home')); ?>">হোম</a>
+                        <a class="nav-link" href="<?php echo e(Route('dashboard')); ?>">হোম</a>
                     </li>
                 <?php else: ?>
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo e(Route('home')); ?>">হোম</a>
+                    <a class="nav-link" href="<?php echo e(Route('dashboard')); ?>">হোম</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo e(Route('courses')); ?>">কোর্স</a>
@@ -48,7 +48,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <?php echo e(Auth::user()->name[0:10]); ?>
+                        <?php echo e(Auth::user()->name); ?>
 
                     </a>
                     <div class="dropdown-menu" aria-labelledby="profileDropdown">

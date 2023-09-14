@@ -11,11 +11,11 @@
                 <ul class="navbar-nav ml-auto">
                 @if(!Auth::user())
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ Route('home') }}">হোম</a>
+                        <a class="nav-link" href="{{ Route('dashboard') }}">হোম</a>
                     </li>
                 @else
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ Route('home') }}">হোম</a>
+                    <a class="nav-link" href="{{ Route('dashboard') }}">হোম</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{Route('courses')}}">কোর্স</a>
