@@ -67,7 +67,12 @@ class UserController extends Controller
         $credentials = $request->only('phone_no', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('dashboard');
+
+            if (auth()->user()->type === 'student') {
+                return redirect()->route('dashboard');
+            } else {
+                return redirect()->route('admin');
+            }
         }
     }
 
@@ -79,8 +84,9 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all();
-        return view('backend.user.user-index', compact('users'));
+        $sl = !is_null(\request()->page) ? (\request()->page - 1) * 10 : 0;
+        $users = User::paginate(10);
+        return view('backend.user.user-index', compact('users', 'sl'));
     }
     public function delete($id)
     {
@@ -97,14 +103,67 @@ class UserController extends Controller
     {
         $request->validate([
             'is_class_member' => 'required|in:yes,no',
+            'type' => 'required',
             'enrolled' => 'required|in:0,1',
         ]);
         $user = User::where('id', $id)->first();
         // dd($user);
         $user->update([
             'is_club_member' => $request->is_class_member,
-            'enrolled' => $request->enrolled
+            'enrolled' => $request->enrolled,
+            'type' => $request->type,
         ]);
         return redirect()->route('user.index');
+    }
+    public function create()
+    {
+        return view('backend.user.user-create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users',
+            'age' => 'required|integer|min:1',
+            'school_name' => 'required|string',
+            'class' => 'required|string',
+            'gender' => 'required|in:male,female',
+            'phone_no' => 'required|string|max:20',
+            'password' => 'required|string|min:8',
+            'present_address' => 'required|string',
+            'permanent_address' => 'required|string',
+            'is_club_member' => 'required|in:yes,no',
+        ]);
+
+        try {
+
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'age' => $request->age,
+                'school_name' => $request->school_name,
+                'class' => $request->class,
+                'gender' => $request->gender,
+                'phone_no' => $request->phone_no,
+                'password' => bcrypt($request->password),
+                'present_address' => $request->present_address,
+                'permanent_address' => $request->permanent_address,
+                'is_club_member' => $request->is_club_member,
+            ]);
+            return redirect()->route('user.index');
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
+    }
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $users = User::where('name', 'LIKE', "%$query%")
+            ->paginate(10);
+
+        $sl = !is_null(\request()->page) ? (\request()->page - 1) * 10 : 0;
+        return view('backend.user.user-index', compact('users', 'sl'));
     }
 }

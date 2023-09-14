@@ -20,6 +20,11 @@
                   <i class="bi bi-circle"></i><span>User List</span>
                 </a>
               </li>
+              <li>
+                <a href="{{ route('user.create') }}">
+                  <i class="bi bi-circle"></i><span>Add User</span>
+                </a>
+              </li>
         </ul>
       </li>
 
