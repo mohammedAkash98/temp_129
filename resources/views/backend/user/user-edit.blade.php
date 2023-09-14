@@ -16,11 +16,18 @@
     @csrf
     <label for="is_class_member">Class Member:</label>
     <select class="form-control" name="is_class_member" id="is_class_member">
-        <option value="{{ $user->is_club_member }}">  {{ $user->is_club_member ?? '' }}</option>
+        <option value="" selected disabled> Select One</option>
         <option value="yes">Yes</option>
         <option value="no">No</option>
     </select>
 
+    <br>
+    <label for="type">User Type:</label>
+    <select class="form-control" name="type" id="type">
+        <option value="" selected disabled> Select One</option>
+        <option value="admin">Admin</option>
+        <option value="student">Student</option>
+    </select>
     <br>
 
     <label for="enrolled">Enrolled:</label>

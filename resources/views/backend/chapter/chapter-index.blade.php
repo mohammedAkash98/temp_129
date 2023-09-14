@@ -23,6 +23,8 @@
     <div class="container">
         <a href="{{ route('chapter.create') }}" class="btn btn-primary btn-sm mb-3 text-white"><i class="fa-solid fa-plus"></i>
             Add Chapter</a>
+            <a href="{{ route('chapter.pdf.report') }}" class="btn btn-success btn-sm mb-3 text-white"><i class="fa-solid fa-file-pdf"></i>
+                Generate Reports</a>
         <table class="table table-bordered">
             <thead>
                 <tr>
