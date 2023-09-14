@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\ChapterController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'home'])->name('home');
+Route::get('/', [FrontendController::class, 'home'])->name('home');
 // Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/admin', [BackendController::class, 'admin'])->name('admin');
 
