@@ -17,6 +17,11 @@
     <form action="<?php echo e(route('chapter.store')); ?>" method="POST">
         <?php echo csrf_field(); ?>
         <div class="form-group">
+            <label for="chapter_no_bangla">Chapter No (Bangla):</label>
+            <input type="text" class="form-control" id="chapter_no_bangla" name="chapter_no_bangla" >
+            <?php if($errors->has('chapter_no_bangla')): ?>
+            <span class="text-danger"><?php echo e($errors->first('chapter_no_bangla')); ?></span>
+            <?php endif; ?>
             <label for="chapterName">Chapter Name:</label>
             <input type="text" class="form-control" id="chapterName" name="name" >
             <?php if($errors->has('name')): ?>

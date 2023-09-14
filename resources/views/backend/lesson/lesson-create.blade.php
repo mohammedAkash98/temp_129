@@ -21,7 +21,7 @@
         </div>
         @else
 
-  <div class="container mt-5">
+  <div class="container">
     <h2>Add Lesson</h2>
     <form action="{{ route('lesson.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -34,11 +34,20 @@
            @endforeach
            </select>
         </div>
-        <div class="form-group">
+
+        <div class="form-group mb-3">
             <label for="lessonName">Lesson Name:</label>
             <input type="text" class="form-control" id="lessonName" name="name">
             @if ($errors->has('name'))
                 <span class="text-danger">{{ $errors->first('name') }}</span>
+            @endif
+        </div>
+
+        <div class="form-group">
+            <label for="lesson_no_bangla">Lesson No(Bangla):</label>
+            <input type="text" class="form-control" id="lesson_no_bangla" name="lesson_no_bangla">
+            @if ($errors->has('lesson_no_bangla'))
+                <span class="text-danger">{{ $errors->first('lesson_no_bangla') }}</span>
             @endif
         </div>
 

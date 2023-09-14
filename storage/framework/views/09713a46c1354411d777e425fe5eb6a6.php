@@ -27,7 +27,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Sl No</th>
+                        <th>Lesson No</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Chapter</th>
@@ -36,14 +36,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                        $sl = 1;
-                    ?>
                     <?php $__currentLoopData = $lessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lesson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td><?php echo e($sl++); ?></td>
+                            <td><?php echo e($lesson->lesson_no_bangla); ?></td>
                             <td><?php echo e($lesson->name ?? ''); ?></td>
-                            <td><?php echo e($lesson->description ?? ''); ?></td>
+                            <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo e($lesson->description ?? ''); ?></td>
                             <td><?php echo e($lesson->chapter->name ?? ''); ?></td>
                             <td><img width="100" src="<?php echo e(asset('storage/lesson/' . $lesson->image)); ?>"
                                     alt="<?php echo e($lesson->name); ?>"></td>
@@ -61,6 +58,8 @@
                     <!-- Add more rows as needed -->
                 </tbody>
             </table>
+            <?php echo e($lessons->links('pagination::bootstrap-4')); ?>
+
         </div>
     <?php endif; ?>
 
