@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Exception;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -73,9 +74,10 @@ class UserController extends Controller
     }
 
     public function logout()
-    {
-        auth()->logout();
-        return redirect()->route('login');
+    {   
+        Auth::logout();
+
+        return redirect()->to('https://e-pushti.netlify.app/')->send();
     }
 
     public function index()

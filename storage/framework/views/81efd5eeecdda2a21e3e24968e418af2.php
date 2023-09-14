@@ -1,6 +1,4 @@
-@extends('frontend.layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <section class="registrationPage">
         <div class="container mt-5">
             <div class="container-fluid">
@@ -29,8 +27,8 @@
                     <div class="col-xl-6 col-md-6 col-lg-6 col-sm-6">
                         <div class="reg-page">
                             <h4 class="text-center mb-4 text-danger">লগইন</h4>
-                            <form action="{{ route('login.store') }}" method="POST">
-                                @csrf
+                            <form action="<?php echo e(route('login.store')); ?>" method="POST">
+                                <?php echo csrf_field(); ?>
                                 <div class="form-group">
                                     <div class="form-group">
                                         <label for="mobile">Mobile Number:</label>
@@ -43,7 +41,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block">Login</button>
                             </form>
-                            <p class="text-center mt-3">Already have an account? <a href="{{ route('register') }}">রেজিস্ট্রেশন</a></p>
+                            <p class="text-center mt-3">Already have an account? <a href="<?php echo e(route('register')); ?>">রেজিস্ট্রেশন</a></p>
                         </div>
 
                     </div>
@@ -52,7 +50,7 @@
         </div>
     </section>
 
-    {{-- modal --}}
+    
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Success message
     </button>
@@ -63,7 +61,7 @@
 
                 <div class="modal-body mx-auto">
                     <div class="mb-3 text-center">
-                        <img src="{{ asset('assets/icon/success.png') }}" class="w-50" alt="">
+                        <img src="<?php echo e(asset('assets/icon/success.png')); ?>" class="w-50" alt="">
                     </div>
                     <h4>রেজিস্ট্রেশন সফল হয়েছে!</h4>
                 </div>
@@ -72,4 +70,5 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\wamp64\www\temp_12\resources\views/frontend/user/login.blade.php ENDPATH**/ ?>

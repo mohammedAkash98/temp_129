@@ -1,11 +1,9 @@
-@extends('main_master')
-
-@section('page_content')
+<?php $__env->startSection('page_content'); ?>
 
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-12 mb-5">
-            <h1>Welcome, <span id="userName">{{ auth()->user()->name }}</span>!</h1>
+            <h1>Welcome, <span id="userName"><?php echo e(auth()->user()->name); ?></span>!</h1>
         </div>
     </div>
     <div class="row">
@@ -44,4 +42,6 @@
     </div>
 </div>
     
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('main_master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\wamp64\www\temp_12\resources\views/home.blade.php ENDPATH**/ ?>

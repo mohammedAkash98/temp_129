@@ -1,5 +1,4 @@
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <section class="registrationPage">
     <div class="container mt-5">
@@ -29,8 +28,8 @@
                 <div class="col-xl-6 col-md-6 col-lg-6 col-sm-6">
                     <div class="reg-page">
                         <h4 class="text-center mb-4 text-danger">রেজিস্ট্রেশন</h4>
-                        <form action="{{ route('register.store') }}" method="POST">
-                            @csrf
+                        <form action="<?php echo e(route('register.store')); ?>" method="POST">
+                            <?php echo csrf_field(); ?>
                               <!-- Name -->
                               <div class="form-group">
                                   <label for="name">Name:</label>
@@ -116,4 +115,6 @@
     </div>
 </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\wamp64\www\temp_12\resources\views/frontend/user/register.blade.php ENDPATH**/ ?>
