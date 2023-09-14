@@ -27,60 +27,35 @@
                         <li class="nav-item">
 
                             <!-- main side navbar -->
-                            <a class="nav-link text-dark font-weight-bold" id="sidebar-arrow" data-toggle="collapse"
-                                href="#collapseSideSubNav" role="button" aria-expanded="false"
-                                aria-controls="collapseSideSubNav">
-                                <div class="arrow" id="arrow"></div>
-                                অধ্যায়-১: খাদ্য ও পুষ্টি
-                            </a>
+                            <?php $__currentLoopData = $chapters; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=> $chapter): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                            <!-- sub navbar -->
-                            <div class="collapse" id="collapseSideSubNav" style="margin-left: 30px;">
+                            <a class="nav-link text-dark font-weight-bold" id="sidebar-arrow" data-toggle="collapse"
+                            href="#collapseSideSubNav" role="button" aria-expanded="false"
+                            aria-controls="collapseSideSubNav">
+                            <div class="arrow" id="arrow"></div>
+                            অধ্যায়-<?php echo e($chapter->chapter_no_bangla?? ''); ?>:<?php echo e($chapter->name ?? ''); ?>
+
+                             <!-- sub navbar -->
+                             <div class="collapse" id="collapseSideSubNav" style="margin-left: 30px;">
                                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
                                     aria-orientation="vertical">
-                                    <a class="nav-link" id="v-pills-1-1-tab" data-toggle="pill" href="#v-pills-1-1"
-                                        role="tab" aria-controls="v-pills-1-1" aria-selected="true">
-                                        <span><img src="<?php echo e(asset('assets/icon/right_in _round_Ash.png')); ?>"
-                                                alt=""></span>
-                                        পাঠ-১: খাদ্য ,পুষ্টি ,পুষ্টিকর খাবার কি
-                                    </a>
-                                    <a class="nav-link" id="v-pills-1-2-tab" data-toggle="pill" href="#v-pills-1-2"
-                                        role="tab" aria-controls="v-pills-1-2" aria-selected="false">
-                                        <span><img src="<?php echo e(asset('assets/icon/right_in _round_Ash.png')); ?>"
-                                                alt=""></span>
-                                        পাঠ-২: খাদ্যের উপাদান ও এদের উৎস সমূহ</a>
-                                    <a class="nav-link" id="v-pills-1-3-tab" data-toggle="pill" href="#v-pills-1-3"
-                                        role="tab" aria-controls="v-pills-1-3" aria-selected="false">
-                                        <span><img src="<?php echo e(asset('assets/icon/right_in _round_Ash.png')); ?>"
-                                                alt=""></span>
-                                        পাঠ-৩: সুষম খাবার কি , সুষম খাবার খাওয়ার প্রয়োজনীয়তা</a>
+                                   <?php $__currentLoopData = $chapter->lessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $lesson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                   <a class="nav-link" id="v-pills-1-1-tab" data-toggle="pill" href="#v-pills-1-1"
+                                   role="tab" aria-controls="v-pills-1-1" aria-selected="true">
+                                   <span><img src="<?php echo e(asset('assets/icon/right_in _round_Ash.png')); ?>"
+                                           alt=""></span>
+                                   পাঠ-<?php echo e($lesson->lesson_no_bangla ?? ''); ?>: <?php echo e($lesson->name ?? ''); ?>
+
+                               </a>
+
+                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </div>
                             </div>
-                        </li>
+                        </a>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark font-weight-bold" id="sidebar-arrow" href="#">
-                                <div class="arrow" id="arrow"></div>
-                                অধ্যায়-২: স্বাস্থ্যসম্মত জীবনধারা
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link font-weight-bold" id="sidebar-arrow" href="#">
-                                <div class="arrow" id="arrow"></div>
-                                অধ্যায়-৩: মানসিক স্বাস্থ্য
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link font-weight-bold" id="sidebar-arrow" href="#">
-                                <div class="arrow" id="arrow"></div>
-                                অধ্যায়-৪: নেতৃত্ব
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link font-weight-bold" id="sidebar-arrow" href="#">
-                                <div class="arrow" id="arrow"></div>
-                                অধ্যায়-৫: সামাজিক ক্ষেত্র
-                            </a>
+
+
                         </li>
                     </ul>
                 </div>

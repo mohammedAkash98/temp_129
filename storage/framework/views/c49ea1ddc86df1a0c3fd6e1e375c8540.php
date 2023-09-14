@@ -10,7 +10,7 @@
         <hr>
     </div><!-- End Page Title -->
 
-    <div class="container mt-5">
+    <div class="container">
         <a href="<?php echo e(route('lesson.index')); ?>" class="btn btn-primary btn-sm mb-3 text-white"><i class="fa-solid fa-backward"></i>
             Back</a>
             <div class="row">

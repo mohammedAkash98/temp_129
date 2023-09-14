@@ -4,15 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Chapter;
 use App\Models\Lesson;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Image;
 
 class LessonController extends Controller
 {
     public function index()
     {
-        $lessons = Lesson::all();
+        $lessons = Lesson::paginate(10);
 
 
         return view('backend.lesson.lesson-index', compact('lessons'));
@@ -121,7 +119,7 @@ class LessonController extends Controller
 
         $file_name = time() . '-' . $title . '.' . $image->getClientOriginalExtension();
 
-        $image->move('storage/lesson',$file_name);
+        $image->move('storage/lesson', $file_name);
 
         return $file_name;
     }

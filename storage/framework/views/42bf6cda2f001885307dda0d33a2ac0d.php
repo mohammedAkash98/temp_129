@@ -12,7 +12,7 @@
   </div><!-- End Page Title -->
 
   <?php if($chapters->count() == 0): ?>
-        <div class="container mt-5 text-center">
+        <div class="container text-center">
             <h4>There is no chapter added yet.</h4>
             <a href="<?php echo e(route('chapter.create')); ?>" class="btn btn-primary btn-sm mb-3 text-white"><i
                     class="fa-solid fa-plus"></i>
@@ -20,7 +20,7 @@
         </div>
         <?php else: ?>
 
-  <div class="container mt-5">
+  <div class="container">
     <h2>Add Lesson</h2>
     <form action="<?php echo e(route('lesson.store')); ?>" method="POST" enctype="multipart/form-data">
         <?php echo csrf_field(); ?>
@@ -33,11 +33,20 @@
            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
            </select>
         </div>
-        <div class="form-group">
+
+        <div class="form-group mb-3">
             <label for="lessonName">Lesson Name:</label>
             <input type="text" class="form-control" id="lessonName" name="name">
             <?php if($errors->has('name')): ?>
                 <span class="text-danger"><?php echo e($errors->first('name')); ?></span>
+            <?php endif; ?>
+        </div>
+
+        <div class="form-group">
+            <label for="lesson_no_bangla">Lesson No(Bangla):</label>
+            <input type="text" class="form-control" id="lesson_no_bangla" name="lesson_no_bangla">
+            <?php if($errors->has('lesson_no_bangla')): ?>
+                <span class="text-danger"><?php echo e($errors->first('lesson_no_bangla')); ?></span>
             <?php endif; ?>
         </div>
 
