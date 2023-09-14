@@ -23,4 +23,8 @@ class Lesson extends Model
     {
         return $this->hasMany(Result::class);
     }
+    public function overview()
+    {
+        return $this->hasOne(Overview::class);
+    }
 }

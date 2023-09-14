@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('frontend.layouts.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    @include('backend.layouts.partials.cdn')
-    <title>Document</title>
+@section('content')
 
-</head>
-
-<body>
-    <section class="section profile">
+    <section class="section profile m-5">
         <div class="row">
             <div class="col-xl-4">
 
@@ -22,7 +11,7 @@
 
                         @if (auth()->user()->image)
                             <img src="{{ asset('storage/student/' . auth()->user()->image ?? '') }} "
-                                alt="{{ auth()->user()->name }}" class="rounded-circle">
+                                alt="{{ auth()->user()->name }}" class="p-3" style="max-height: 480px; max-width: 360px">
                         @else
                             <img src="{{ asset('images/no_user.gif') }}" alt="Profile" class="rounded-circle">
                         @endif
@@ -102,9 +91,6 @@
                                     <div class="col-lg-3 col-md-4 label ">Permanent Address</div>
                                     <div class="col-lg-9 col-md-8">{{ auth()->user()->permanent_address ?? '' }}</div>
                                 </div>
-
-
-
                             </div>
 
                             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
@@ -114,7 +100,7 @@
                                         Image</label>
                                     <div class="col-md-8 col-lg-9">
                                         <img src="{{ asset('storage/student/' . auth()->user()->image) }}"
-                                            alt="{{ auth()->user()->name }}" class="rounded-circle">
+                                            alt="{{ auth()->user()->name }}" class="rounded-circle" style="max-width: 80px; max-height: 100px">
                                         <div class="mt-3"> <a href="{{ route('student.delete', auth()->user()->id) }}"
                                                 class="btn btn-danger btn-sm">Delete</a></div>
 
@@ -167,7 +153,7 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="email" class="col-md-4 col-lg-3 col-form-label"> Name</label>
+                                        <label for="email" class="col-md-4 col-lg-3 col-form-label"> Email</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="email" type="text" class="form-control" id="email"
                                                 value="{{ auth()->user()->email ?? '' }}">
@@ -250,6 +236,4 @@
     @include('backend.layouts.partials.script')
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+    @endsection

@@ -1,7 +1,7 @@
 <div class="top-navbar">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ Route('dashboard') }}">
                 <img src="{{asset("assets/img/Screenshot_9_1.png")}}" alt="Logo" width="50">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,24 +21,21 @@
                     <a class="nav-link" href="{{Route('courses')}}">কোর্স</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ভিডিও</a>
+                    <a class="nav-link" href="{{Route('courses')}}">ভিডিও</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">সেমিনার</a>
+                    <a class="nav-link" href="{{Route('courses')}}">সেমিনার</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">সেমিনার</a>
+                    <a class="nav-link" href="{{Route('courses')}}">আমাদের সম্পর্কে</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">আমাদের সম্পর্কে</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">যোগাযোগ</a>
+                    <a class="nav-link" href="{{Route('courses')}}">যোগাযোগ</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <!-- Add a rounded image here -->
-                        <img src="https://cdn.vectorstock.com/i/preview-1x/47/62/bangladesh-flag-in-glossy-round-button-of-icon-vector-22994762.jpg" alt="Language Flag" class="rounded-flag" height="50px" width="50px"> Language
+                        <img src="https://cdn.vectorstock.com/i/preview-1x/47/62/bangladesh-flag-in-glossy-round-button-of-icon-vector-22994762.jpg" alt="Language Flag" class="rounded-flag" height="50px" width="50px"> ভাষা
                     </a>
                     <div class="dropdown-menu" aria-labelledby="languageDropdown">
                         {{-- <a class="dropdown-item" href="#">English</a> --}}
@@ -48,11 +45,17 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ Auth::user()->name }}
+                        @php 
+                        
+                            $name = Auth::user()->name;
+                            $words = explode(' ', $name);
+                            $firstName = $words[0];
+                            echo $firstName;
+                            
+                        @endphp
                     </a>
                     <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="{{ route('student.profile') }}">My Profile</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                     </div>
