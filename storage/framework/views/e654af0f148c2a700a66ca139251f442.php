@@ -1,10 +1,10 @@
-@extends('main_master')
 
-@section('page_css')
-    <link rel="stylesheet" href="{{ asset('assets/css/course.css') }}">
-@endsection
 
-@section('page_content')
+<?php $__env->startSection('page_css'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/course.css')); ?>">
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('page_content'); ?>
     <div class="container">
 
         <!-- upper navbar -->
@@ -12,8 +12,7 @@
             <div class="navbar-collapse" id="navbarNav">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('courses') }}"
-                                class="text-dark font-weight-bold">Course</a></li>
+                        <li class="breadcrumb-item"><a href="<?php echo e(route('courses')); ?>" class="text-dark font-weight-bold">Course</a></li>
                         <li class="breadcrumb-item text-dark" aria-current="page">কৈশোরকালীন পুষ্টি ও স্বাস্থ্যসম্মত
                             জীবনধারা</li>
                     </ol>
@@ -30,29 +29,60 @@
                         <li class="nav-item">
 
                             <!-- main side navbar -->
-                            @foreach ($chapters as $key => $chapter)
-                                <a class="nav-link text-dark font-weight-bold" id="sidebar-arrow" data-toggle="collapse"
-                                    href="#collapseSideSubNav" role="button" aria-expanded="false"
-                                    aria-controls="collapseSideSubNav">
-                                    <div class="arrow" id="arrow"></div>
-                                    অধ্যায়-{{ $chapter->chapter_no_bangla ?? '' }}:{{ $chapter->name ?? '' }}
-                                    <!-- sub navbar -->
-                                    <div class="collapse" id="collapseSideSubNav" style="margin-left: 30px;">
-                                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
-                                            aria-orientation="vertical">
-                                            @foreach ($chapter->lessons as $key => $lesson)
-                                                <a class="nav-link" id="v-pills-1-1-tab" data-toggle="pill"
-                                                    href="#v-pills-1-1" role="tab" aria-controls="v-pills-1-1"
-                                                    aria-selected="true">
-                                                    <span><img src="{{ asset('assets/icon/right_in _round_Ash.png') }}"
-                                                            alt=""></span>
-                                                    পাঠ-{{ $lesson->lesson_no_bangla ?? '' }}: {{ $lesson->name ?? '' }}
-                                                </a>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </a>
-                            @endforeach
+                            <a class="nav-link text-dark font-weight-bold" id="sidebar-arrow" data-toggle="collapse"
+                                href="#collapseSideSubNav" role="button" aria-expanded="false"
+                                aria-controls="collapseSideSubNav">
+                                <div class="arrow" id="arrow"></div>
+                                অধ্যায়-১: খাদ্য ও পুষ্টি
+                            </a>
+
+                            <!-- sub navbar -->
+                            <div class="collapse" id="collapseSideSubNav" style="margin-left: 30px;">
+                                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                                    aria-orientation="vertical">
+                                    <a class="nav-link" id="v-pills-1-1-tab" data-toggle="pill" href="#v-pills-1-1"
+                                        role="tab" aria-controls="v-pills-1-1" aria-selected="true">
+                                        <span><img src="<?php echo e(asset('assets/icon/right_in _round_Ash.png')); ?>"
+                                                alt=""></span>
+                                        পাঠ-১: খাদ্য ,পুষ্টি ,পুষ্টিকর খাবার কি
+                                    </a>
+                                    <a class="nav-link" id="v-pills-1-2-tab" data-toggle="pill" href="#v-pills-1-2"
+                                        role="tab" aria-controls="v-pills-1-2" aria-selected="false">
+                                        <span><img src="<?php echo e(asset('assets/icon/right_in _round_Ash.png')); ?>"
+                                                alt=""></span>
+                                        পাঠ-২: খাদ্যের উপাদান ও এদের উৎস সমূহ</a>
+                                    <a class="nav-link" id="v-pills-1-3-tab" data-toggle="pill" href="#v-pills-1-3"
+                                        role="tab" aria-controls="v-pills-1-3" aria-selected="false">
+                                        <span><img src="<?php echo e(asset('assets/icon/right_in _round_Ash.png')); ?>"
+                                                alt=""></span>
+                                        পাঠ-৩: সুষম খাবার কি , সুষম খাবার খাওয়ার প্রয়োজনীয়তা</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font-weight-bold" id="sidebar-arrow" href="#">
+                                <div class="arrow" id="arrow"></div>
+                                অধ্যায়-২: স্বাস্থ্যসম্মত জীবনধারা
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" id="sidebar-arrow" href="#">
+                                <div class="arrow" id="arrow"></div>
+                                অধ্যায়-৩: মানসিক স্বাস্থ্য
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" id="sidebar-arrow" href="#">
+                                <div class="arrow" id="arrow"></div>
+                                অধ্যায়-৪: নেতৃত্ব
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" id="sidebar-arrow" href="#">
+                                <div class="arrow" id="arrow"></div>
+                                অধ্যায়-৫: সামাজিক ক্ষেত্র
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -67,7 +97,7 @@
                         <div class="col-12" id="div1">
                             <div class="card border-0">
 
-                                <img src="{{ asset('assets/img/lesson1.jpg') }}" class="card-img-top" alt="...">
+                                <img src="<?php echo e(asset("assets/img/lesson1.jpg")); ?>" class="card-img-top" alt="...">
 
                                 <div class="card-body">
                                     <h3 class="mb-3"><b>খাদ্য, পুষ্টি, পুষ্টিকর খাবার কি</b></h3>
@@ -154,7 +184,7 @@
                         <div class="col-12" id="div2">
                             <div class="card border-0">
 
-                                <img src="{{ asset('assets/img/lesson1.jpg') }}" class="card-img-top" alt="...">
+                                <img src="<?php echo e(asset("assets/img/lesson1.jpg")); ?>" class="card-img-top" alt="...">
 
                                 <div class="card-body">
                                     <h3 class="mb-3"><b> খাদ্যের উপাদান ও এদের উৎস সমূহ</b></h3>
@@ -280,7 +310,7 @@
                         <div class="col-12" id="div3">
                             <div class="card border-0">
 
-                                <img src="{{ asset('assets/img/lesson1.jpg') }}" class="card-img-top" alt="...">
+                                <img src="<?php echo e(asset("assets/img/lesson1.jpg")); ?>" class="card-img-top" alt="...">
 
                                 <div class="card-body">
                                     <h3 class="mb-3"><b>সুষম খাবার কি, সুষম খাবার খাওয়ার প্রয়োজনীয়তা</b></h3>
@@ -357,8 +387,10 @@
             </main>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('page_js')
-    <script src="{{ asset('assets/js/course.js') }}"></script>
-@endsection
+<?php $__env->startSection('page_js'); ?>
+    <script src="<?php echo e(asset('assets/js/course.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('main_master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\xampp\htdocs\temp_129\resources\views/frontend/courses__lessons/course_2.blade.php ENDPATH**/ ?>
