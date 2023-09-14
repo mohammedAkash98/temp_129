@@ -11,16 +11,11 @@ class Lesson extends Model
 
     protected $guarded = [];
 
-    // public function user()
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
-
     public function chapter()
     {
         return $this->belongsTo(Chapter::class);
     }
-    public function quiz()
+    public function quizzes()
     {
         return $this->hasMany(Quiz::class);
     }
