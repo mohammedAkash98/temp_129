@@ -28,7 +28,7 @@
                     <ul class="nav flex-column">
                         <li class="nav-item">
 
-                            <!-- main side navbars -->
+                            <!-- main side navbar -->
                             @foreach ($chapters as $key=> $chapter )
 
                             <a class="nav-link text-dark font-weight-bold" id="sidebar-arrow" data-toggle="collapse"
