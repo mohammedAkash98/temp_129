@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 
-class DashboardController extends Controller
+class FrontendController extends Controller
 {
     public function dashboard()
     {
@@ -15,4 +15,5 @@ class DashboardController extends Controller
     {
         return view('home');
     }
+
 }

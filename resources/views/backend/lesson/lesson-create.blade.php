@@ -12,6 +12,14 @@
     <hr>
   </div><!-- End Page Title -->
 
+  @if ($chapters->count() == 0)
+        <div class="container text-center">
+            <h4>There is no chapter added yet.</h4>
+            <a href="{{ route('chapter.create') }}" class="btn btn-primary btn-sm mb-3 text-white"><i
+                    class="fa-solid fa-plus"></i>
+                Add Chapter</a>
+        </div>
+        @else
 
   <div class="container mt-5">
     <h2>Add Lesson</h2>
@@ -55,5 +63,6 @@
         </button>
     </form>
 </div>
+@endif
 
 @endsection

@@ -13,7 +13,7 @@
   </div><!-- End Page Title -->
 
 
-  <div class="container mt-5">
+  <div class="container">
     <h2>Edit Lesson</h2>
     <form action="{{ route('lesson.update',$lesson->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
