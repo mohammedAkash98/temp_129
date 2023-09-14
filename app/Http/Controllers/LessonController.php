@@ -51,7 +51,7 @@ class LessonController extends Controller
 
     public function delete($id)
     {
-        $lesson =  Lesson::find($id);
+        $lesson =  Lesson::where('id', $id)->first();
 
 
         if ($lesson->image) {
