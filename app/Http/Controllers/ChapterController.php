@@ -7,6 +7,18 @@ use Illuminate\Http\Request;
 
 class ChapterController extends Controller
 {
+    // courses
+    public function courses(){
+        return view('frontend.courses__lessons.course_chapter');
+    }
+
+    public function courses_name(string $course_name){
+        // $course_name = ['food_and_nutrition','healthy_life','mental_health','leadership','social_scope'];
+        //dd($name);
+        return view('frontend.courses__lessons.course_2',  compact('course_name'));
+    }
+
+    
     public function index()
     {
         $chapters = Chapter::all();

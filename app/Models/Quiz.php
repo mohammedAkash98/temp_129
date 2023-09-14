@@ -22,4 +22,5 @@ class Quiz extends Model
     {
         return $this->belongsTo(Lesson::class);
     }
+
 }

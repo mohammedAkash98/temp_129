@@ -1,0 +1,87 @@
+.pic-top {
+    width: 983px;
+    height: 318px;
+}
+
+.btn-color {
+    background: #58A435;
+    color: white;
+}
+
+.btn-color:hover {
+    background: #3a6d23;
+    color: white;
+}
+
+.btn-color:focus {
+    background: #3a6d23;
+    color: white;
+    box-shadow: 0 0 0 .2rem rgba(109, 138, 115, 0.25);
+}
+
+.list-none>li {
+    list-style: none;
+}
+
+.top-nav .nav-link {
+    display: inline-block;
+}
+
+.top-nav .nav-item:after {
+    content: " > ";
+    color: #555;
+}
+
+.top-nav .nav-item:last-child:after {
+    content: "";
+}
+
+.top-nav .breadcrumb {
+    border-radius: 0;
+    margin: 0;
+    background-color: transparent;
+}
+
+.top-nav .breadcrumb-item+.breadcrumb-item::before {
+    content: ">";
+}
+
+.sidebar a {
+    color: black !important;
+    display: flex;
+    align-items: center;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    background: #58A435;
+}
+
+.sidebar .nav-pills .nav-link {
+    padding: 2px .5rem;
+    display: block;
+}
+
+.sidebar .nav-pills span img {
+    margin-bottom: 2px;
+}
+
+/* .nav-pills .nav-link::before{
+    content: url("/assets/icon/right_in _round_Ash.png") 
+} */
+
+.sidebar .arrow {
+    background-image: url("/assets/icon/map-arrow-right.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-right: 5px;
+    width: 25px;
+    height: 20px;
+    transform: rotate(0deg);
+    transition: transform .3s linear;
+}
+
+.sidebar .arrow.open {
+    transform: rotateZ(90deg);
+    transition: transform .3s linear;
+  }
