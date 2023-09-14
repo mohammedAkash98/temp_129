@@ -64,20 +64,20 @@
         </ul>
       </li>
 
-       {{-- Quiz --}}
+       {{-- Quiz start --}}
        <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-navQuiz" data-bs-toggle="collapse" href="">
+        <a class="nav-link collapsed" data-bs-target="#components-navQuiz" data-bs-toggle="collapse" href="#">
             <i class="fa-solid fa-person-chalkboard"></i><span>Lesson</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-navQuiz" class="nav-content collapse " data-bs-parent="#sidebar-navQuiz">
 
             <li>
-                <a href="">
+                <a href="#">
                   <i class="bi bi-circle"></i><span>Quiz List</span>
                 </a>
               </li>
               <li>
-                <a href="">
+                <a href="#">
                   <i class="bi bi-circle"></i><span>Add Quiz</span>
                 </a>
               </li>
