@@ -54,23 +54,9 @@ class StudentController extends Controller
     public function uploadImage($title, $image)
     {
 
-        // $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString());
-
-
-        // $file_name = $timestamp . '-' . $title . '.' . $image->getClientOriginalExtension();
-
         $file_name = time() . '-' . $title . '.' . $image->getClientOriginalExtension();
 
         $image->move('storage/student',$file_name);
-
-        // $pathToUpload = storage_path() . 'public/storage/student/';  // image  upload application save korbo
-
-        // if (!is_dir($pathToUpload)) {
-
-        //     mkdir($pathToUpload, 0755, true);
-        // }
-
-        // Image::make($image)->resize(800, 600)->save($pathToUpload . $file_name);
 
         return $file_name;
     }
