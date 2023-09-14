@@ -90,3 +90,4 @@ Route::prefix('pdf')->middleware(['auth'])->group(function () {
     Route::get('/user/report', [PdfController::class, 'userPdfReport'])->name('user.pdf.report');
     Route::get('/chapter/report', [PdfController::class, 'chapterPdfReport'])->name('chapter.pdf.report');
 });
+

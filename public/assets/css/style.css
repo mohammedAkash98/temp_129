@@ -1,0 +1,207 @@
+/* styles.css */
+
+.top-navbar .custom-title {
+    font-family: Rowdies, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 75px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.top-navbar .custom-title .line1 {
+    color: green;
+}
+
+.top-navbar .custom-title .line2 {
+    color: red;
+}
+/* style.css */
+
+.top-navbar .box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    display: flexbox;
+}
+
+.top-navbar .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-left: 130px;
+}
+
+.top-navbar .box {
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin: 10px;
+    text-align: center;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+}
+/* Adjust box styles as needed */
+
+.top-navbar .box-title1 {
+    color: #FF772B;
+    font-size: 50px;
+}
+
+.top-navbar .box-text1 {
+    color: #FF772B;
+}
+
+.top-navbar .box-title2 {
+    color: #0A0857;
+    font-size: 50px;
+}
+
+.top-navbar .box-text2 {
+    color: #0A0857;
+}
+
+.top-navbar .box-title3 {
+    color: #13A985;
+    font-size: 50px;
+}
+
+.top-navbar .box-text3 {
+    color: #13A985;
+}
+
+.top-navbar .box-title4 {
+    color: #640D83;
+    font-size: 50px;
+}
+
+.top-navbar .box-text4 {
+    color: #640D83;
+}
+
+.top-navbar .box-title5 {
+    color: #971E1E;
+    font-size: 50px;
+}
+
+.top-navbar .box-text5 {
+    color: #971E1E;
+}
+
+.top-navbar button {
+    background-color: #F1F0F0;
+    color: black;
+    padding: 8px 16px;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 10px;
+    width: 100px;
+}
+
+.top-navbar button:hover {
+    background-color: green;
+}
+
+.top-navbar .navbar {
+    background-color: #fff;
+    /* Background color for the navbar */
+    border-bottom: 1px solid #ddd;
+    /* Add a bottom border */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    /* Add a shadow */
+}
+
+.top-navbar .navbar-brand img {
+    width: 80px;
+    height: 60px;
+}
+
+.top-navbar .navbar-nav {
+    font-size: 20px;
+    /* Adjust the font size of the navigation links */
+}
+
+.top-navbar .navbar-nav .nav-item .nav-link {
+    font-weight: 900px;
+    font-size: 20px;
+    font-family: nato;
+    color: black;
+    /* Set the font weight to 400 (normal) */
+}
+
+.top-navbar .navbar-nav .nav-item {
+    margin-right: 10px;
+    /* Adjust the right margin between navigation items */
+}
+
+.top-navbar .navbar-nav .nav-item:last-child {
+    margin-right: 0;
+    /* Remove margin for the last navigation item */
+}
+
+.top-navbar .nav-link {
+    color: #333;
+    /* Color of the navigation links */
+}
+
+.top-navbar .nav-link:hover {
+    color: #555;
+    /* Hover color for the navigation links */
+}
+
+.top-navbar .rounded-flag {
+    width: 24px;
+    /* Set the width to match the other options */
+    height: 24px;
+    /* Set the height to match the other options */
+    margin-right: 5px;
+    /* Adjust the margin to provide spacing */
+}
+
+/* registration */
+.border-round {
+    border-radius: 3rem;
+}
+.registrationPage .content {
+    margin: 3rem;
+}
+.registrationPage .content h2{
+    line-height: 160%;
+}
+.registrationPage .content p {
+    line-height: 220%;
+}
+
+.reg-page {
+    margin: 0 3rem;
+    padding: 2rem;
+    box-shadow: 1px 1px 10px 7px #88888859;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .top-navbar .box-container {
+        flex-direction: column;
+    }
+    .top-navbar .row {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: 15px;
+        margin-left: 20px;
+    }
+
+    .registrationPage .content, .reg-page {
+        margin: 0;
+    }
+}

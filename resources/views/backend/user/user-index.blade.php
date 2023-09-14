@@ -39,6 +39,7 @@
             </thead>
             <tbody>
 
+
                 @foreach ($users as $user)
                     <tr>
                         <td>{{ ++$sl }}</td>
@@ -52,6 +53,7 @@
                         </td>
                     </tr>
                 @endforeach
+
 
                 <!-- Add more rows as needed -->
             </tbody>

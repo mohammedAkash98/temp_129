@@ -55,6 +55,7 @@ class UserController extends Controller
     {
         return view('frontend.user.login');
     }
+
     public function loginStore(Request $request)
     {
         $request->validate([
@@ -88,11 +89,13 @@ class UserController extends Controller
         $users = User::paginate(10);
         return view('backend.user.user-index', compact('users', 'sl'));
     }
+
     public function delete($id)
     {
         User::find($id)->delete();
         return redirect()->back();
     }
+    
     public function edit($id)
     {
         $user = User::find($id);

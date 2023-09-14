@@ -11,8 +11,6 @@ class Chapter extends Model
     protected $guarded = [];
 
 
-
-
     public function lessons()
     {
         return $this->hasMany(Lesson::class);
