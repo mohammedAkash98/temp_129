@@ -1,6 +1,5 @@
-
+@extends('frontend.layouts.master')
 @section('content')
-
 <section class="registrationPage">
     <div class="container mt-5">
         <div class="container-fluid">
