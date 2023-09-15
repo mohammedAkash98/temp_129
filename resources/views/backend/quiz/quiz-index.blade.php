@@ -9,7 +9,7 @@
             </ol>
         </nav>
         <hr>
-    </div><!-- End Page Titles -->
+    </div><!-- End Page Title -->
 
 
     @if ($quizzes->count() == 0)
