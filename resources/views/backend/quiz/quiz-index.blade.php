@@ -21,7 +21,7 @@
 
         </div>
     @else
-        <div class="container mt-5">
+        <div class="container">
             <a href="{{ route('quiz.create') }}" class="btn btn-primary btn-sm mb-3 text-white"><i class="fa-solid fa-plus"></i>
                 Add Quiz</a>
             <table class="table table-bordered">
@@ -46,7 +46,7 @@
                             <td>
                                 <a href="{{ route('quiz.info',$quiz->id) }}" class="btn btn-info btn-sm text-white"> <i
                                         class="fa-solid fa-circle-info"></i> Info</a>
-                                <a href="" class="btn btn-primary btn-sm text-white"> <i
+                                <a href="{{ route('quiz.edit',$quiz->id) }}" class="btn btn-primary btn-sm text-white"> <i
                                         class="fa-solid fa-file-pen"></i> Edit</a>
                                 <a href="{{ route('quiz.delete',$quiz->id) }}" class="btn btn-danger btn-sm text-white"><i class="fa-solid fa-trash"></i>
                                     Delete</a>
