@@ -21,16 +21,16 @@
                     <a class="nav-link" href="{{Route('courses')}}">কোর্স</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{Route('courses')}}">ভিডিও</a>
+                    <a class="nav-link" href="{{Route('video')}}">ভিডিও</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{Route('courses')}}">সেমিনার</a>
+                    <a class="nav-link" href="{{Route('seminar')}}">সেমিনার</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{Route('courses')}}">আমাদের সম্পর্কে</a>
+                    <a class="nav-link" href="{{Route('about-us')}}">আমাদের সম্পর্কে</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{Route('courses')}}">যোগাযোগ</a>
+                    <a class="nav-link" href="{{Route('contact')}}">যোগাযোগ</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
