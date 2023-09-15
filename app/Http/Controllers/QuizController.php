@@ -150,7 +150,7 @@ class QuizController extends Controller
             //     'current_lesson_id' => 1,
             //     'current_chapter_id' => $chapter_id + 1,
             // ]);
-            dd('certificate a jabe');
+            dd('certificate page a jabe');
         }
 
 
