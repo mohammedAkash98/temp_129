@@ -19,11 +19,7 @@ class ChapterController extends Controller
     {
 
         $chapters = Chapter::all();
-
-
-
-        // $course_name = ['food_and_nutrition','healthy_life','mental_health','leadership','social_scope'];
-        //dd($name);
+        // return $chapters;
         return view('frontend.courses__lessons.course_2',  compact('chapters'));
     }
     public function courses_view($id)

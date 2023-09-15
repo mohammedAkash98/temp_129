@@ -14,11 +14,11 @@
                 <p class="box-text{{ $key++ }}">{{ $course->name ?? ''}}</p>
                 @if(($key - 1) <= $current_chapter_id)
                     <a href="{{ route('courses.show', $course->id) }}">
-                        <button class="bg-success"><b>সম্পন্ন</b></button>
+                        <button class="bg-success text-black border border-success rounded-pill p-2 btn"><b>সম্পন্ন</b></button>
                     </a>
                 @else
                     <a href="{{ route('courses.show', $course->id) }}">
-                        <button><b>সম্পন্ন <i class="ri-folder-lock-line h6"></i></b></button>
+                        <button class="text-black border border-warning rounded-pill p-2 btn"><b>সম্পন্ন <i class="lni lni-lock-alt h6"></i> </b></button>
                     </a>
                 @endif
             </div>
