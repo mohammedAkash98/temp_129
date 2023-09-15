@@ -1,5 +1,4 @@
-@extends('frontend.layouts.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <section class="registrationPage">
         <div class="container mt-5">
             <div class="container-fluid">
@@ -29,17 +28,17 @@
                     <div class="col-xl-6 col-md-6 col-lg-6 col-sm-6">
                         <div class="reg-page">
                             <h4 class="text-center mb-4 text-danger">রেজিস্ট্রেশন</h4>
-                            <form action="{{ route('register.store') }}" method="POST">
-                                @csrf
+                            <form action="<?php echo e(route('register.store')); ?>" method="POST">
+                                <?php echo csrf_field(); ?>
                                 <!-- Name -->
                                 <div class="row g-3">
 
                                     <div class="col-md-6">
                                         <input type="text" class="form-control border border-round p-3" id="name" name="name" placeholder='নাম'>
                                         <div>
-                                            @if ($errors->has('name'))
-                                                <span class="text-danger">{{ $errors->first('name') }}</span>
-                                            @endif
+                                            <?php if($errors->has('name')): ?>
+                                                <span class="text-danger"><?php echo e($errors->first('name')); ?></span>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
 
@@ -51,9 +50,9 @@
 
                                         <input type="number" placeholder="বয়স" class="form-control border border-round p-3" id="age" name="age">
                                         <div>
-                                            @if ($errors->has('age'))
-                                                <span class="text-danger">{{ $errors->first('age') }}</span>
-                                            @endif
+                                            <?php if($errors->has('age')): ?>
+                                                <span class="text-danger"><?php echo e($errors->first('age')); ?></span>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
 
@@ -63,9 +62,9 @@
 
                                         <input type="text" placeholder="বিদ্যালয়ের নাম" class="form-control border border-round p-3" id="school" name="school_name">
                                         <div>
-                                            @if ($errors->has('school_name'))
-                                                <span class="text-danger">{{ $errors->first('school_name') }}</span>
-                                            @endif
+                                            <?php if($errors->has('school_name')): ?>
+                                                <span class="text-danger"><?php echo e($errors->first('school_name')); ?></span>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
 
@@ -75,9 +74,9 @@
 
                                         <input type="text" placeholder="শ্রেনী" class="form-control border border-round p-3" id="class" name="class">
                                         <div>
-                                            @if ($errors->has('class'))
-                                                <span class="text-danger">{{ $errors->first('class') }}</span>
-                                            @endif
+                                            <?php if($errors->has('class')): ?>
+                                                <span class="text-danger"><?php echo e($errors->first('class')); ?></span>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
 
@@ -92,9 +91,9 @@
                                             <option value="female">মহিলা</option>
                                         </select>
                                         <div>
-                                            @if ($errors->has('gender'))
-                                                <span class="text-danger">{{ $errors->first('gender') }}</span>
-                                            @endif
+                                            <?php if($errors->has('gender')): ?>
+                                                <span class="text-danger"><?php echo e($errors->first('gender')); ?></span>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
 
@@ -104,9 +103,9 @@
 
                                         <input type="tel" placeholder="মোবাইল নাম্বার" class="form-control border border-round p-3" id="mobile" name="phone_no">
                                         <div>
-                                            @if ($errors->has('phone_no'))
-                                                <span class="text-danger">{{ $errors->first('phone_no') }}</span>
-                                            @endif
+                                            <?php if($errors->has('phone_no')): ?>
+                                                <span class="text-danger"><?php echo e($errors->first('phone_no')); ?></span>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
 
@@ -117,9 +116,9 @@
 
                                         <input type="email" placeholder="ইমেইল" class="form-control border border-round p-3" id="email" name="email">
                                         <div>
-                                            @if ($errors->has('email'))
-                                                <span class="text-danger">{{ $errors->first('email') }}</span>
-                                            @endif
+                                            <?php if($errors->has('email')): ?>
+                                                <span class="text-danger"><?php echo e($errors->first('email')); ?></span>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
 
@@ -130,9 +129,9 @@
 
                                         <input type="password" placeholder="পাসওয়ার্ড" class="form-control border border-round p-3" id="password" name="password">
                                         <div>
-                                            @if ($errors->has('password'))
-                                                <span class="text-danger">{{ $errors->first('password') }}</span>
-                                            @endif
+                                            <?php if($errors->has('password')): ?>
+                                                <span class="text-danger"><?php echo e($errors->first('password')); ?></span>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
 
@@ -143,9 +142,9 @@
 
                                         <input class="form-control border border-round p-3" placeholder='বর্তমান ঠিকানা' id="presentAddress" name="present_address" rows="3"></ই>
                                         <div>
-                                            @if ($errors->has('present_address'))
-                                                <span class="text-danger">{{ $errors->first('present_address') }}</span>
-                                            @endif
+                                            <?php if($errors->has('present_address')): ?>
+                                                <span class="text-danger"><?php echo e($errors->first('present_address')); ?></span>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
 
@@ -154,9 +153,9 @@
                                     <div class="col-md-12">
                                         <input class="form-control border border-round p-3" placeholder='স্থায়ী ঠিকানা' id="presentAddress" name="permanent_address" rows="3"></ই>
                                         <div>
-                                            @if ($errors->has('permanent_address'))
-                                                <span class="text-danger">{{ $errors->first('parmanent_address') }}</span>
-                                            @endif
+                                            <?php if($errors->has('permanent_address')): ?>
+                                                <span class="text-danger"><?php echo e($errors->first('parmanent_address')); ?></span>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
 
@@ -176,7 +175,7 @@
                                     <button type="submit" class="btn btn-success border border-round p-2">একাউন্ট তৈরি করুন</button>
                                 </div>
                             </form>
-                            <p class="text-center mt-3">একাউন্ট আছে? <a href="{{ route('login') }}">লগ ইন</a>
+                            <p class="text-center mt-3">একাউন্ট আছে? <a href="<?php echo e(route('login')); ?>">লগ ইন</a>
                             </p>
                         </div>
 
@@ -185,4 +184,6 @@
             </div>
         </div>
     </section>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH G:\laragon\www\temp_129\resources\views/frontend/user/register.blade.php ENDPATH**/ ?>
