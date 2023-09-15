@@ -31,8 +31,7 @@ class UserController extends Controller
         ]);
 
         try {
-
-            User::create([
+            $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'age' => $request->age,
@@ -48,7 +47,6 @@ class UserController extends Controller
 
             return redirect()->route('login');
         } catch (Exception $e) {
-
             return redirect()->back();
         }
     }
@@ -61,16 +59,13 @@ class UserController extends Controller
     public function loginStore(Request $request)
     {
         $request->validate([
-
             'phone_no' => 'required|string|max:20',
             'password' => 'required|string|min:8',
-
         ]);
 
         $credentials = $request->only('phone_no', 'password');
 
         if (Auth::attempt($credentials)) {
-
             if (auth()->user()->type === 'student') {
                 return redirect()->route('dashboard');
             } else {
@@ -83,7 +78,9 @@ class UserController extends Controller
     {
         Auth::logout();
 
-        return redirect()->to('https://e-pushti.netlify.app/')->send();
+        return redirect()
+            ->to('https://e-pushti.netlify.app/')
+            ->send();
     }
 
     public function index()
@@ -143,7 +140,6 @@ class UserController extends Controller
         ]);
 
         try {
-
             User::create([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -166,8 +162,7 @@ class UserController extends Controller
     {
         $query = $request->input('query');
 
-        $users = User::where('name', 'LIKE', "%$query%")
-            ->paginate(10);
+        $users = User::where('name', 'LIKE', "%$query%")->paginate(10);
 
         $sl = !is_null(\request()->page) ? (\request()->page - 1) * 10 : 0;
         return view('backend.user.user-index', compact('users', 'sl'));

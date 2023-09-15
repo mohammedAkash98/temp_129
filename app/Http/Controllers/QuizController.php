@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Chapter;
 use App\Models\Lesson;
+use App\Models\Overview;
 use App\Models\Quiz;
+use App\Models\Result;
 use Illuminate\Http\Request;
 
 class QuizController extends Controller
@@ -79,9 +81,79 @@ class QuizController extends Controller
     }
     public function quiz_answer_store(Request $request)
     {
+        // dd($request->all());
 
         $chapters = Chapter::all();
-        $star = null;
+        $user_id = auth()->user()->id;
+        $chapter_id = Lesson::where('id', $request->lesson_id)->first()->chapter->id;
+        $submitted_answers = $request->quiz;
+
+
+
+        if (!Result::where('user_id', $user_id)->first()) {
+            $result =   Result::create([
+                'user_id' => $user_id,
+                'lesson_id' => $request->lesson_id,
+                'chapter_id' => $chapter_id,
+
+            ]);
+        } else {
+            $existing_student =  Result::where('user_id', $user_id)
+                ->where('lesson_id', $request->lesson_id)
+                ->where('chapter_id', $chapter_id)->first();
+            $existing_student->update([
+                'user_id' => $user_id,
+                'lesson_id' => $request->lesson_id,
+                'chapter_id' => $chapter_id,
+            ]);
+        }
+
+        $quizzes =  Quiz::where('chapter_id', $chapter_id)->where('lesson_id', $request->lesson_id)->get();
+
+        $correct_ans = 0;
+        $wrong_ans = 0;
+
+
+        if (isset($submitted_answer)) {
+            foreach ($submitted_answers as $key => $submitted_answer) {
+                if ($submitted_answer == $quizzes[$key]->correct_answer) {
+                    $correct_ans++;
+                } elseif ($submitted_answer != $quizzes[$key]) {
+                    $wrong_ans++;
+                }
+            }
+        }
+        if (isset($submitted_answer)) {
+            $skip_ans = count($quizzes) - count($submitted_answers);
+        } else {
+            $skip_ans = count($quizzes);
+        }
+
+        $result =  Result::where('user_id', $user_id)->where('lesson_id', $request->lesson_id)->where('chapter_id', $chapter_id)->first();
+        $result->update([
+            'correct_ans' => $correct_ans,
+            'wrong_ans' => $wrong_ans,
+            'skip_ans' => $skip_ans
+        ]);
+        $lesson = Lesson::where('current_lesson_id', $request->lesson_id + 1)->first();
+        if (isset($lesson)) {
+            $marks = Overview::where('user_id', $user_id)->where('lesson_id', $request->lesson_id)->where('chapter_id', $chapter_id)->first();
+            $marks->update([
+                'marks' => $correct_ans,
+                'current_lesson_id' => $request->lesson_id + 1,
+                'current_chapter_id' => $lesson->chapter_id,
+            ]);
+        } else {
+            // $marks = Overview::where('user_id', $user_id)->where('lesson_id', $request->lesson_id)->where('chapter_id', $chapter_id)->first();
+            // $marks->update([
+            //     'marks' => $correct_ans,
+            //     'current_lesson_id' => 1,
+            //     'current_chapter_id' => $chapter_id + 1,
+            // ]);
+            dd('certificate page a jabe');
+        }
+
+
 
         return view('frontend.courses__lessons.result', compact('chapters'));
     }
