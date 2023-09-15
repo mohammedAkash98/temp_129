@@ -28,12 +28,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/admin', [BackendController::class, 'admin'])->name('admin')->middleware(['auth', isAdmin::class]);
 
-// top-navbar
-Route::get('/about-us', [FrontendController::class, 'about_us'])->name('about-us');
-Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
-Route::get('/seminar', [FrontendController::class, 'seminar'])->name('seminar');
-Route::get('/video', [FrontendController::class, 'video'])->name('video');
-
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register/store', [UserController::class, 'registerStore'])->name('register.store');
 Route::get('/login', [UserController::class, 'login'])->name('login');
@@ -51,6 +45,10 @@ Route::prefix('student')->middleware(['auth'])->group(function () {
     Route::get('/profile', [StudentController::class, 'profile'])->name('student.profile');
     Route::post('/profile/update/{id}', [StudentController::class, 'update'])->name('student.update');
     Route::get('/profile/delete/{id}', [StudentController::class, 'delete'])->name('student.delete');
+    Route::get('/about-us', [FrontendController::class, 'about_us'])->name('about-us');
+    Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+    Route::get('/seminar', [FrontendController::class, 'seminar'])->name('seminar');
+    Route::get('/video', [FrontendController::class, 'video'])->name('video');
 });
 
 
