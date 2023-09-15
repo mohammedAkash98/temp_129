@@ -93,6 +93,8 @@ Route::prefix('admin/quiz')->middleware(['auth', isAdmin::class])->group(functio
     Route::post('/store', [QuizController::class, 'store'])->name('quiz.store');
     Route::get('/info/{id}', [QuizController::class, 'info'])->name('quiz.info');
     Route::get('/delete/{id}', [QuizController::class, 'delete'])->name('quiz.delete');
+    Route::get('/edit/{id}', [QuizController::class, 'edit'])->name('quiz.edit');
+    Route::post('/update/{id}', [QuizController::class, 'update'])->name('quiz.update');
 });
 
 //pdf route

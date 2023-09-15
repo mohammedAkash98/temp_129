@@ -41,6 +41,27 @@ class QuizController extends Controller
         $quiz = Quiz::where('id', $id)->first();
         return view('backend.quiz.quiz-info', compact('quiz'));
     }
+    public function edit($id)
+    {
+        $quiz = Quiz::find($id);
+        $chapters = Chapter::all();
+        $lessons = Lesson::all();
+        return view('backend.quiz.quiz-edit', compact('quiz', 'chapters', 'lessons'));
+    }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'question' => 'required|string|max:255',
+            'option_1' => 'required|string|max:255',
+            'option_2' => 'required|string|max:255',
+            'option_3' => 'required|string|max:255',
+            'option_4' => 'required|string|max:255',
+            'correct_answer' => 'required|string|max:255',
+        ]);
+        $quiz = Quiz::where('id', $id)->first();
+        $quiz->update($request->all());
+        return redirect()->route('quiz.index');
+    }
 
     public function delete($id)
     {
