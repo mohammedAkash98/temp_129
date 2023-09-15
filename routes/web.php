@@ -34,6 +34,7 @@ Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::get('/seminar', [FrontendController::class, 'seminar'])->name('seminar');
 Route::get('/video', [FrontendController::class, 'video'])->name('video');
 
+
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register/store', [UserController::class, 'registerStore'])->name('register.store');
 Route::get('/login', [UserController::class, 'login'])->name('login');
@@ -103,3 +104,6 @@ Route::prefix('pdf')->middleware(['auth'])->group(function () {
     Route::get('/user/report', [PdfController::class, 'userPdfReport'])->name('user.pdf.report');
     Route::get('/chapter/report', [PdfController::class, 'chapterPdfReport'])->name('chapter.pdf.report');
 });
+
+Route::get('/certificate', [FrontendController::class, 'certificate'])->name('certificate');
+

@@ -1,5 +1,21 @@
 /* styles.css */
 
+@font-face {
+    font-family: CertificateFont;
+    src: url("../font/certificate/Certificate_Bold.ttf");
+}
+
+@font-face {
+    font-family: CertificateUser;
+    src: url("../font/certificate_name/name3.ttf");
+}
+
+.line-1 {
+    border-top: 1px solid black;
+    width: 12rem;
+    margin: auto;
+}
+
 .top-navbar .custom-title {
     font-family: Rowdies, sans-serif;
     font-size: 45px;
@@ -17,6 +33,7 @@
 .top-navbar .custom-title .line2 {
     color: red;
 }
+
 /* style.css */
 
 .top-navbar .box-container {
@@ -49,6 +66,7 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     font-weight: 700;
 }
+
 /* Adjust box styles as needed */
 
 .top-navbar .box-title1 {
@@ -171,12 +189,15 @@
 .border-round {
     border-radius: 3rem;
 }
+
 .registrationPage .content {
     margin: 3rem;
 }
-.registrationPage .content h2{
+
+.registrationPage .content h2 {
     line-height: 160%;
 }
+
 .registrationPage .content p {
     line-height: 220%;
 }
@@ -188,10 +209,53 @@
     border-radius: 20px;
 }
 
+/* certificate */
+.certificate-container {
+    position: relative;
+    width: 800px;
+    margin: 50px auto;
+}
+
+.certificate {
+    background-color: #ffffff;
+    padding: 30px;
+    border: 1px solid #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.certificate h1 {
+    font-family: CertificateFont;
+}
+
+.certificate .username {
+    font-family: CertificateUser;
+}
+
+.certificate .certifiate-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.certificate-content {
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+.BIID-logo {
+    top: 40%;
+    right: 25%;
+    opacity: 0.1;
+}
+
 @media screen and (max-width: 768px) {
     .top-navbar .box-container {
         flex-direction: column;
     }
+
     .top-navbar .row {
         display: -ms-flexbox;
         display: flex;
@@ -201,7 +265,8 @@
         margin-left: 20px;
     }
 
-    .registrationPage .content, .reg-page {
+    .registrationPage .content,
+    .reg-page {
         margin: 0;
     }
 }

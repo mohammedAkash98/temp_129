@@ -31,4 +31,9 @@ class FrontendController extends Controller
     {
         return view('home');
     }
+
+    public function certificate()
+    {
+        return view('frontend.certificate');
+    }
 }
