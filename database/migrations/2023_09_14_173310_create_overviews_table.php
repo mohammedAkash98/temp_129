@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('overviews', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('current_chapter_id')->default(0);
+            $table->integer('current_chapter_id')->default(1);
             $table->integer('current_lesson_id')->default(0);
             $table->integer('marks')->default(0);
             $table->timestamps();
