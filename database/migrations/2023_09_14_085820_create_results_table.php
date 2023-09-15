@@ -17,6 +17,10 @@ return new class extends Migration
             $table->integer('lesson_id');
             $table->integer('chapter_id');
 
+            $table->integer('correct_ans');
+            $table->integer('wrong_ans');
+            $table->integer('skip_ans');
+
             $table->timestamps();
         });
     }
