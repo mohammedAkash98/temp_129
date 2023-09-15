@@ -58,12 +58,14 @@ class QuizController extends Controller
     }
     public function quiz_answer_store(Request $request)
     {
+
         $chapters = Chapter::all();
-        return redirect()->route('quiz.result', compact('chapters'));
+        $star = null;
+
+        return view('frontend.courses__lessons.result', compact('chapters'));
     }
 
-    public function   quiz_result()
-    {
-        return view('frontend.courses__lessons.result');
-    }
+    // public function   quiz_result()
+    // {
+    // }
 }
