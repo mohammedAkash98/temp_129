@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Chapter;
 use App\Models\Lesson;
+use App\Models\Overview;
 use Illuminate\Http\Request;
 
 class ChapterController extends Controller
@@ -12,6 +13,15 @@ class ChapterController extends Controller
     public function courses()
     {
         $courses = Chapter::all();
+        if (!Overview::where('user_id', auth()->user()->id)->first()) {
+            Overview::create([
+                'user_id' => auth()->user()->id,
+                'current_chapter_id' => 1,
+                'current_lesson_id' => 1,
+                'marks' => 0,
+            ]);
+        }
+
         return view('frontend.courses__lessons.course_chapter', compact('courses'));
     }
 

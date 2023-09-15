@@ -27,6 +27,7 @@
                                     for="quiz_option_{{ $quiz->id }}_4">{{ $quiz->option_4 }}</label>
                             </div>
                             <span onclick="nextQues()" class="btn border border-success rounded-pill bg-warning">Next Question</span>
+                            <input type="text" name="lesson_id" id="" value="{{ $quiz->lesson->id }}" hidden>
                         </div>
                     @endforeach
                     <button type="submit" class="btn btn-sm btn-success">সংরক্ষন করুন</button>
