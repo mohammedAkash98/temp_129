@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Exception;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +23,7 @@ class UserController extends Controller
             'school_name' => 'required|string',
             'class' => 'required|string',
             'gender' => 'required|in:male,female',
-            'phone_no' => 'required|string|max:20',
+            'phone_no' => 'required|string|max:20|unique:users',
             'password' => 'required|string|min:8',
             'present_address' => 'required|string',
             'permanent_address' => 'required|string',
@@ -46,9 +45,11 @@ class UserController extends Controller
                 'permanent_address' => $request->permanent_address,
                 'is_club_member' => $request->is_club_member,
             ]);
-            return redirect()->route('dashboard');
+
+            return redirect()->route('login');
         } catch (Exception $e) {
-            dd($e->getMessage());
+
+            return redirect()->back();
         }
     }
 
@@ -79,7 +80,7 @@ class UserController extends Controller
     }
 
     public function logout()
-    {   
+    {
         Auth::logout();
 
         return redirect()->to('https://e-pushti.netlify.app/')->send();
@@ -97,7 +98,7 @@ class UserController extends Controller
         User::find($id)->delete();
         return redirect()->back();
     }
-    
+
     public function edit($id)
     {
         $user = User::find($id);

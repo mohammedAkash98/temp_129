@@ -55,8 +55,6 @@
                             </td>
                         </tr>
                     @endforeach
-
-                    <!-- Add more rows as needed -->
                 </tbody>
             </table>
             {{ $lessons->links('pagination::bootstrap-4') }}

@@ -38,6 +38,7 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::prefix('student')->middleware(['auth'])->group(function () {
     Route::get('/courses', [ChapterController::class, 'courses'])->name('courses');
     Route::get('/courses/{id}', [ChapterController::class, 'courses_name'])->name('courses.show');
+    Route::get('/courses/lesson/{id}', [ChapterController::class, 'courses_view'])->name('courses.view');
     Route::get('/profile', [StudentController::class, 'profile'])->name('student.profile');
     Route::post('/profile/update/{id}', [StudentController::class, 'update'])->name('student.update');
     Route::get('/profile/delete/{id}', [StudentController::class, 'delete'])->name('student.delete');
