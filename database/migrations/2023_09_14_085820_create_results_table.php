@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->integer('lesson_id');
             $table->integer('chapter_id');
-            $table->integer('quizze_id');
+
             $table->timestamps();
         });
     }

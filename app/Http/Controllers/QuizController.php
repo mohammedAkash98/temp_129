@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Chapter;
 use App\Models\Lesson;
 use App\Models\Quiz;
+use App\Models\Result;
 use Illuminate\Http\Request;
 
 class QuizController extends Controller
@@ -79,10 +80,26 @@ class QuizController extends Controller
     }
     public function quiz_answer_store(Request $request)
     {
+        dd($request->all());
 
         $chapters = Chapter::all();
-        $star = null;
+        $user_id = auth()->user()->id;
+        $chapter_id = Lesson::where('id', $request->lesson_id)->first()->chapter->id;
 
+
+        if (!Result::find($user_id)) {
+            $result =   Result::create([
+                'user_id' => $user_id,
+                'lesson_id' => $request->lesson_id,
+                'chapter_id' => $chapter_id,
+
+            ]);
+        }
+        // Overview::where('user_id', $user_id)->where('lesson_id', $request->lesson_id)->where('chapter_id', $chapter_id)->first();
+        $quizzes =  Quiz::where('chapter_id', $chapter_id)->where('lesson_id', $request->lesson_id)->get();
+        foreach ($quizzes as $quiz) {
+        }
+        dd($quizzes);
         return view('frontend.courses__lessons.result', compact('chapters'));
     }
 

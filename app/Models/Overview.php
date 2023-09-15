@@ -8,14 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Overview extends Model
 {
     use HasFactory;
-
-    public function user(){
+    protected $guarded = [];
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-    public function lesson(){
+    public function lesson()
+    {
         return $this->belongsTo(Lesson::class);
     }
-    public function chapter(){
+    public function chapter()
+    {
         return $this->belongsTo(Chapter::class);
     }
 }
