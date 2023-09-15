@@ -11,19 +11,19 @@
                                 <h3>{{ $quiz->question }}</h3>
                             </div>
                             <div class="col-md-4">
-                                <input type="radio" name="quiz[{{ $quiz->id }}]" id="quiz_option_{{ $quiz->id }}_1" value="{{ $quiz->option_1 }}"> <label
+                                <input type="radio" name="quiz[{{ $key }}]" id="quiz_option_{{ $quiz->id }}_1" value="{{ $quiz->option_1 }}"> <label
                                     for="quiz_option_{{ $quiz->id }}_1">{{ $quiz->option_1 }}</label>
                             </div>
                             <div class="col-md-4">
-                                <input type="radio" name="quiz[{{ $quiz->id }}]" id="quiz_option_{{ $quiz->id }}_2" value="{{ $quiz->option_2 }}"> <label
+                                <input type="radio" name="quiz[{{ $key }}]" id="quiz_option_{{ $quiz->id }}_2" value="{{ $quiz->option_2 }}"> <label
                                     for="quiz_option_{{ $quiz->id }}_2">{{ $quiz->option_2 }}</label>
                             </div>
                             <div class="col-md-4">
-                                <input type="radio" name="quiz[{{ $quiz->id }}]" id="quiz_option_{{ $quiz->id }}_3" value="{{ $quiz->option_3 }}"> <label
+                                <input type="radio" name="quiz[{{ $key }}]" id="quiz_option_{{ $quiz->id }}_3" value="{{ $quiz->option_3 }}"> <label
                                     for="quiz_option_{{ $quiz->id }}_3">{{ $quiz->option_3 }}</label>
                             </div>
                             <div class="col-md-4">
-                                <input type="radio" name="quiz[{{ $quiz->id }}]" id="quiz_option_{{ $quiz->id }}_4" value="{{ $quiz->option_4 }}"> <label
+                                <input type="radio" name="quiz[{{ $key }}]" id="quiz_option_{{ $quiz->id }}_4" value="{{ $quiz->option_4 }}"> <label
                                     for="quiz_option_{{ $quiz->id }}_4">{{ $quiz->option_4 }}</label>
                             </div>
                             <span onclick="nextQues()" class="btn border border-success rounded-pill bg-warning">Next Question</span>

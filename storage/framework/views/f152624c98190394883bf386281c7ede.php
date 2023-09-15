@@ -10,19 +10,19 @@
                                 <h3><?php echo e($quiz->question); ?></h3>
                             </div>
                             <div class="col-md-4">
-                                <input type="radio" name="quiz[<?php echo e($quiz->id); ?>]" id="quiz_option_<?php echo e($quiz->id); ?>_1" value="<?php echo e($quiz->option_1); ?>"> <label
+                                <input type="radio" name="quiz[<?php echo e($key); ?>]" id="quiz_option_<?php echo e($quiz->id); ?>_1" value="<?php echo e($quiz->option_1); ?>"> <label
                                     for="quiz_option_<?php echo e($quiz->id); ?>_1"><?php echo e($quiz->option_1); ?></label>
                             </div>
                             <div class="col-md-4">
-                                <input type="radio" name="quiz[<?php echo e($quiz->id); ?>]" id="quiz_option_<?php echo e($quiz->id); ?>_2" value="<?php echo e($quiz->option_2); ?>"> <label
+                                <input type="radio" name="quiz[<?php echo e($key); ?>]" id="quiz_option_<?php echo e($quiz->id); ?>_2" value="<?php echo e($quiz->option_2); ?>"> <label
                                     for="quiz_option_<?php echo e($quiz->id); ?>_2"><?php echo e($quiz->option_2); ?></label>
                             </div>
                             <div class="col-md-4">
-                                <input type="radio" name="quiz[<?php echo e($quiz->id); ?>]" id="quiz_option_<?php echo e($quiz->id); ?>_3" value="<?php echo e($quiz->option_3); ?>"> <label
+                                <input type="radio" name="quiz[<?php echo e($key); ?>]" id="quiz_option_<?php echo e($quiz->id); ?>_3" value="<?php echo e($quiz->option_3); ?>"> <label
                                     for="quiz_option_<?php echo e($quiz->id); ?>_3"><?php echo e($quiz->option_3); ?></label>
                             </div>
                             <div class="col-md-4">
-                                <input type="radio" name="quiz[<?php echo e($quiz->id); ?>]" id="quiz_option_<?php echo e($quiz->id); ?>_4" value="<?php echo e($quiz->option_4); ?>"> <label
+                                <input type="radio" name="quiz[<?php echo e($key); ?>]" id="quiz_option_<?php echo e($quiz->id); ?>_4" value="<?php echo e($quiz->option_4); ?>"> <label
                                     for="quiz_option_<?php echo e($quiz->id); ?>_4"><?php echo e($quiz->option_4); ?></label>
                             </div>
                             <span onclick="nextQues()" class="btn border border-success rounded-pill bg-warning">Next Question</span>
