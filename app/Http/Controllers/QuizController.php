@@ -47,4 +47,23 @@ class QuizController extends Controller
         Quiz::find($id)->delete();
         return redirect()->back();
     }
+    public function quiz_view($id)
+    {
+        $current_lesson_id = auth()->user()->overview->current_lesson_id;
+        $quizzes = Quiz::where('lesson_id', $current_lesson_id)->get();
+        $chapters = Chapter::all();
+        $lesson = Lesson::all();
+
+        return view('frontend.courses__lessons.quiz', compact('quizzes', 'chapters', 'lesson'));
+    }
+    public function quiz_answer_store(Request $request)
+    {
+        $chapters = Chapter::all();
+        return redirect()->route('quiz.result', compact('chapters'));
+    }
+
+    public function   quiz_result()
+    {
+        return view('frontend.courses__lessons.result');
+    }
 }
