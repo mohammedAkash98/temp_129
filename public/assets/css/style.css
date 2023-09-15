@@ -251,6 +251,12 @@
     opacity: 0.1;
 }
 
+.quize input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    color: white;
+}
+
 @media screen and (max-width: 768px) {
     .top-navbar .box-container {
         flex-direction: column;
