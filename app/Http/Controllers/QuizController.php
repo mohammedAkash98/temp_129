@@ -84,6 +84,7 @@ class QuizController extends Controller
     }
     public function quiz_answer_store(Request $request)
     {
+        // dd($request->all());
         $chapters = Chapter::all();
         $user_id = auth()->user()->id;
         $chapter_id = Lesson::where('id', $request->lesson_id)->first()->chapter->id;
@@ -91,17 +92,18 @@ class QuizController extends Controller
 
         $submitted_answers = $request->quiz;
 
-        if (!Result::where('user_id', $user_id)->first()) {
+        if (!Result::where('user_id', $user_id)->where('chapter_id', auth()->user()->overview->current_chapter_id)->where('lesson_id', auth()->user()->overview->current_lesson_id)->first()) {
             $result = Result::create([
                 'user_id' => $user_id,
                 'lesson_id' => $request->lesson_id,
                 'chapter_id' => $chapter_id,
             ]);
-        } else {
-            $existing_student = Result::where('user_id', $user_id)
-                ->where('lesson_id', $request->lesson_id)
-                ->where('chapter_id', $chapter_id)
-                ->first();
+        }
+        $existing_student = Result::where('user_id', $user_id)
+            ->where('lesson_id', $request->lesson_id)
+            ->where('chapter_id', $chapter_id)
+            ->first();
+        if ($existing_student) {
             $existing_student->update([
                 'user_id' => $user_id,
                 'lesson_id' => $request->lesson_id,
@@ -124,6 +126,7 @@ class QuizController extends Controller
                     $wrong_ans++;
                 }
             }
+            // dd($correct_ans);
         }
         if (isset($submitted_answer)) {
             $skip_ans = count($quizzes) - count($submitted_answers);
@@ -159,10 +162,10 @@ class QuizController extends Controller
             //     'current_lesson_id' => 1,
             //     'current_chapter_id' => $chapter_id + 1,
             // ]);
-            dd('certificate page a jabe');
+            return view('frontend.certificate');
         }
 
-        // return view('frontend.courses__lessons.result', compact('chapters'));
+        return view('frontend.courses__lessons.result', compact('chapters', 'result'));
     }
 
     // public function   quiz_result()

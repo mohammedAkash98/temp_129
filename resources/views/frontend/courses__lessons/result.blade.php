@@ -106,7 +106,7 @@ span  {
         </div>
     </div>
     <div class="col-md-12 mt-4">
-        <a href="" class="btn btn-success">পরবর্তী পাঠে যান</a>
+        <a href="{{ route('courses') }}" class="btn btn-success">পরবর্তী পাঠে যান</a>
     </div>
 </div>
     </div>
