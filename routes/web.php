@@ -39,7 +39,7 @@ Route::prefix('student')->middleware(['auth'])->group(function () {
     Route::get('/courses', [ChapterController::class, 'courses'])->name('courses');
     Route::get('/courses/{id}', [ChapterController::class, 'courses_name'])->name('courses.show');
     Route::get('/courses/lesson/{id}', [ChapterController::class, 'courses_view'])->name('courses.view');
-    Route::get('/courses/lesson/quiz/{id}', [QuizController::class, 'quiz_view'])->name('quiz.view');
+    Route::get('/courses/lesson/quiz/{chapter_id}/{lesson_id}', [QuizController::class, 'quiz_view'])->name('quiz.view');
     Route::post('/courses/lesson/quiz/store', [QuizController::class, 'quiz_answer_store'])->name('quiz.answer.store');
     Route::get('/courses/lesson/quiz/result', [QuizController::class, 'quiz_result'])->name('quiz.result');
     Route::get('/profile', [StudentController::class, 'profile'])->name('student.profile');

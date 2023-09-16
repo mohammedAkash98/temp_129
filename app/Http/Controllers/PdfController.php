@@ -13,7 +13,25 @@ class PdfController extends Controller
     {
         $users = User::all();
 
-        $mpdf = new \Mpdf\Mpdf();
+        $mpdf = new \Mpdf\Mpdf([
+            'mode' => 'utf-8',
+            'autoScriptToLang' => true,
+            'autoLangToFont' => true,
+        ]);
+
+
+        $fontPath = public_path('fonts/pdf_font.ttf');
+
+
+        $mpdf->autoScriptToLang = true;
+        $mpdf->autoLangToFont = true;
+        $mpdf->SetFont('customfont', '', 12);
+        $mpdf->fontdata['customfont'] = [
+            'R' => $fontPath,
+            'useOTL' => 0xFF,
+            'useKashida' => 75,
+        ];
+
 
         $html = view('backend.pdf.user-pdf-report', compact('users'))->render();
 
@@ -26,9 +44,28 @@ class PdfController extends Controller
     {
         $chapters = Chapter::all();
 
-        $mpdf = new \Mpdf\Mpdf();
+
+        $mpdf = new \Mpdf\Mpdf([
+            'mode' => 'utf-8',
+            'autoScriptToLang' => true,
+            'autoLangToFont' => true,
+        ]);
+
+
+        $fontPath = public_path('fonts/pdf_font.ttf');
+
+
+        $mpdf->autoScriptToLang = true;
+        $mpdf->autoLangToFont = true;
+        $mpdf->SetFont('customfont', '', 12);
+        $mpdf->fontdata['customfont'] = [
+            'R' => $fontPath,
+            'useOTL' => 0xFF,
+            'useKashida' => 75,
+        ];
 
         $html = view('backend.pdf.chapter-pdf-report', compact('chapters'))->render();
+
 
         $mpdf->WriteHTML($html);
 

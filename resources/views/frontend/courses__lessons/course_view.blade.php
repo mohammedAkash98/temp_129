@@ -6,6 +6,6 @@
 </div>
 <p>{!! $lesson->description !!}</p>
 <div style="text-align: right;">
-    <a href="{{ route('quiz.view',$lesson->id) }}" class="btn btn-success btn-sm">নিজেকে যাচাই করুন</a>
+    <a href="{{ route('quiz.view',['chapter_id' => $lesson->chapter->id, 'lesson_id'=>$lesson->id]) }}" class="btn btn-success btn-sm">নিজেকে যাচাই করুন</a>
 </div>
 @endsection

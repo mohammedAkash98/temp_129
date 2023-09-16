@@ -5,7 +5,7 @@
 </div>
 <p><?php echo $lesson->description; ?></p>
 <div style="text-align: right;">
-    <a href="<?php echo e(route('quiz.view',$lesson->id)); ?>" class="btn btn-success btn-sm">নিজেকে যাচাই করুন</a>
+    <a href="<?php echo e(route('quiz.view',['chapter_id' => $lesson->chapter->id, 'lesson_id'=>$lesson->id])); ?>" class="btn btn-success btn-sm">নিজেকে যাচাই করুন</a>
 </div>
 <?php $__env->stopSection(); ?>
 

@@ -4,7 +4,7 @@
     #myProgress {
       width: 100%;
       background-color: #ddd;
-      border-radius: 25px;
+
     }
 span  {
     color: orangered;
@@ -13,7 +13,7 @@ span  {
       width: 1%;
       height: 30px;
       background-color: #04AA6D;
-      border-radius: 25px;
+
     }
 
     .circular-progress {
@@ -105,7 +105,7 @@ span  {
         </div>
     </div>
     <div class="col-md-12 mt-4">
-        <a href="" class="btn btn-success">পরবর্তী পাঠে যান</a>
+        <a href="<?php echo e(route('courses')); ?>" class="btn btn-success">পরবর্তী পাঠে যান</a>
     </div>
 </div>
     </div>
