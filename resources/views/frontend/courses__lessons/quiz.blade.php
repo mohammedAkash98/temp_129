@@ -60,23 +60,13 @@
                                 </div>
 
                                 <span onclick="nextQues()" id={{ 'next' . $key }} role="button"
-                                    class="btn btn-sm bg-danger text-white float-right">পরবর্তী</span>
+                                    class="btn btn-sm bg-danger text-white float-left">পরবর্তী</span>
                             </div>
-                            <button type="submit" class="btn btn-sm btn-success text-white d-none">সংরক্ষন
-                                করুন</button>
                         @endforeach
-                    @endif
-                    
-                            <span onclick="nextQues()" id={{ 'next' . $key }} role="button"
-                                class="btn btn-sm bg-danger text-white float-right">পরবর্তী</span>
                         </div>
-                        <button type="submit" class="btn btn-sm btn-success text-white d-none">সংরক্ষন
-                            করুন</button>
-                    @endforeach
                     <button type="submit" id="btn-submit" class="btn btn-sm btn-success text-white d-none">সংরক্ষন
                         করুন</button>
                 </div>
-                <button type="submit">save</button>
             </form>
         </div>
 

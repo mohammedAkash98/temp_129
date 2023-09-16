@@ -132,21 +132,22 @@ class QuizController extends Controller
 
         $correct_ans = 0;
         $wrong_ans = 0;
-
-        if (isset($submitted_answer)) {
+        $skip_ans =0;
+        if (count($submitted_answers) != 0) {
             foreach ($submitted_answers as $key => $submitted_answer) {
-                if ($submitted_answer == $quizzes[$key]->correct_answer) {
+                if ($submitted_answer == $quizzes[$key-1]->correct_answer) {
                     $correct_ans++;
-                } elseif ($submitted_answer != $quizzes[$key]) {
+                } elseif ($submitted_answer != $quizzes[$key-1]) {
                     $wrong_ans++;
                 }
             }
             // dd($correct_ans);
         }
-        if (isset($submitted_answer)) {
+        if (count($submitted_answers) != 0) {
             $skip_ans = count($quizzes) - count($submitted_answers);
         } else {
             $skip_ans = count($quizzes);
+            dd("skip");
         }
 
         $result = Result::where('user_id', $user_id)
