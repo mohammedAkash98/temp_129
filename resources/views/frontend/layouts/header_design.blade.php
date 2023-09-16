@@ -56,6 +56,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="profileDropdown">
                         <a class="dropdown-item" href="{{ route('student.profile') }}">My Profile</a>
+                        <a class="dropdown-item" href="{{ route('student.certificate') }}">Certificate</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                     </div>
