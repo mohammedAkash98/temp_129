@@ -6,17 +6,15 @@
                 @csrf
 
                 <div class="row mb-5 quize justify-content-center">
-                    @if(empty($quizzes))
-                        <h1>Sorry Something went wrong</h1>
-                    @else
-                        @foreach ($quizzes as $key => $quiz)
-                        <input type="text" name="lesson_id" value={{ $quiz->lesson_id }}>
-                            <div class="col-md-12 my-2" id={{ 'question' . $key }} style="display: none">
-                                <h3><b> Question {{ $key + 1 }}/{{ count($quizzes) }}
-                                    </b></h3>
-                                <div class="col-md-12 my-4">
-                                    <h3>{{ $quiz->question }}</h3>
-                                </div>
+
+                    @foreach ($quizzes as $key => $quiz)
+                        <input type="text" name="lesson_id" value={{ $quiz->lesson_id }} hidden>
+                        <div class="col-md-12 my-2" id={{ 'question' . $key }} style="display: none">
+                            <h3><b> Question {{ $key + 1 }}/{{ count($quizzes) }}
+                                </b></h3>
+                            <div class="col-md-12 my-4">
+                                <h3>{{ $quiz->question }}</h3>
+                            </div>
 
                                 <div class="col-md-12 my-4 text-center">
 
@@ -69,10 +67,19 @@
                         @endforeach
                     @endif
                     
+                            <span onclick="nextQues()" id={{ 'next' . $key }} role="button"
+                                class="btn btn-sm bg-danger text-white float-right">পরবর্তী</span>
+                        </div>
+                        <button type="submit" class="btn btn-sm btn-success text-white d-none">সংরক্ষন
+                            করুন</button>
+                    @endforeach
+                    <button type="submit" id="btn-submit" class="btn btn-sm btn-success text-white d-none">সংরক্ষন
+                        করুন</button>
                 </div>
                 <button type="submit">save</button>
             </form>
         </div>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
@@ -89,7 +96,6 @@
         function nextQues() {
 
             if (i >= 1 && i <= count) {
-                
                 document.getElementById('question' + i).style.display = "block";
                 document.getElementById('question' + (i - 1)).style.display = "none";
 
