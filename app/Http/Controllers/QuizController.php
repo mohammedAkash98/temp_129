@@ -73,8 +73,16 @@ class QuizController extends Controller
         toastr()->error('Quiz deleted!', 'Delete');
         return redirect()->back();
     }
-    public function quiz_view($id)
+    public function quiz_view($chapter_id, $lesson_id)
     {
+        $completed_chapter = Result::where('user_id', auth()->user()->id)
+            ->where('chapter_id', $chapter_id)
+            ->where('lesson_id', $lesson_id)
+            ->first();
+
+        if ($completed_chapter) {
+            return view('frontend.courses__lessons.return_course');
+        }
         $current_lesson_id = auth()->user()->overview->current_lesson_id;
         $quizzes = Quiz::where('lesson_id', $current_lesson_id)->get();
         $chapters = Chapter::all();
@@ -89,10 +97,14 @@ class QuizController extends Controller
         $user_id = auth()->user()->id;
         $chapter_id = Lesson::where('id', $request->lesson_id)->first()->chapter->id;
 
-
         $submitted_answers = $request->quiz;
 
-        if (!Result::where('user_id', $user_id)->where('chapter_id', auth()->user()->overview->current_chapter_id)->where('lesson_id', auth()->user()->overview->current_lesson_id)->first()) {
+        if (
+            !Result::where('user_id', $user_id)
+                ->where('chapter_id', auth()->user()->overview->current_chapter_id)
+                ->where('lesson_id', auth()->user()->overview->current_lesson_id)
+                ->first()
+        ) {
             $result = Result::create([
                 'user_id' => $user_id,
                 'lesson_id' => $request->lesson_id,
@@ -155,15 +167,16 @@ class QuizController extends Controller
                 'current_lesson_id' => $request->lesson_id + 1,
                 'current_chapter_id' => $lesson->chapter_id,
             ]);
-        } else {
-            // $marks = Overview::where('user_id', $user_id)->where('lesson_id', $request->lesson_id)->where('chapter_id', $chapter_id)->first();
-            // $marks->update([
-            //     'marks' => $correct_ans,
-            //     'current_lesson_id' => 1,
-            //     'current_chapter_id' => $chapter_id + 1,
-            // ]);
-            return view('frontend.certificate');
         }
+        // else {
+        //     // $marks = Overview::where('user_id', $user_id)->where('lesson_id', $request->lesson_id)->where('chapter_id', $chapter_id)->first();
+        //     // $marks->update([
+        //     //     'marks' => $correct_ans,
+        //     //     'current_lesson_id' => 1,
+        //     //     'current_chapter_id' => $chapter_id + 1,
+        //     // ]);
+        //     return view('frontend.certificate');
+        // }
 
         return view('frontend.courses__lessons.result', compact('chapters', 'result'));
     }
