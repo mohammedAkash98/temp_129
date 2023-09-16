@@ -40,7 +40,7 @@
            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
            </select>
         </div>
-
+                
         <div class="form-group mb-3 col-md-6">
             <label for="lessonName">Lesson Name:</label>
            <select class="form-control" name="lesson_id" id="lesson_id" required>
