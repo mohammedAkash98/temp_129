@@ -10,6 +10,7 @@
       </ol>
     </nav>
     <hr>
+
   </div><!-- End Page Title -->
 
 
@@ -55,8 +56,8 @@
         </div>
 
         <div class="form-group">
-            <label for="lessonDescription">Description:</label>
-            <textarea class="form-control" id="lessonDescription" name="description" rows="4">{{ $lesson->description }}</textarea>
+            <label for="editor">Description:</label>
+            <textarea class="form-control" id="editor" name="description" rows="4"></textarea>
             @if ($errors->has('description'))
                 <span class="text-danger">{{ $errors->first('description') }}</span>
             @endif
@@ -67,5 +68,5 @@
         </button>
     </form>
 </div>
-
+@include('backend.layouts.partials.ckeditor')
 @endsection

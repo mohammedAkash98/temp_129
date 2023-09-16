@@ -21,7 +21,7 @@
                         <img width="100" src="{{ asset('storage/lesson/'. $lesson->image) }}" class="card-img-top" alt="{{ $lesson->name }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ $lesson->name }}</h5>
-                            <p class="card-text">{{ $lesson->description }}</p>
+                            <p class="card-text">{!! $lesson->description !!}</p>
                         </div>
                     </div>
                 </div>

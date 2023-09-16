@@ -1,6 +1,8 @@
 <?php $__env->startSection('course_content'); ?>
-<img width="100" src="<?php echo e(asset('storage/lesson/'. $lesson->image)); ?>" alt="">
+<div>
+    <img class="w-100 mb-2" src="<?php echo e(asset('storage/lesson/'. $lesson->image)); ?>" alt="">
 <h1><?php echo e($lesson->name); ?></h1>
+</div>
 <p><?php echo $lesson->description; ?></p>
 <div style="text-align: right;">
     <a href="<?php echo e(route('quiz.view',$lesson->id)); ?>" class="btn btn-success btn-sm">নিজেকে যাচাই করুন</a>

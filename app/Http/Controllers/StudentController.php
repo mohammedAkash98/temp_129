@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Image;
 
 
 
@@ -46,7 +44,11 @@ class StudentController extends Controller
 
         return redirect()->back();
     }
+    public function certificate()
+    {
 
+        return view('frontend.certificate');
+    }
 
 
 
@@ -56,7 +58,7 @@ class StudentController extends Controller
 
         $file_name = time() . '-' . $title . '.' . $image->getClientOriginalExtension();
 
-        $image->move('storage/student',$file_name);
+        $image->move('storage/student', $file_name);
 
         return $file_name;
     }
