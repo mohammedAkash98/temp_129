@@ -93,6 +93,7 @@ class UserController extends Controller
     public function delete($id)
     {
         User::find($id)->delete();
+        toastr()->error('User deleted!', 'Delete');
         return redirect()->back();
     }
 
@@ -116,6 +117,7 @@ class UserController extends Controller
             'enrolled' => $request->enrolled,
             'type' => $request->type,
         ]);
+        toastr()->success('User updated successfully!', 'Congrats');
         return redirect()->route('user.index');
     }
     public function create()
@@ -153,6 +155,7 @@ class UserController extends Controller
                 'permanent_address' => $request->permanent_address,
                 'is_club_member' => $request->is_club_member,
             ]);
+            toastr()->success('User created successfully', 'Congrats');
             return redirect()->route('user.index');
         } catch (Exception $e) {
             dd($e->getMessage());

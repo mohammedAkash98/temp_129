@@ -1,21 +1,19 @@
-@extends('main_master')
-
-@section('page_content')
+<?php $__env->startSection('page_content'); ?>
     <style>
         /* Custom CSS for the certificate design */
     </style>
 
     <div class="container certificate-container text-center">
         <div class="certificate">
-            <img src="{{ asset('images/Certificate/certificate-border.png') }}" class="certifiate-border"
+            <img src="<?php echo e(asset('images/Certificate/certificate-border.png')); ?>" class="certifiate-border"
                 alt="Certificate Border">
 
-            <img src="{{asset('images/Certificate/BIID-logo.png')}}" class="BIID-logo position-absolute" alt="">
+            <img src="<?php echo e(asset('images/Certificate/BIID-logo.png')); ?>" class="BIID-logo position-absolute" alt="">
 
             <div class="certificate-content m-3">
-                <img src="{{ asset('assets/img/Screenshot_9_1.png') }}" class="e-pushti-logo" style="width: 16%;" alt="">
+                <img src="<?php echo e(asset('assets/img/Screenshot_9_1.png')); ?>" class="e-pushti-logo" style="width: 16%;" alt="">
                 <h1 class="py-3">Certificate of Appreciation</h1>
-                <h3 class="username py-2">{{ auth()->user()->name ?? 'Your Name' }}</h3>
+                <h3 class="username py-2"><?php echo e(auth()->user()->name ?? 'Your Name'); ?></h3>
                 <p class="" style="font-size: 12px; margin: auto 18%;">Lorem ipsum dolor sit amet consectetur
                     adipisicing elit. Quas qui delectus vel numquam
                     reprehenderit
@@ -46,4 +44,6 @@
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('main_master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH G:\laragon\www\temp_129\resources\views/frontend/certificate.blade.php ENDPATH**/ ?>

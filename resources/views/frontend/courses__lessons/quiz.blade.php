@@ -47,6 +47,7 @@
                                             id="quiz_option_{{ $quiz->id }}_4" onclick="click4()" value="{{ $quiz->option_4 }}">
                                     </span>
                                     <label for="quiz_option_{{ $quiz->id }}_4">{{ $quiz->option_4 }}</label>
+                                    <input type="text" name="lesson_id" value="{{ $quiz->lesson->id }}" hidden>
                                 </div>
                             </div>
 
