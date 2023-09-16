@@ -7,7 +7,7 @@
 @section('page_content')
     <div class="container">
 
-        <!-- upper navbar -->
+        <!-- upper navbarr -->
         <nav class="navbar navbar-expand-lg bg-light mb-3 mt-3 top-nav">
             <div class="navbar-collapse" id="navbarNav">
                 <nav aria-label="breadcrumb">
