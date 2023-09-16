@@ -65,10 +65,9 @@
                         <button type="submit" class="btn btn-sm btn-success text-white d-none">সংরক্ষন
                             করুন</button>
                     @endforeach
-
-
+                    <button type="submit" id="btn-submit" class="btn btn-sm btn-success text-white d-none">সংরক্ষন
+                        করুন</button>
                 </div>
-                <button type="submit">save</button>
             </form>
         </div>
 
@@ -88,7 +87,6 @@
         function nextQues() {
 
             if (i >= 1 && i <= count) {
-
                 document.getElementById('question' + i).style.display = "block";
                 document.getElementById('question' + (i - 1)).style.display = "none";
 
