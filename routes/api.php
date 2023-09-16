@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('homedata', [ApiController::class, 'get_home_data']);
+Route::post('homedata', [ApiController::class, 'get_home_data']);
