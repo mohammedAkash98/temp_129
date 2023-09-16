@@ -60,7 +60,9 @@ class ChapterController extends Controller
         Chapter::create([
 
             'name' => $request->name,
+            'chapter_no_bangla' => $request->chapter_no_bangla
         ]);
+        toastr()->success('Chapter created successfully!', 'Congrats');
         return redirect()->route('chapter.index');
     }
 
@@ -68,6 +70,7 @@ class ChapterController extends Controller
     {
         $chapter = Chapter::find($id);
         $chapter->delete();
+        toastr()->error('Chapter deleted!', 'Delete');
         return redirect()->back();
     }
 
@@ -88,6 +91,7 @@ class ChapterController extends Controller
 
             'name' => $request->name,
         ]);
+        toastr()->success('Chapter updated successfully!', 'Congrats');
         return redirect()->route('chapter.index');
     }
 }

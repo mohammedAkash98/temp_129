@@ -47,7 +47,7 @@
 
         <div class="form-group">
             <label for="lessonDescription">Description:</label>
-            <textarea class="form-control" id="lessonDescription" name="description" rows="4">{{ $lesson->description }}</textarea>
+            <textarea class="form-control" id="editor" name="description" rows="4">{{ $lesson->description }}</textarea>
             @if ($errors->has('description'))
                 <span class="text-danger">{{ $errors->first('description') }}</span>
             @endif
@@ -58,5 +58,5 @@
         </button>
     </form>
 </div>
-
+@include('backend.layouts.partials.ckeditor')
 @endsection

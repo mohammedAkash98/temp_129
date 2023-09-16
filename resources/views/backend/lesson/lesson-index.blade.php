@@ -12,7 +12,7 @@
     </div><!-- End Page Title -->
 
 
-    @if($lessons->count() == 0)
+    @if ($lessons->count() == 0)
         <div class="container mt-5 text-center">
             <h4>There is no lesson added yet.</h4>
             <a href="{{ route('lesson.create') }}" class="btn btn-primary btn-sm mb-3 text-white"><i
@@ -41,15 +41,16 @@
                         <tr>
                             <td>{{ $lesson->lesson_no_bangla }}</td>
                             <td>{{ $lesson->name ?? '' }}</td>
-                            <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ $lesson->description ?? '' }}</td>
+                            <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                {!!  $lesson->description ?? '' !!}</td>
                             <td>{{ $lesson->chapter->name ?? '' }}</td>
                             <td><img width="100" src="{{ asset('storage/lesson/' . $lesson->image) }}"
                                     alt="{{ $lesson->name }}"></td>
                             <td>
                                 <a href="{{ route('lesson.info', $lesson->id) }}" class="btn btn-info btn-sm text-white">
                                     <i class="fa-solid fa-circle-info"></i> Info</a>
-                                <a href="{{ route('lesson.edit', $lesson->id) }}"
-                                    class="btn btn-primary btn-sm text-white"> <i class="fa-solid fa-file-pen"></i> Edit</a>
+                                <a href="{{ route('lesson.edit', $lesson->id) }}" class="btn btn-primary btn-sm text-white">
+                                    <i class="fa-solid fa-file-pen"></i> Edit</a>
                                 <a href="{{ route('lesson.delete', $lesson->id) }}"
                                     class="btn btn-danger btn-sm text-white"><i class="fa-solid fa-trash"></i> Delete</a>
                             </td>

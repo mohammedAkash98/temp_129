@@ -36,6 +36,7 @@ class QuizController extends Controller
             'correct_answer' => 'required|string|max:255',
         ]);
         Quiz::create($request->all());
+        toastr()->success('Quiz created successfully!', 'Congrats');
         return redirect()->route('quiz.index');
     }
     public function info($id)
@@ -62,12 +63,14 @@ class QuizController extends Controller
         ]);
         $quiz = Quiz::where('id', $id)->first();
         $quiz->update($request->all());
+        toastr()->success('Quiz updated successfully!', 'Congrats');
         return redirect()->route('quiz.index');
     }
 
     public function delete($id)
     {
         Quiz::find($id)->delete();
+        toastr()->error('Quiz deleted!', 'Delete');
         return redirect()->back();
     }
     public function quiz_view($id)
@@ -81,26 +84,24 @@ class QuizController extends Controller
     }
     public function quiz_answer_store(Request $request)
     {
-        // dd($request->all());
-
         $chapters = Chapter::all();
         $user_id = auth()->user()->id;
         $chapter_id = Lesson::where('id', $request->lesson_id)->first()->chapter->id;
+
+
         $submitted_answers = $request->quiz;
 
-
-
         if (!Result::where('user_id', $user_id)->first()) {
-            $result =   Result::create([
+            $result = Result::create([
                 'user_id' => $user_id,
                 'lesson_id' => $request->lesson_id,
                 'chapter_id' => $chapter_id,
-
             ]);
         } else {
-            $existing_student =  Result::where('user_id', $user_id)
+            $existing_student = Result::where('user_id', $user_id)
                 ->where('lesson_id', $request->lesson_id)
-                ->where('chapter_id', $chapter_id)->first();
+                ->where('chapter_id', $chapter_id)
+                ->first();
             $existing_student->update([
                 'user_id' => $user_id,
                 'lesson_id' => $request->lesson_id,
@@ -108,11 +109,12 @@ class QuizController extends Controller
             ]);
         }
 
-        $quizzes =  Quiz::where('chapter_id', $chapter_id)->where('lesson_id', $request->lesson_id)->get();
+        $quizzes = Quiz::where('chapter_id', $chapter_id)
+            ->where('lesson_id', $request->lesson_id)
+            ->get();
 
         $correct_ans = 0;
         $wrong_ans = 0;
-
 
         if (isset($submitted_answer)) {
             foreach ($submitted_answers as $key => $submitted_answer) {
@@ -129,15 +131,22 @@ class QuizController extends Controller
             $skip_ans = count($quizzes);
         }
 
-        $result =  Result::where('user_id', $user_id)->where('lesson_id', $request->lesson_id)->where('chapter_id', $chapter_id)->first();
+        $result = Result::where('user_id', $user_id)
+            ->where('lesson_id', $request->lesson_id)
+            ->where('chapter_id', $chapter_id)
+            ->first();
         $result->update([
             'correct_ans' => $correct_ans,
             'wrong_ans' => $wrong_ans,
-            'skip_ans' => $skip_ans
+            'skip_ans' => $skip_ans,
         ]);
-        $lesson = Lesson::where('current_lesson_id', $request->lesson_id + 1)->first();
+        $lesson = Lesson::where('id', $request->lesson_id + 1)->first();
         if (isset($lesson)) {
-            $marks = Overview::where('user_id', $user_id)->where('lesson_id', $request->lesson_id)->where('chapter_id', $chapter_id)->first();
+            $marks = Overview::where('user_id', $user_id)
+                ->where('current_lesson_id', $request->lesson_id)
+                ->where('current_chapter_id', $chapter_id)
+                ->first();
+
             $marks->update([
                 'marks' => $correct_ans,
                 'current_lesson_id' => $request->lesson_id + 1,
@@ -153,9 +162,7 @@ class QuizController extends Controller
             dd('certificate page a jabe');
         }
 
-
-
-        return view('frontend.courses__lessons.result', compact('chapters'));
+        // return view('frontend.courses__lessons.result', compact('chapters'));
     }
 
     // public function   quiz_result()

@@ -45,6 +45,7 @@ Route::prefix('student')->middleware(['auth'])->group(function () {
     Route::get('/profile', [StudentController::class, 'profile'])->name('student.profile');
     Route::post('/profile/update/{id}', [StudentController::class, 'update'])->name('student.update');
     Route::get('/profile/delete/{id}', [StudentController::class, 'delete'])->name('student.delete');
+    Route::get('/certificate', [StudentController::class, 'certificate'])->name('student.certificate');
     Route::get('/about-us', [FrontendController::class, 'about_us'])->name('about-us');
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
     Route::get('/seminar', [FrontendController::class, 'seminar'])->name('seminar');
@@ -105,4 +106,4 @@ Route::prefix('pdf')->middleware(['auth'])->group(function () {
 });
 
 Route::get('/certificate', [FrontendController::class, 'certificate'])->name('certificate');
-
+Route::get('/demo', [FrontendController::class, 'demo'])->name('demo');

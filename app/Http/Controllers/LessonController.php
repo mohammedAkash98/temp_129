@@ -25,6 +25,7 @@ class LessonController extends Controller
     public function store(Request $request)
     {
 
+
         $request->validate([
             'name' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif',
@@ -43,7 +44,7 @@ class LessonController extends Controller
 
 
         Lesson::create($data);
-
+        toastr()->success('Lesson created successfully!', 'Congrats');
         return redirect()->route('lesson.index');
     }
 
@@ -57,7 +58,7 @@ class LessonController extends Controller
         }
 
         $lesson->delete();
-
+        toastr()->error('Lesson deleted!', 'Delete');
         return redirect()->back();
     }
 
@@ -91,6 +92,7 @@ class LessonController extends Controller
 
 
         Lesson::where('id', $id)->update($data);
+        toastr()->success('Lesson updated successfully!', 'Congrats');
         return redirect()->route('lesson.index');
     }
     public function info($id)

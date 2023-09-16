@@ -1,5 +1,6 @@
 @extends('frontend.courses__lessons.course_2')
 @section('course_content')
+
 <style>
     #myProgress {
       width: 100%;
@@ -69,7 +70,7 @@ span  {
             </h2>
         </div>
         <div class="col-md-12 mb-5">
-            <img class="mb-2" src="{{ asset('storage/lesson/'. auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
+            <img style="width: 100px; height:100px; border-radius:50%" class="mb-2" src="{{ asset('storage/student/'. auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
             <h4> {{ auth()->user()->name }}</h4>
         </div>
         <div class="col-md-12 mb-4">
@@ -78,6 +79,7 @@ span  {
         <div class="col-md-12 mb-5" id='myProgress'>
             <div id="myBar"></div>
         </div>
+
 <div class="row">
     <div class="col-md-12 mb-5">
         <h6 class="font-weight-bold">ফলাফল</h6>
@@ -85,21 +87,21 @@ span  {
     <div class="col-md-4" id='myProgress_1'>
         <div class="circular-progress">
             <div class="circular-bar" id="myBar_1"></div>
-            <div class="circular-label mb-2">0%</div>
+            <div class="circular-label mb-2">{{ $result->correct_ans ?? '' }}</div>
             <p class="font-weight-bold text-muted">সঠিক হয়েছে</p>
         </div>
     </div>
     <div class="col-md-4" id='myProgress_2'>
         <div class="circular-progress">
             <div class="circular-bar" id="myBar_2"></div>
-            <div class="circular-label mb-2">0%</div>
+            <div class="circular-label mb-2">{{ $result->skip_ans ?? '' }}</div>
            <p class="font-weight-bold text-muted">এড়িয়ে গিয়েছেন</p>
         </div>
     </div>
     <div class="col-md-4" id='myProgress_3'>
         <div class="circular-progress">
             <div class="circular-bar" id="myBar_3"></div>
-            <div class="circular-label mb-2">0%</div>
+            <div class="circular-label mb-2">{{ $result->wrong_ans ?? '' }}</div>
           <p class="font-weight-bold text-muted">ভুল হয়েছে</p>
         </div>
     </div>
@@ -129,8 +131,8 @@ span  {
         }
       }
       }
-
-      move(80,"myBar")
+      var barNumber = @json($result->correct_ans);
+      move(barNumber,"myBar")
 
       var i1 = 0;
 var i2 = 0;
@@ -156,7 +158,7 @@ function moveCircular(number, id, intervalVar) {
     }
 }
 
-moveCircular(80, "myBar_1", i1);
+moveCircular(3, "myBar_1", i1);
 moveCircular(50, "myBar_2", i2);
 moveCircular(25, "myBar_3", i3);
 
