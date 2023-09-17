@@ -35,7 +35,7 @@
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="<?php echo e(route('svcc.frontend.index')); ?>">SVCC</a>
                           <a class="dropdown-item" href="<?php echo e(route('activity.sheet.frontend.index')); ?>">Activity Sheet</a>
-                          <a class="dropdown-item" href="#">Others</a>
+                          <a class="dropdown-item" href="<?php echo e(route('others.frontend.index')); ?>">Others</a>
                         </div>
                       </div>
                 </li>

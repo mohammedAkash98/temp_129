@@ -187,4 +187,6 @@ Route::prefix('admin/others')->middleware(['auth', isAdmin::class])->group(funct
 Route::prefix('resource')->group(function () {
     Route::get('/svcc/index', [ResourceController::class, 'svcc_index'])->name('svcc.frontend.index');
     Route::get('/activity_sheet/index', [ResourceController::class, 'activity_sheet_index'])->name('activity.sheet.frontend.index');
+    Route::get('/others/index', [ResourceController::class, 'others_index'])->name('others.frontend.index');
+    Route::get('/others/show/{id}', [ResourceController::class, 'others_show'])->name('others.frontend.show');
 });
