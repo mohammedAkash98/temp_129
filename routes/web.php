@@ -9,6 +9,7 @@ use App\Http\Controllers\LessonController;
 use App\Http\Controllers\OtherController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SvccController;
 use App\Http\Controllers\TeamController;
@@ -166,7 +167,6 @@ Route::prefix('admin/activity_sheet')->middleware(['auth', isAdmin::class])->gro
     Route::get('/index', [ActivitySheetController::class, 'index'])->name('activity_sheet.index');
     Route::get('/create', [ActivitySheetController::class, 'create'])->name('activity_sheet.create');
     Route::post('/store', [ActivitySheetController::class, 'store'])->name('activity_sheet.store');
-    Route::get('/info/{id}', [ActivitySheetController::class, 'info'])->name('activity_sheet.info');
     Route::get('/delete/{id}', [ActivitySheetController::class, 'delete'])->name('activity_sheet.delete');
     Route::get('/edit/{id}', [ActivitySheetController::class, 'edit'])->name('activity_sheet.edit');
     Route::post('/update/{id}', [ActivitySheetController::class, 'update'])->name('activity_sheet.update');
@@ -181,4 +181,10 @@ Route::prefix('admin/others')->middleware(['auth', isAdmin::class])->group(funct
     Route::get('/delete/{id}', [OtherController::class, 'delete'])->name('other.delete');
     Route::get('/edit/{id}', [OtherController::class, 'edit'])->name('other.edit');
     Route::post('/update/{id}', [OtherController::class, 'update'])->name('other.update');
+});
+
+//resource route
+Route::prefix('resource')->group(function () {
+    Route::get('/svcc/index', [ResourceController::class, 'svcc_index'])->name('svcc.frontend.index');
+    Route::get('/activity_sheet/index', [ResourceController::class, 'activity_sheet_index'])->name('activity.sheet.frontend.index');
 });

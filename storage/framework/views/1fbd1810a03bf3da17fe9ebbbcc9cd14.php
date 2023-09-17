@@ -11,11 +11,11 @@
                 <ul class="navbar-nav ml-auto">
                 <?php if(!Auth::user()): ?>
                     <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo e(Route('dashboard')); ?>">হোম</a>
+                        <a class="nav-link" href="<?php echo e(Route('dashboard')); ?>">প্রবেশ করুন</a>
                     </li>
                 <?php else: ?>
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo e(Route('dashboard')); ?>">হোম</a>
+                    <a class="nav-link" href="<?php echo e(Route('dashboard')); ?>">ড্যাশবোর্ড</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo e(Route('courses')); ?>">কোর্স</a>
@@ -27,11 +27,19 @@
                     <a class="nav-link" href="<?php echo e(Route('seminar')); ?>">সেমিনার</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo e(Route('about-us')); ?>">আমাদের সম্পর্কে</a>
+                    
+                    <div class="btn-group">
+                        <button type="button" class="nav-link bg-light border-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            রিসোর্স
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="<?php echo e(route('svcc.frontend.index')); ?>">SVCC</a>
+                          <a class="dropdown-item" href="<?php echo e(route('activity.sheet.frontend.index')); ?>">Activity Sheet</a>
+                          <a class="dropdown-item" href="#">Others</a>
+                        </div>
+                      </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo e(Route('contact')); ?>">যোগাযোগ</a>
-                </li>
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <!-- Add a rounded image here -->
@@ -45,13 +53,13 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <?php 
-                        
+                        <?php
+
                             $name = Auth::user()->name;
                             $words = explode(' ', $name);
                             $firstName = $words[0];
                             echo $firstName;
-                            
+
                         ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="profileDropdown">
@@ -62,7 +70,7 @@
                     </div>
                 </li>
                 <?php endif; ?>
-                    
+
                 </ul>
             </div>
         </div>
