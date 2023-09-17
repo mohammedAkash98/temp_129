@@ -134,21 +134,42 @@ class QuizController extends Controller
         $wrong_ans = 0;
         $skip_ans =0;
         if (count($submitted_answers) != 0) {
-            dd($submitted_answers, $quizzes);
             foreach ($submitted_answers as $key => $submitted_answer) {
-                if ($submitted_answer == $quizzes[$key-1]->correct_answer) {
+                echo $key;
+                // dd($submitted_answers[3]);
+                // continue;
+                $db_ans = Quiz::where('id', $key)->first()->correct_ans;
+                echo $db_ans;
+                if ($submitted_answer == $db_ans) {
                     $correct_ans++;
-                } elseif ($submitted_answer != $quizzes[$key-1]) {
+                } elseif ($submitted_answer != $db_ans) {
                     $wrong_ans++;
                 }
             }
-            // dd($correct_ans);
+            // dd($submitted_answers, $quizzes, $key, 'Correct_ans: '. $correct_ans, $wrong_ans);
         }
+
+
+        // if (count($submitted_answers) != 0) {
+        //     foreach ($submitted_answers as $key => $submitted_answer) {
+        //         // echo $key;
+        //         // dd($submitted_answers[3]);
+        //         // continue;
+        //         if ($submitted_answer == $quizzes[$key]->correct_answer) {
+        //             $correct_ans++;
+        //         } elseif ($submitted_answer != $quizzes[$key]) {
+        //             $wrong_ans++;
+        //         }
+        //     }
+        //     // dd($submitted_answers, $quizzes, $key);
+        // }
+
+
         if (count($submitted_answers) != 0) {
             $skip_ans = count($quizzes) - count($submitted_answers);
         } else {
             $skip_ans = count($quizzes);
-            dd("skip");
+            // dd("skip");
         }
 
         $result = Result::where('user_id', $user_id)
