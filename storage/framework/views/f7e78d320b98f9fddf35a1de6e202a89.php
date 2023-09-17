@@ -130,6 +130,27 @@
               </li>
         </ul>
       </li>
+
+
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-navHomeContent" data-bs-toggle="collapse" href="<?php echo e(route('home_content.index')); ?>">
+            <i class="fa-solid fa-arrows-to-circle"></i><span>Home Content</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-navHomeContent" class="nav-content collapse " data-bs-parent="#sidebar-navHomeContent">
+
+            <li>
+                <a href="<?php echo e(route('home_content.index')); ?>">
+                  <i class="bi bi-circle"></i><span>Home Content List</span>
+                </a>
+              </li>
+              <li>
+                <a href="<?php echo e(route('home_content.create')); ?>">
+                  <i class="bi bi-circle"></i><span>Add Home Content</span>
+                </a>
+              </li>
+        </ul>
+      </li>
     </ul>
 
   </aside>

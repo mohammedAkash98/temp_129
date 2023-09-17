@@ -36,9 +36,17 @@ class LessonController extends Controller
 
         if ($request->image) {
             $image = $this->uploadImage($request->name, $request->image);
+            $data['image'] = $image;
+        }
+        if ($request->video) {
+            $video = $this->uploadImage($request->name, $request->video);
+            $data['video'] = $video;
         }
 
-        $data['image'] = $image;
+        if ($request->audio) {
+            $audio = $this->uploadImage($request->name, $request->audio);
+            $data['audio'] = $audio;
+        }
         $data['chapter_id'] = $request->chapter_id;
 
 
@@ -56,7 +64,12 @@ class LessonController extends Controller
         if ($lesson->image) {
             $this->unlink($lesson->image);
         }
-
+        if ($lesson->video) {
+            $this->unlink($lesson->video);
+        }
+        if ($lesson->audio) {
+            $this->unlink($lesson->audio);
+        }
         $lesson->delete();
         toastr()->error('Lesson deleted!', 'Delete');
         return redirect()->back();
@@ -85,6 +98,20 @@ class LessonController extends Controller
             $this->unlink($lesson->image);
 
             $data['image'] = $this->uploadImage($request->name, $request->image);
+        }
+        if ($request->hasFile('video')) {
+            $lesson = Lesson::where('id', $id)->first();
+
+            $this->unlink($lesson->video);
+
+            $data['video'] = $this->uploadImage($request->name, $request->video);
+        }
+        if ($request->hasFile('audio')) {
+            $lesson = Lesson::where('id', $id)->first();
+
+            $this->unlink($lesson->audio);
+
+            $data['audio'] = $this->uploadImage($request->name, $request->audio);
         }
 
         $data['chapter_id'] = $request->chapter_id;

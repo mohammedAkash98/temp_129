@@ -58,6 +58,15 @@
                 <span class="text-danger">{{ $errors->first('image') }}</span>
             @endif
         </div>
+        <div class="form-group">
+            <label for="lessonImage">Video:</label>
+            <input type="file" class="form-control-file my-3" id="lessonImage" name="video">
+        </div>
+
+        <div class="form-group">
+            <label for="lessonImage">Audio:</label>
+            <input type="file" class="form-control-file my-3" id="lessonImage" name="audio">
+        </div>
 
         <div class="form-group">
             <label for="editor">Description:</label>
