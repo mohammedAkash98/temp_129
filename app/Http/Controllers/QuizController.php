@@ -135,11 +135,11 @@ class QuizController extends Controller
         $skip_ans =0;
         if (count($submitted_answers) != 0) {
             foreach ($submitted_answers as $key => $submitted_answer) {
-                echo $key;
+                // echo $key;
                 // dd($submitted_answers[3]);
                 // continue;
-                $db_ans = Quiz::where('id', $key)->first()->correct_ans;
-                echo $db_ans;
+                $db_ans = Quiz::where('id', $key)->first()->correct_answer;
+                // dd(($submitted_answer == $db_ans), strcmp($submitted_answer, $db_ans));
                 if ($submitted_answer == $db_ans) {
                     $correct_ans++;
                 } elseif ($submitted_answer != $db_ans) {
@@ -148,21 +148,6 @@ class QuizController extends Controller
             }
             // dd($submitted_answers, $quizzes, $key, 'Correct_ans: '. $correct_ans, $wrong_ans);
         }
-
-
-        // if (count($submitted_answers) != 0) {
-        //     foreach ($submitted_answers as $key => $submitted_answer) {
-        //         // echo $key;
-        //         // dd($submitted_answers[3]);
-        //         // continue;
-        //         if ($submitted_answer == $quizzes[$key]->correct_answer) {
-        //             $correct_ans++;
-        //         } elseif ($submitted_answer != $quizzes[$key]) {
-        //             $wrong_ans++;
-        //         }
-        //     }
-        //     // dd($submitted_answers, $quizzes, $key);
-        // }
 
 
         if (count($submitted_answers) != 0) {
