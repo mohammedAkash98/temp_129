@@ -81,6 +81,19 @@ class QuizController extends Controller
             ->first();
 
         if ($completed_chapter) {
+            if($completed_chapter = Result::where('user_id', auth()->user()->id) ## Avoid This --rafi (start)
+            ->where('chapter_id', $chapter_id)
+            ->where('lesson_id', $lesson_id)
+            ->where('correct_ans', null)
+            ->where('wrong_ans', null)
+            ->where('skip_ans', null)
+            ->first()){
+                $current_lesson_id = $lesson_id;
+                $quizzes = Quiz::where('lesson_id', $current_lesson_id)->get();
+                $chapters = Chapter::all();
+                $lesson = Lesson::all();
+                return view('frontend.courses__lessons.quiz', compact('quizzes', 'chapters', 'lesson'));
+            }                                                       ## Avoid This --rafi (end)
             return view('frontend.courses__lessons.return_course');
         }
         $current_lesson_id = auth()->user()->overview->current_lesson_id;
