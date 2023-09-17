@@ -7,7 +7,9 @@ use App\Http\Controllers\LessonController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WebinarController;
 use App\Http\Middleware\isAdmin;
 use Illuminate\Support\Facades\Route;
 
@@ -107,3 +109,29 @@ Route::prefix('pdf')->middleware(['auth'])->group(function () {
 
 Route::get('/certificate', [FrontendController::class, 'certificate'])->name('certificate');
 Route::get('/demo', [FrontendController::class, 'demo'])->name('demo');
+
+
+
+//admin webinar route
+
+Route::prefix('admin/webinar')->middleware(['auth', isAdmin::class])->group(function () {
+    Route::get('/index', [WebinarController::class, 'index'])->name('webinar.index');
+    Route::get('/create', [WebinarController::class, 'create'])->name('webinar.create');
+    Route::post('/store', [WebinarController::class, 'store'])->name('webinar.store');
+
+    Route::get('/info/{id}', [WebinarController::class, 'info'])->name('webinar.info');
+    Route::get('/delete/{id}', [WebinarController::class, 'delete'])->name('webinar.delete');
+    Route::get('/edit/{id}', [WebinarController::class, 'edit'])->name('webinar.edit');
+    Route::post('/update/{id}', [WebinarController::class, 'update'])->name('webinar.update');
+});
+
+//admin team route
+Route::prefix('admin/team')->middleware(['auth', isAdmin::class])->group(function () {
+    Route::get('/index', [TeamController::class, 'index'])->name('team.index');
+    Route::get('/create', [TeamController::class, 'create'])->name('team.create');
+    Route::post('/store', [TeamController::class, 'store'])->name('team.store');
+    Route::get('/info/{id}', [TeamController::class, 'info'])->name('team.info');
+    Route::get('/delete/{id}', [TeamController::class, 'delete'])->name('team.delete');
+    Route::get('/edit/{id}', [TeamController::class, 'edit'])->name('team.edit');
+    Route::post('/update/{id}', [TeamController::class, 'update'])->name('team.update');
+});

@@ -88,6 +88,48 @@
               </li>
         </ul>
       </li>
+
+      
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-navWebinar" data-bs-toggle="collapse" href="<?php echo e(route('webinar.index')); ?>">
+            <i class="fa-solid fa-handshake"></i><span>Webinar</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-navWebinar" class="nav-content collapse " data-bs-parent="#sidebar-navWebinar">
+
+            <li>
+                <a href="<?php echo e(route('webinar.index')); ?>">
+                  <i class="bi bi-circle"></i><span>Webinar List</span>
+                </a>
+              </li>
+              <li>
+                <a href="<?php echo e(route('webinar.create')); ?>">
+                  <i class="bi bi-circle"></i><span>Add Webinar</span>
+                </a>
+              </li>
+        </ul>
+      </li>
+
+
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-navTeam" data-bs-toggle="collapse" href="<?php echo e(route('team.index')); ?>">
+            <i class="fa-solid fa-people-group"></i><span>Team</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-navTeam" class="nav-content collapse " data-bs-parent="#sidebar-navTeam">
+
+            <li>
+                <a href="<?php echo e(route('team.index')); ?>">
+                  <i class="bi bi-circle"></i><span>Team List</span>
+                </a>
+              </li>
+              <li>
+                <a href="<?php echo e(route('team.create')); ?>">
+                  <i class="bi bi-circle"></i><span>Add Team</span>
+                </a>
+              </li>
+        </ul>
+      </li>
     </ul>
 
   </aside>

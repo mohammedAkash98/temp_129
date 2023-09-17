@@ -72,12 +72,21 @@
             <textarea class="form-control" id="presentAddress" name="present_address" rows="3" ></textarea>
         </div>
 
-        <!-- Permanent Address -->
+        <!-- Division -->
         <div class="form-group">
-            <label>Permanent Address:</label>
-            <label for="presentAddress">Permanent Address:</label>
-            <textarea class="form-control" id="presentAddress" name="permanent_address" rows="3" ></textarea>
-        </div>
+            <label for="division">Division:</label>
+            <select class="form-control border border-round" name="division" placeholder='বিভাগ'>
+                <option value="" selected disabled>বিভাগ</option>
+                <option value="ঢাকা">ঢাকা</option>
+                <option value="চট্রগ্রাম">চট্রগ্রাম </option>
+                <option value="রাজশাহী">রাজশাহী</option>
+                <option value="খুলনা">খুলনা</option>
+                <option value="সিলেট">সিলেট</option>
+                <option value="বরিশাল">বরিশাল</option>
+                <option value="রংপুর">রংপুর</option>
+                <option value="ময়মনসিংহ">ময়মনসিংহ</option>
+            </select>
+            <div>
         <div class="form-group">
             <label>Nutrition Member:</label>
             <div class="form-check">

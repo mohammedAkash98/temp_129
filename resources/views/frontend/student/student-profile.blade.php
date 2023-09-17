@@ -99,8 +99,8 @@
                                 </div>
 
                                 <div class="row pb-2">
-                                    <div class="col-lg-3 col-md-4 label ">Permanent Address</div>
-                                    <div class="col-lg-9 col-md-8">{{ auth()->user()->permanent_address ?? '' }}</div>
+                                    <div class="col-lg-3 col-md-4 label ">Division</div>
+                                    <div class="col-lg-9 col-md-8">{{ auth()->user()->division ?? '' }}</div>
                                 </div>
                             </div>
 
@@ -216,12 +216,12 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="permanent_address" class="col-md-4 col-lg-3 col-form-label">
-                                            Permanent Address</label>
+                                        <label for="division" class="col-md-4 col-lg-3 col-form-label">
+                                            Division</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="permanent_address" type="text" class="form-control"
-                                                id="permanent_address"
-                                                value="{{ auth()->user()->permanent_address ?? '' }}">
+                                            <input name="division" type="text" class="form-control"
+                                                id="division"
+                                                value="{{ auth()->user()->division ?? '' }}">
                                         </div>
                                     </div>
 

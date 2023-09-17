@@ -87,8 +87,8 @@
 
                                         <select class="form-control border border-round" name="gender" placeholder='লিঙ্গ'>
                                             <option value="" selected disabled>লিঙ্গ</option>
-                                            <option value="male">্পুরুষ</option>
-                                            <option value="female">মহিলা</option>
+                                            <option value="পুরুষ">পুরুষ</option>
+                                            <option value="মহিলা">মহিলা</option>
                                         </select>
                                         <div>
                                             <?php if($errors->has('gender')): ?>
@@ -149,12 +149,22 @@
                                     </div>
 
 
-                                    <!-- Permanent Address -->
+                                    <!-- Division Address -->
                                     <div class="col-md-12">
-                                        <input class="form-control border border-round p-3" placeholder='স্থায়ী ঠিকানা' id="presentAddress" name="permanent_address" rows="3"></ই>
+                                        <select class="form-control border border-round" name="division" placeholder='বিভাগ'>
+                                            <option value="" selected disabled>বিভাগ</option>
+                                            <option value="ঢাকা">ঢাকা</option>
+                                            <option value="চট্রগ্রাম">চট্রগ্রাম </option>
+                                            <option value="রাজশাহী">রাজশাহী</option>
+                                            <option value="খুলনা">খুলনা</option>
+                                            <option value="সিলেট">সিলেট</option>
+                                            <option value="বরিশাল">বরিশাল</option>
+                                            <option value="রংপুর">রংপুর</option>
+                                            <option value="ময়মনসিংহ">ময়মনসিংহ</option>
+                                        </select>
                                         <div>
-                                            <?php if($errors->has('permanent_address')): ?>
-                                                <span class="text-danger"><?php echo e($errors->first('parmanent_address')); ?></span>
+                                            <?php if($errors->has('division')): ?>
+                                                <span class="text-danger"><?php echo e($errors->first('division')); ?></span>
                                             <?php endif; ?>
                                         </div>
                                     </div>

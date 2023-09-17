@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('phone_no');
             $table->string('password');
             $table->text('present_address');
-            $table->text('permanent_address');
+            $table->string('division');
             $table->string('is_club_member');
             $table->string('image')->nullable();
             $table->timestamp('email_verified_at')->nullable();
