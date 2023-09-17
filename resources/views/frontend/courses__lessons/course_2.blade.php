@@ -23,14 +23,16 @@
 
         <div class="row m-0">
             <!-- side navbar -->
-          @include('frontend.courses__lessons.courses_sidebar')
-
-
+            @include('frontend.courses__lessons.courses_sidebar')
 
             <!-- Main content -->
             <main class="col-md-8 col-lg-8 ms-sm-auto px-md-4">
                 <div class="tab-content" id="v-pills-tabContent">
-                    @yield('course_content')
+                    <div class="col-12" id="div1">
+                        <div class="card border-0">
+                            @yield('course_content')
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>
