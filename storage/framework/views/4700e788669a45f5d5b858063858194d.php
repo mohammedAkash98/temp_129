@@ -4,7 +4,7 @@
     #myProgress {
       width: 100%;
       background-color: #ddd;
-
+      border-radius: 25px;
     }
 span  {
     color: orangered;
@@ -13,7 +13,8 @@ span  {
       width: 1%;
       height: 30px;
       background-color: #04AA6D;
-
+      border-radius: 25px;
+      margin-left: -14px;
     }
 
     .circular-progress {
@@ -60,6 +61,7 @@ span  {
 <div class="container">
     <div class="row text-center bg-light py-5 px-4">
         <div class="col-md-12 mb-3">
+            <?php if($star == 5): ?>
             <h2>
                 <span><i class="lni lni-star-fill"></i></span>
                 <span><i class="lni lni-star-fill"></i></span>
@@ -67,6 +69,24 @@ span  {
                 <span><i class="lni lni-star-fill"></i></span>
                 <span><i class="lni lni-star-fill"></i></span>
             </h2>
+            <?php elseif($star == 4): ?>
+            <h2>
+                <span><i class="lni lni-star-fill"></i></span>
+                <span><i class="lni lni-star-fill"></i></span>
+                <span><i class="lni lni-star-fill"></i></span>
+                <span><i class="lni lni-star-fill"></i></span>
+
+            </h2>
+            <?php elseif($star == 3): ?>
+            <h2>
+                <span><i class="lni lni-star-fill"></i></span>
+                <span><i class="lni lni-star-fill"></i></span>
+                <span><i class="lni lni-star-fill"></i></span>
+
+
+            </h2>
+            <?php endif; ?>
+
         </div>
         <div class="col-md-12 mb-5">
             <img style="width: 100px; height:100px; border-radius:50%" class="mb-2" src="<?php echo e(asset('storage/student/'. auth()->user()->image)); ?>" alt="<?php echo e(auth()->user()->name); ?>">
@@ -75,9 +95,15 @@ span  {
         <div class="col-md-12 mb-4">
             <h4 class="text-success font-weight-bold">আপনার মূল্যায়নে অংশগ্রহন সম্পন্ন হয়েছে!</h4>
         </div>
-        <div class="col-md-12 mb-5" id='myProgress'>
-            <div id="myBar"></div>
-        </div>
+
+            <div class="col-md-12 mb-3" id='myProgress'>
+                <div  id="myBar"></div>
+            </div>
+           <div class="col-md-12">
+            <h4 class="text-center mb-5"><strong><?php echo e($correct_percentage); ?>%</strong></h4>
+           </div>
+
+
 
 <div class="row">
     <div class="col-md-12 mb-5">
@@ -86,21 +112,21 @@ span  {
     <div class="col-md-4" id='myProgress_1'>
         <div class="circular-progress">
             <div class="circular-bar" id="myBar_1"></div>
-            <div class="circular-label mb-2"><?php echo e($result->correct_ans ?? ''); ?></div>
+            <div class="circular-label mb-2"><?php echo e($correct_percentage ?? ''); ?>%</div>
             <p class="font-weight-bold text-muted">সঠিক হয়েছে</p>
         </div>
     </div>
     <div class="col-md-4" id='myProgress_2'>
         <div class="circular-progress">
             <div class="circular-bar" id="myBar_2"></div>
-            <div class="circular-label mb-2"><?php echo e($result->skip_ans ?? ''); ?></div>
+            <div class="circular-label mb-2"><?php echo e($skip_percentage  ?? ''); ?>%</div>
            <p class="font-weight-bold text-muted">এড়িয়ে গিয়েছেন</p>
         </div>
     </div>
     <div class="col-md-4" id='myProgress_3'>
         <div class="circular-progress">
             <div class="circular-bar" id="myBar_3"></div>
-            <div class="circular-label mb-2"><?php echo e($result->wrong_ans ?? ''); ?></div>
+            <div class="circular-label mb-2"><?php echo e($wrong_percentage ?? ''); ?>%</div>
           <p class="font-weight-bold text-muted">ভুল হয়েছে</p>
         </div>
     </div>
@@ -111,9 +137,11 @@ span  {
     </div>
 </div>
 <script>
+
     var i = 0;
 
       function move(number,id){
+
         if (i == 0) {
         i = 1;
         var elem = document.getElementById(id);
@@ -130,36 +158,37 @@ span  {
         }
       }
       }
-      var barNumber = <?php echo json_encode($result->correct_ans, 15, 512) ?>;
+      var barNumber = <?php echo json_encode($correct_percentage, 15, 512) ?>;
       move(barNumber,"myBar")
 
       var i1 = 0;
 var i2 = 0;
 var i3 = 0;
 
-function moveCircular(number, id, intervalVar) {
+function moveCircular(percentage, id, intervalVar) {
     var elem = document.getElementById(id);
     var bar = elem.querySelector(".circular-bar");
     var label = elem.querySelector(".circular-label");
     var currentWidth = parseInt(bar.style.clip.match(/\d+/)[0]);
-    var frameInterval = number / 100;
+    var frameInterval = percentage / 100;
 
     intervalVar = setInterval(frame, 10);
 
     function frame() {
-        if (currentWidth >= number) {
+        if (currentWidth >= percentage) {
             clearInterval(intervalVar);
         } else {
             currentWidth += frameInterval;
             bar.style.clip = `rect(0px, 50px, 100px, ${currentWidth}px)`;
-            label.textContent = Math.round((currentWidth / 100) * 100) + "%";
+            label.textContent = Math.round((currentWidth / 100) * percentage) + "%";
         }
     }
 }
 
-moveCircular(3, "myBar_1", i1);
-moveCircular(50, "myBar_2", i2);
-moveCircular(25, "myBar_3", i3);
+moveCircular($correct_percentage, "myBar_1", i1);
+moveCircular($wrong_percentage, "myBar_2", i2);
+moveCircular($skip_percentage, "myBar_3", i3);
+
 
     </script>
 <?php $__env->stopSection(); ?>

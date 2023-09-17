@@ -1,7 +1,7 @@
 <?php $__env->startSection('course_content'); ?>
     <div>
         <?php if($lesson->image): ?>
-            <img class="w-100 mb-2" src="<?php echo e(asset('storage/lesson/' . $lesson->image)); ?>" alt="">
+            <img class="w-100 mb-2" src="<?php echo e(asset('storage/lesson/' . $lesson->image)); ?>" alt="<?php echo e($lesson->name); ?>">
         <?php endif; ?>
         <?php if($lesson->audio): ?>
             <audio class="w-100 mb-2" controls>

@@ -16,59 +16,57 @@
                                 <h3><?php echo e($quiz->question); ?></h3>
                             </div>
 
-                            <div class="col-md-12 my-4 text-center">
+                                <div class="col-md-12 my-4 text-center">
 
-                                <div class="col-md-12 my-2 rounded-pill py-2" style="background-color: #f8f9fa"
-                                    id="input1">
-                                    <span class="float-left">
-                                        <input type="radio" class="d-inline-block" name="quiz[<?php echo e($quiz->id); ?>]"
-                                            id="quiz_option_<?php echo e($quiz->id); ?>_1" value="<?php echo e($quiz->option_1); ?>">
-                                    </span>
-                                    <label class="m-0"
-                                        for="quiz_option_<?php echo e($quiz->id); ?>_1"><?php echo e($quiz->option_1); ?></label>
+                                    <div class="col-md-12 my-2 rounded-pill py-2" style="background-color: #f8f9fa"
+                                        id="input1">
+                                        <span class="float-left">
+                                            <input type="radio" class="d-inline-block" name="quiz[<?php echo e($quiz->id); ?>]"
+                                                id="quiz_option_<?php echo e($quiz->id); ?>_1" value="<?php echo e($quiz->option_1); ?>">
+                                        </span>
+                                        <label class="m-0"
+                                            for="quiz_option_<?php echo e($quiz->id); ?>_1"><?php echo e($quiz->option_1); ?></label>
+                                    </div>
+
+                                    <div class="col-md-12 my-2  rounded-pill py-2" style="background-color: #f8f9fa"
+                                        id="input2">
+                                        <span class="float-left">
+                                            <input class="d-inline-block" type="radio" name="quiz[<?php echo e($quiz->id); ?>]"
+                                                id="quiz_option_<?php echo e($quiz->id); ?>_2" value="<?php echo e($quiz->option_2); ?>">
+                                        </span>
+                                        <label class="m-0"
+                                            for="quiz_option_<?php echo e($quiz->id); ?>_2"><?php echo e($quiz->option_2); ?></label>
+                                    </div>
+
+                                    <div class="col-md-12 my-2   rounded-pill py-2" style="background-color: #f8f9fa"
+                                        id="input3">
+                                        <span class="float-left">
+                                            <input class="d-inline-block" type="radio" name="quiz[<?php echo e($quiz->id); ?>]"
+                                                id="quiz_option_<?php echo e($quiz->id); ?>_3" value="<?php echo e($quiz->option_3); ?>">
+                                        </span>
+                                        <label class="m-0"
+                                            for="quiz_option_<?php echo e($quiz->id); ?>_3"><?php echo e($quiz->option_3); ?></label>
+                                    </div>
+
+                                    <div class="col-md-12 my-2  rounded-pill py-2" style="background-color: #f8f9fa"
+                                        id="input4">
+                                        <span class="float-left">
+                                            <input class="d-inline-block" type="radio" name="quiz[<?php echo e($quiz->id); ?>]"
+                                                id="quiz_option_<?php echo e($quiz->id); ?>_4" value="<?php echo e($quiz->option_4); ?>">
+                                        </span>
+                                        <label class="m-0"
+                                            for="quiz_option_<?php echo e($quiz->id); ?>_4"><?php echo e($quiz->option_4); ?></label>
+                                    </div>
                                 </div>
 
-                                <div class="col-md-12 my-2  rounded-pill py-2" style="background-color: #f8f9fa"
-                                    id="input2">
-                                    <span class="float-left">
-                                        <input class="d-inline-block" type="radio" name="quiz[<?php echo e($quiz->id); ?>]"
-                                            id="quiz_option_<?php echo e($quiz->id); ?>_2" value="<?php echo e($quiz->option_2); ?>">
-                                    </span>
-                                    <label class="m-0"
-                                        for="quiz_option_<?php echo e($quiz->id); ?>_2"><?php echo e($quiz->option_2); ?></label>
-                                </div>
-
-                                <div class="col-md-12 my-2   rounded-pill py-2" style="background-color: #f8f9fa"
-                                    id="input3">
-                                    <span class="float-left">
-                                        <input class="d-inline-block" type="radio" name="quiz[<?php echo e($quiz->id); ?>]"
-                                            id="quiz_option_<?php echo e($quiz->id); ?>_3" value="<?php echo e($quiz->option_3); ?>">
-                                    </span>
-                                    <label class="m-0"
-                                        for="quiz_option_<?php echo e($quiz->id); ?>_3"><?php echo e($quiz->option_3); ?></label>
-                                </div>
-
-                                <div class="col-md-12 my-2  rounded-pill py-2" style="background-color: #f8f9fa"
-                                    id="input4">
-                                    <span class="float-left">
-                                        <input class="d-inline-block" type="radio" name="quiz[<?php echo e($quiz->id); ?>]"
-                                            id="quiz_option_<?php echo e($quiz->id); ?>_4" value="<?php echo e($quiz->option_4); ?>">
-                                    </span>
-                                    <label class="m-0"
-                                        for="quiz_option_<?php echo e($quiz->id); ?>_4"><?php echo e($quiz->option_4); ?></label>
-                                </div>
+                                <span onclick="nextQues()" id=<?php echo e('next' . $key); ?> role="button"
+                                    class="btn btn-sm bg-danger text-white float-left">পরবর্তী</span>
                             </div>
-
-                            <span onclick="nextQues()" id=<?php echo e('next' . $key); ?> role="button"
-                                class="btn btn-sm bg-danger text-white float-right">পরবর্তী</span>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </div>
-                        <button type="submit" class="btn btn-sm btn-success text-white d-none">সংরক্ষন
-                            করুন</button>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-
+                    <button type="submit" id="btn-submit" class="btn btn-sm btn-success text-white d-none">সংরক্ষন
+                        করুন</button>
                 </div>
-                <button type="submit">save</button>
             </form>
         </div>
 
@@ -88,7 +86,6 @@
         function nextQues() {
 
             if (i >= 1 && i <= count) {
-
                 document.getElementById('question' + i).style.display = "block";
                 document.getElementById('question' + (i - 1)).style.display = "none";
 
