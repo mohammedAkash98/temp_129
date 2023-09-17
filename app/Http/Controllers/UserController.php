@@ -22,11 +22,11 @@ class UserController extends Controller
             'age' => 'required|integer|min:1',
             'school_name' => 'required|string',
             'class' => 'required|string',
-            'gender' => 'required|in:male,female',
+            'gender' => 'required',
             'phone_no' => 'required|string|max:20|unique:users',
             'password' => 'required|string|min:8',
             'present_address' => 'required|string',
-            'permanent_address' => 'required|string',
+            'division' => 'required',
             'is_club_member' => 'required|in:yes,no',
         ]);
 
@@ -41,7 +41,7 @@ class UserController extends Controller
                 'phone_no' => $request->phone_no,
                 'password' => bcrypt($request->password),
                 'present_address' => $request->present_address,
-                'permanent_address' => $request->permanent_address,
+                'division' => $request->division,
                 'is_club_member' => $request->is_club_member,
             ]);
             toastr()->success('একাউন্ট তৈরী করা হয়েছে!', 'অভিনন্দন');
@@ -65,12 +65,16 @@ class UserController extends Controller
 
         $credentials = $request->only('phone_no', 'password');
 
-        if (Auth::attempt($credentials)) {
-            if (auth()->user()->type === 'student') {
-                return redirect()->route('dashboard');
-            } else {
-                return redirect()->route('admin');
+        try {
+            if (Auth::attempt($credentials)) {
+                if (auth()->user()->type === 'student') {
+                    return redirect()->route('dashboard');
+                } else {
+                    return redirect()->route('admin');
+                }
             }
+        } catch (Exception $e) {
+            dd($e->getMessage());
         }
     }
 
@@ -137,7 +141,7 @@ class UserController extends Controller
             'phone_no' => 'required|string|max:20',
             'password' => 'required|string|min:8',
             'present_address' => 'required|string',
-            'permanent_address' => 'required|string',
+            'division' => 'required|string',
             'is_club_member' => 'required|in:yes,no',
         ]);
 
@@ -152,7 +156,7 @@ class UserController extends Controller
                 'phone_no' => $request->phone_no,
                 'password' => bcrypt($request->password),
                 'present_address' => $request->present_address,
-                'permanent_address' => $request->permanent_address,
+                'division' => $request->division,
                 'is_club_member' => $request->is_club_member,
             ]);
             toastr()->success('User created successfully', 'Congrats');
