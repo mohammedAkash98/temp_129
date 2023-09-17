@@ -14,7 +14,7 @@
                <tr>
                 <td>{{ ++$sl }}</td>
 
-                <td><a href="{{ asset('storage/activity_sheet/'. $activity_sheet->pdf) }}" target="_blank">{{ $activity_sheet->pdf }}</a></td>
+                <td><a href="{{ asset('storage/activity_sheet/'. $activity_sheet->pdf) }}" target="_blank">{{ $activity_sheet->pdf ?? '' }}</a></td>
                 <td><a href="{{ asset('storage/activity_sheet/'. $activity_sheet->pdf) }}" target="_blank" class="btn btn-info btn-sm"><i class="lni lni-eye"></i> View</a></td>
                </tr>
                 @endforeach
