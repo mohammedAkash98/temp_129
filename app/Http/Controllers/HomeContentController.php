@@ -55,6 +55,7 @@ class HomeContentController extends Controller
     {
 
         $data = $request->except('_token');
+        $data['user_id'] = auth()->user()->id;
         HomeContent::where('id', $id)->update($data);
         toastr()->success('Home content updated successfully!', 'Congrats');
         return redirect()->route('home_content.index');

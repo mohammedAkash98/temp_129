@@ -57,4 +57,18 @@ class User extends Authenticatable
     {
         return $this->hasMany(HomeContent::class);
     }
+
+    public function svccs()
+    {
+        return $this->hasMany(Svcc::class);
+    }
+    public function activity_sheets()
+    {
+        return $this->hasMany(ActivitySheet::class);
+    }
+
+    public function others()
+    {
+        return $this->hasMany(Other::class);
+    }
 }

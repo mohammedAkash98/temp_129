@@ -2,7 +2,7 @@
 @section('course_content')
     <div>
         @if ($lesson->image)
-            <img class="w-100 mb-2" src="{{ asset('storage/lesson/' . $lesson->image) }}" alt="">
+            <img class="w-100 mb-2" src="{{ asset('storage/lesson/' . $lesson->image) }}" alt="{{ $lesson->name }}">
         @endif
         @if ($lesson->audio)
             <audio class="w-100 mb-2" controls>
