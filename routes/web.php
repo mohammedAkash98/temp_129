@@ -1,13 +1,16 @@
 <?php
 
+use App\Http\Controllers\ActivitySheetController;
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeContentController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\OtherController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SvccController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebinarController;
@@ -147,4 +150,35 @@ Route::prefix('admin/home_content')->middleware(['auth', isAdmin::class])->group
     Route::get('/delete/{id}', [HomeContentController::class, 'delete'])->name('home_content.delete');
     Route::get('/edit/{id}', [HomeContentController::class, 'edit'])->name('home_content.edit');
     Route::post('/update/{id}', [HomeContentController::class, 'update'])->name('home_content.update');
+});
+//admin svcc route
+Route::prefix('admin/svcc')->middleware(['auth', isAdmin::class])->group(function () {
+    Route::get('/index', [SvccController::class, 'index'])->name('svcc.index');
+    Route::get('/create', [SvccController::class, 'create'])->name('svcc.create');
+    Route::post('/store', [SvccController::class, 'store'])->name('svcc.store');
+    Route::get('/info/{id}', [SvccController::class, 'info'])->name('svcc.info');
+    Route::get('/delete/{id}', [SvccController::class, 'delete'])->name('svcc.delete');
+    Route::get('/edit/{id}', [SvccController::class, 'edit'])->name('svcc.edit');
+    Route::post('/update/{id}', [SvccController::class, 'update'])->name('svcc.update');
+});
+//admin activity sheet route
+Route::prefix('admin/activity_sheet')->middleware(['auth', isAdmin::class])->group(function () {
+    Route::get('/index', [ActivitySheetController::class, 'index'])->name('activity_sheet.index');
+    Route::get('/create', [ActivitySheetController::class, 'create'])->name('activity_sheet.create');
+    Route::post('/store', [ActivitySheetController::class, 'store'])->name('activity_sheet.store');
+    Route::get('/info/{id}', [ActivitySheetController::class, 'info'])->name('activity_sheet.info');
+    Route::get('/delete/{id}', [ActivitySheetController::class, 'delete'])->name('activity_sheet.delete');
+    Route::get('/edit/{id}', [ActivitySheetController::class, 'edit'])->name('activity_sheet.edit');
+    Route::post('/update/{id}', [ActivitySheetController::class, 'update'])->name('activity_sheet.update');
+});
+
+//admin others  route
+Route::prefix('admin/others')->middleware(['auth', isAdmin::class])->group(function () {
+    Route::get('/index', [OtherController::class, 'index'])->name('other.index');
+    Route::get('/create', [OtherController::class, 'create'])->name('other.create');
+    Route::post('/store', [OtherController::class, 'store'])->name('other.store');
+    Route::get('/info/{id}', [OtherController::class, 'info'])->name('other.info');
+    Route::get('/delete/{id}', [OtherController::class, 'delete'])->name('other.delete');
+    Route::get('/edit/{id}', [OtherController::class, 'edit'])->name('other.edit');
+    Route::post('/update/{id}', [OtherController::class, 'update'])->name('other.update');
 });
