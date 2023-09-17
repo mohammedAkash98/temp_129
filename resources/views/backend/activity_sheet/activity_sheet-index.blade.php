@@ -39,9 +39,9 @@
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $activity_sheet->name ?? '' }}</td>
-                            <td><a href="{{route('activity_sheet.info', $activity_sheet->id)  }}">{{ $activity_sheet->pdf }}</a></td>
+                            <td><a href="{{ asset('storage/activity_sheet/'. $activity_sheet->pdf) }}" target="_blank">{{ $activity_sheet->pdf }}</a></td>
                             <td>
-                                <a href="{{ route('activity_sheet.info', $activity_sheet->id) }}" class="btn btn-info btn-sm text-white">
+                                <a href="{{ asset('storage/activity_sheet/'. $activity_sheet->pdf) }}" target="_blank" class="btn btn-info btn-sm text-white">
                                     <i class="fa-solid fa-circle-info"></i> Info</a>
                                 <a href="{{ route('activity_sheet.edit', $activity_sheet->id) }}" class="btn btn-primary btn-sm text-white"> <i
                                     class="fa-solid fa-file-pen"></i> Edit</a>

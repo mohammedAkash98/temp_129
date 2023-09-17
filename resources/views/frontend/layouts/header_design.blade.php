@@ -33,8 +33,8 @@
                             রিসোর্স
                         </button>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">SVCC</a>
-                          <a class="dropdown-item" href="#">Activity Sheet</a>
+                          <a class="dropdown-item" href="{{ route('svcc.frontend.index') }}">SVCC</a>
+                          <a class="dropdown-item" href="{{ route('activity.sheet.frontend.index') }}">Activity Sheet</a>
                           <a class="dropdown-item" href="#">Others</a>
                         </div>
                       </div>
@@ -58,13 +58,13 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        @php 
-                        
+                        @php
+
                             $name = Auth::user()->name;
                             $words = explode(' ', $name);
                             $firstName = $words[0];
                             echo $firstName;
-                            
+
                         @endphp
                     </a>
                     <div class="dropdown-menu" aria-labelledby="profileDropdown">
@@ -75,7 +75,7 @@
                     </div>
                 </li>
                 @endif
-                    
+
                 </ul>
             </div>
         </div>
