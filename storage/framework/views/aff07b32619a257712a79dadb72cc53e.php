@@ -63,6 +63,8 @@
                     <!-- Add more rows as needed -->
                 </tbody>
             </table>
+            <?php echo e($webinars->links('pagination::bootstrap-4')); ?>
+
         </div>
     <?php endif; ?>
 

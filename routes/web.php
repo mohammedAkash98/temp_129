@@ -3,6 +3,7 @@
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\HomeContentController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\QuizController;
@@ -45,6 +46,7 @@ Route::prefix('student')->middleware(['auth'])->group(function () {
     Route::post('/courses/lesson/quiz/store', [QuizController::class, 'quiz_answer_store'])->name('quiz.answer.store');
     Route::get('/courses/lesson/quiz/result', [QuizController::class, 'quiz_result'])->name('quiz.result');
     Route::get('/profile', [StudentController::class, 'profile'])->name('student.profile');
+    Route::post('/profile/password/update/{id}', [StudentController::class, 'profile_password_update'])->name('student.profile.password.update');
     Route::post('/profile/update/{id}', [StudentController::class, 'update'])->name('student.update');
     Route::get('/profile/delete/{id}', [StudentController::class, 'delete'])->name('student.delete');
     Route::get('/certificate', [StudentController::class, 'certificate'])->name('student.certificate');
@@ -134,4 +136,15 @@ Route::prefix('admin/team')->middleware(['auth', isAdmin::class])->group(functio
     Route::get('/delete/{id}', [TeamController::class, 'delete'])->name('team.delete');
     Route::get('/edit/{id}', [TeamController::class, 'edit'])->name('team.edit');
     Route::post('/update/{id}', [TeamController::class, 'update'])->name('team.update');
+});
+
+//admin home content route
+Route::prefix('admin/home_content')->middleware(['auth', isAdmin::class])->group(function () {
+    Route::get('/index', [HomeContentController::class, 'index'])->name('home_content.index');
+    Route::get('/create', [HomeContentController::class, 'create'])->name('home_content.create');
+    Route::post('/store', [HomeContentController::class, 'store'])->name('home_content.store');
+    Route::get('/info/{id}', [HomeContentController::class, 'info'])->name('home_content.info');
+    Route::get('/delete/{id}', [HomeContentController::class, 'delete'])->name('home_content.delete');
+    Route::get('/edit/{id}', [HomeContentController::class, 'edit'])->name('home_content.edit');
+    Route::post('/update/{id}', [HomeContentController::class, 'update'])->name('home_content.update');
 });

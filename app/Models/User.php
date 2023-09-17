@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Webinar::class);
     }
+
+    public function homeContents()
+    {
+        return $this->hasMany(HomeContent::class);
+    }
 }
