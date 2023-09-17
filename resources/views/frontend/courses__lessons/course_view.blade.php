@@ -1,10 +1,26 @@
 @extends('frontend.courses__lessons.course_2')
 
 @section('course_content')
-    <img src="{{ asset('storage/lesson/' . $lesson->image) }}" class="card-img-top" alt="...">
 
     <div class="card-body">
+        @if ($lesson->image)
+            <img class="w-100 mb-2" src="{{ asset('storage/lesson/' . $lesson->image) }}" alt="{{ $lesson->name }}">
+        @endif
+        @if ($lesson->audio)
+            <audio class="w-100 mb-2" controls>
+                <source src="{{ asset('storage/lesson/' . $lesson->audio) }}" type="audio/mpeg">
+            </audio>
+        @endif
+
+        @if ($lesson->video)
+            <video class="w-100 mb-2" controls>
+                <source src="{{ asset('storage/lesson/' . $lesson->video) }}" type="video/mp4">
+
+            </video>
+        @endif
+
         <h3 class="mb-3"><b>{{ $lesson->name }}</b></h3>
+        
         <p class="card-text mb-3">
             {!! $lesson->header_description !!}
             <a data-toggle="collapse" href="#collapseExample1_1" role="button" aria-expanded="false"
@@ -46,13 +62,10 @@
                 href="{{ route('quiz.view', ['chapter_id' => $lesson->chapter->id, 'lesson_id' => $lesson->id]) }}">
                 নিজেকে যাচাই করুন</a>
         </div>
-
     </div>
-
-    {{-- <img class="w-100 mb-2" alt="">
-    <h2 class="mb-3"> <b> </b> </h2>
-    <p>{!! $lesson->description !!}</p>
+        {{-- <p>{!! $lesson->description !!}</p>
     <div style="text-align: right;">
-
+        <a href="{{ route('quiz.view', ['chapter_id' => $lesson->chapter->id, 'lesson_id' => $lesson->id]) }}"
+            class="btn btn-success btn-sm">নিজেকে যাচাই করুন</a>
     </div> --}}
-@endsection
+    @endsection

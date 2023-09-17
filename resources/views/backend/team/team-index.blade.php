@@ -64,6 +64,7 @@
                     <!-- Add more rows as needed -->
                 </tbody>
             </table>
+            {{ $teams->links('pagination::bootstrap-4') }}
         </div>
     @endif
 

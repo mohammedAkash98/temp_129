@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lessons', function (Blueprint $table) {
+        Schema::create('others', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('chapter_id');
-            $table->string('name');
-            $table->string('lesson_no_bangla')->nullable();
-            $table->text('header_description')->nullable();
-            $table->text('description');
+            $table->unsignedBigInteger('user_id');
+            $table->string('url')->nullable();
             $table->string('image')->nullable();
-            $table->string('audio')->nullable();
-            $table->string('video')->nullable();
+            $table->text('description')->nullable();
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lessons');
+        Schema::dropIfExists('others');
     }
 };

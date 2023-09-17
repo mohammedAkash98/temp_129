@@ -219,8 +219,7 @@
                                         <label for="division" class="col-md-4 col-lg-3 col-form-label">
                                             Division</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="division" type="text" class="form-control"
-                                                id="division"
+                                            <input name="division" type="text" class="form-control" id="division"
                                                 value="{{ auth()->user()->division ?? '' }}">
                                         </div>
                                     </div>
@@ -238,34 +237,40 @@
 
                             {{-- profile password change --}}
                             <div class="tab-pane fade profile-change-password pt-3" id="profile-change-password">
-                                <form action="{{ route('student.update', auth()->user()->id) }}" method="POST"
-                                    enctype="multipart/form-data">
+                                <form action="{{ route('student.profile.password.update', auth()->user()->id) }}"
+                                    method="POST">
                                     @csrf
 
                                     <div class="row mb-3">
-                                        <label for="new-pass" class="col-md-4 col-lg-3 col-form-label"> New
+                                        <label for="new_password" class="col-md-4 col-lg-3 col-form-label"> New
                                             Password</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="new-pass" type="text" class="form-control" id="new-pass"
-                                                value="">
+                                            <input name="new_password" type="password" class="form-control"
+                                                id="new_password" >
+                                                @if ($errors->has('new_password'))
+                                                <span class="text-danger">{{ $errors->first('new_password') }}</span>
+                                            @endif
+                                        </div>
+                                        <div>
+
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="con-pass" class="col-md-4 col-lg-3 col-form-label"> Confirm
-                                            Password</label>
+                                        <label for="con-pass" class="col-md-4 col-lg-3 col-form-label"> Confirm Password</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="confirm-pass" type="text" class="form-control"
-                                                id="confirm-pass" value="">
+                                            <input name="new_password_confirmation" type="password" class="form-control" id="new_password_confirmation">
+
                                         </div>
+                                        <div></div>
                                     </div>
 
                                     <div class="row mb-3">
                                         <label for="old-pass" class="col-md-4 col-lg-3 col-form-label"> Old Password
                                         </label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="old-pass" type="text" class="form-control" id="old-pass"
-                                                value="">
+                                            <input name="old_password" type="password" class="form-control"
+                                                id="old-pass" value="">
                                         </div>
                                     </div>
 

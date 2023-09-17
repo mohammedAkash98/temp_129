@@ -66,12 +66,15 @@ class UserController extends Controller
         $credentials = $request->only('phone_no', 'password');
 
         try {
-            if (Auth::attempt($credentials)) {
+            if (Auth::attempt(['phone_no' => $request->input('phone_no'), 'password' => $request->input('password')])) {
                 if (auth()->user()->type === 'student') {
                     return redirect()->route('dashboard');
                 } else {
                     return redirect()->route('admin');
                 }
+            } else {
+                toastr()->error('আপনার একাউন্টের তথ্য সঠিক নয়!', 'দুঃখিত');
+                return redirect()->back();
             }
         } catch (Exception $e) {
             dd($e->getMessage());

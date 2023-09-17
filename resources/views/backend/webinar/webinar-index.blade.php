@@ -64,6 +64,7 @@
                     <!-- Add more rows as needed -->
                 </tbody>
             </table>
+            {{ $webinars->links('pagination::bootstrap-4') }}
         </div>
     @endif
 

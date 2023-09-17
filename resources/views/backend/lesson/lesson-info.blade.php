@@ -18,7 +18,20 @@
                 <!-- Single Lesson Card -->
                 <div class="col-md-12 mx-auto">
                     <div class="card">
-                        <img width="100" src="{{ asset('storage/lesson/'. $lesson->image) }}" class="card-img-top" alt="{{ $lesson->name }}">
+                       @if($lesson->image)
+                       <img class="w-100" src="{{ asset('storage/lesson/'. $lesson->image) }}" class="card-img-top" alt="{{ $lesson->name }}">
+                       @endif
+                       @if ($lesson->audio)
+                       <audio class="w-100 mb-2" controls>
+                           <source src="{{ asset('storage/lesson/' . $lesson->audio) }}" type="audio/mpeg">
+                       </audio>
+                   @endif
+                   @if ($lesson->video)
+                   <video class="w-100 mb-2" controls>
+                       <source src="{{ asset('storage/lesson/' . $lesson->video) }}" type="video/mp4">
+
+                   </video>
+               @endif
                         <div class="card-body">
                             <h5 class="card-title">{{ $lesson->name }}</h5>
                             <p class="card-text">{!! $lesson->description !!}</p>
