@@ -17,20 +17,7 @@
                 <!-- Single Lesson Card -->
                 <div class="col-md-12 mx-auto">
                     <div class="card">
-                       <?php if($lesson->image): ?>
-                       <img class="w-100" src="<?php echo e(asset('storage/lesson/'. $lesson->image)); ?>" class="card-img-top" alt="<?php echo e($lesson->name); ?>">
-                       <?php endif; ?>
-                       <?php if($lesson->audio): ?>
-                       <audio class="w-100 mb-2" controls>
-                           <source src="<?php echo e(asset('storage/lesson/' . $lesson->audio)); ?>" type="audio/mpeg">
-                       </audio>
-                   <?php endif; ?>
-                   <?php if($lesson->video): ?>
-                   <video class="w-100 mb-2" controls>
-                       <source src="<?php echo e(asset('storage/lesson/' . $lesson->video)); ?>" type="video/mp4">
-
-                   </video>
-               <?php endif; ?>
+                        <img width="100" src="<?php echo e(asset('storage/lesson/'. $lesson->image)); ?>" class="card-img-top" alt="<?php echo e($lesson->name); ?>">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo e($lesson->name); ?></h5>
                             <p class="card-text"><?php echo $lesson->description; ?></p>

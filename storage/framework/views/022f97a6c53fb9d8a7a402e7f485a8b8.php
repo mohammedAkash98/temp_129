@@ -43,14 +43,7 @@
         <?php endif; ?>
           </div>
         </div>
-        <div class="form-group">
-            <label for="lessonImage">Video:</label>
-            <input type="file" class="form-control-file my-3" id="lessonImage" name="video">
-        </div>
-        <div class="form-group">
-            <label for="lessonImage">Audio:</label>
-            <input type="file" class="form-control-file my-3" id="lessonImage" name="video">
-        </div>
+
         <div class="form-group">
             <label for="lessonDescription">Description:</label>
             <textarea class="form-control" id="editor" name="description" rows="4"><?php echo e($lesson->description); ?></textarea>

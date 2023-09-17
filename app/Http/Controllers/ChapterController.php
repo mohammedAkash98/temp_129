@@ -36,6 +36,7 @@ class ChapterController extends Controller
     {
         $chapters = Chapter::all();
         $lesson = Lesson::find($id);
+        // dd($lesson->id);
         return view('frontend.courses__lessons.course_view', compact('lesson', 'chapters'));
     }
 

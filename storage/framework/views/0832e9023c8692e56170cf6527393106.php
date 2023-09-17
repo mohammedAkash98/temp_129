@@ -63,8 +63,6 @@
                     <!-- Add more rows as needed -->
                 </tbody>
             </table>
-            <?php echo e($teams->links('pagination::bootstrap-4')); ?>
-
         </div>
     <?php endif; ?>
 
