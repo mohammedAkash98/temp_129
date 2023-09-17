@@ -111,7 +111,7 @@
         }
     }
 </style>
-<div class="col-md-3 mb-3">
+<div class="col-md-2 mb-3">
     <div class="p-2 border">
         <img class="img-fluid" id="myImg" src="{{ asset('storage/svcc/'. $svcc->image) }}" alt="{{ $svcc->name }}"
             style="width:100%;max-width:300px">
