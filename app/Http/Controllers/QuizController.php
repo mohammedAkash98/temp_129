@@ -134,6 +134,7 @@ class QuizController extends Controller
         $wrong_ans = 0;
         $skip_ans =0;
         if (count($submitted_answers) != 0) {
+            dd($submitted_answers, $quizzes);
             foreach ($submitted_answers as $key => $submitted_answer) {
                 if ($submitted_answer == $quizzes[$key-1]->correct_answer) {
                     $correct_ans++;
