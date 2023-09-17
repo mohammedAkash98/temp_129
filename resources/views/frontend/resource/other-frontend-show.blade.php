@@ -7,9 +7,9 @@
             <div class="card">
                 <img class="w-100" src="{{ asset('storage/other/'. $other->image) }}" class="card-img-top" alt="{{ $other->name }}">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $other->name }}</h5>
+                    <h5 class="card-title">{{ $other->name ?? '' }}</h5>
                     <div>
-                        {!! ($other->description) !!}
+                        {!! $other->description ?? '' !!}
                     </div>
                 </div>
 
