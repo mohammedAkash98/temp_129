@@ -11,11 +11,11 @@
                 <ul class="navbar-nav ml-auto">
                 @if(!Auth::user())
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ Route('dashboard') }}">হোম</a>
+                        <a class="nav-link" href="{{ Route('dashboard') }}">প্রবেশ করুন</a>
                     </li>
                 @else
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ Route('dashboard') }}">হোম</a>
+                    <a class="nav-link" href="{{ Route('dashboard') }}">ড্যাশবোর্ড</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{Route('courses')}}">কোর্স</a>
@@ -27,11 +27,24 @@
                     <a class="nav-link" href="{{Route('seminar')}}">সেমিনার</a>
                 </li>
                 <li class="nav-item">
+                    {{-- <a class="nav-link" href="#">রিসোর্স</a> --}}
+                    <div class="btn-group">
+                        <button type="button" class="nav-link bg-light border-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            রিসোর্স
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">SVCC</a>
+                          <a class="dropdown-item" href="#">Activity Sheet</a>
+                          <a class="dropdown-item" href="#">Others</a>
+                        </div>
+                      </div>
+                </li>
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{Route('about-us')}}">আমাদের সম্পর্কে</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{Route('contact')}}">যোগাযোগ</a>
-                </li>
+                </li> --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <!-- Add a rounded image here -->
