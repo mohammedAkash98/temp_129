@@ -5,7 +5,7 @@
 <?php $__env->startSection('page_content'); ?>
     <div class="container">
 
-        <!-- upper navbarr -->
+        <!-- upper navbar -->
         <nav class="navbar navbar-expand-lg bg-light mb-3 mt-3 top-nav">
             <div class="navbar-collapse" id="navbarNav">
                 <nav aria-label="breadcrumb">
