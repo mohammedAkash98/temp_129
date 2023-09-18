@@ -1,5 +1,5 @@
-<div class="top-navbar">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="top-navbar ">
+    <nav class="navbar shadow-sm navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{{ Route('dashboard') }}">
                 <img src="{{asset("assets/img/Screenshot_9_1.png")}}" alt="Logo" width="50">
@@ -24,7 +24,7 @@
                     <a class="nav-link" href="{{Route('video')}}">ভিডিও</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{Route('seminar')}}">সেমিনার</a>
+                    <a class="nav-link" href="{{Route('seminar.frontend.index')}}">সেমিনার</a>
                 </li>
                 <li class="nav-item">
                     {{-- <a class="nav-link" href="#">রিসোর্স</a> --}}

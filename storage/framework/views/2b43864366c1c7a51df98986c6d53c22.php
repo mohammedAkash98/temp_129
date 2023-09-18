@@ -6,11 +6,12 @@
             <div class="card">
                 <img class="w-100" src="<?php echo e(asset('storage/other/'. $other->image)); ?>" class="card-img-top" alt="<?php echo e($other->name); ?>">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo e($other->name); ?></h5>
-                    <div>
-                        <?php echo ($other->description); ?>
+                    <h5 class="card-title"><?php echo e($other->name ?? ''); ?></h5>
+                    <div class="card-text text-justify">
+                        <?php echo $other->description ?? ''; ?>
 
                     </div>
+                    <div class="card-text">Link: <a href="<?php echo e($other->url); ?>"><?php echo e($other->url); ?></a></div>
                 </div>
 
             </div>

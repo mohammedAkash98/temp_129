@@ -21,7 +21,7 @@
                         <img width="100" src="{{ asset('storage/webinar/'. $webinar->image) }}" class="card-img-top" alt="{{ $webinar->name }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ $webinar->name }}</h5>
-                            <p class="card-text">{{ $webinar->description }}</p>
+                            <p class="card-text">{!! $webinar->description !!}</p>
                             <p class="card-text"><strong>Date:</strong> {{ $webinar->date }}</p>
                             <p class="card-text"><strong>Time:</strong> {{ $webinar->time }}</p>
                             <p class="card-text"><strong>Location:</strong> {{ $webinar->location }}</p>

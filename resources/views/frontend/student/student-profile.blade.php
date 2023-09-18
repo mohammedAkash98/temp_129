@@ -1,6 +1,6 @@
-@extends('frontend.layouts.master')
+@extends('main_master')
 
-@section('content')
+@section('page_content')
     <section class="section profile m-5">
         <div class="row">
             <div class="col-xl-4">

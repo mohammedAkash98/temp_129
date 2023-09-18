@@ -8,12 +8,16 @@
                 <img src="{{ asset('storage/other/'. $other->image) }}" class="card-img-top" alt="{{ $other->name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $other->name ?? '' }}</h5>
-                    <div class="truncated-text" style="max-height: 80px; overflow: hidden;">
+                    <div class="truncated-text mb-2" style="max-height: 80px; overflow: hidden;">
                         {!! ($other->description ?? '') !!}
                     </div>
-                    @if (strlen(strip_tags($other->description)) > 160)
-                        <a class="btn btn-primary btn-sm mt-4" href="{{ route('others.frontend.show',$other->id) }}">Read More</a>
-                    @endif
+
+                    <div class="card-text mb-2">Link: <a href="{{ $other->url }}">{{ $other->url }}</a></div>
+                    <div class=" d-flex justify-content-end"> <!-- Added this line to align to the right -->
+                        @if (strlen(strip_tags($other->description)) > 160)
+                            <a href="{{ route('others.frontend.show',$other->id) }}">Read More</a>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>

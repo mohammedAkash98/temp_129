@@ -1,4 +1,4 @@
-<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('page_content'); ?>
     <section class="section profile m-5">
         <div class="row">
             <div class="col-xl-4">
@@ -91,8 +91,8 @@
                                 </div>
 
                                 <div class="row pb-2">
-                                    <div class="col-lg-3 col-md-4 label ">Permanent Address</div>
-                                    <div class="col-lg-9 col-md-8"><?php echo e(auth()->user()->permanent_address ?? ''); ?></div>
+                                    <div class="col-lg-3 col-md-4 label ">Division</div>
+                                    <div class="col-lg-9 col-md-8"><?php echo e(auth()->user()->division ?? ''); ?></div>
                                 </div>
                             </div>
 
@@ -208,12 +208,11 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="permanent_address" class="col-md-4 col-lg-3 col-form-label">
-                                            Permanent Address</label>
+                                        <label for="division" class="col-md-4 col-lg-3 col-form-label">
+                                            Division</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="permanent_address" type="text" class="form-control"
-                                                id="permanent_address"
-                                                value="<?php echo e(auth()->user()->permanent_address ?? ''); ?>">
+                                            <input name="division" type="text" class="form-control" id="division"
+                                                value="<?php echo e(auth()->user()->division ?? ''); ?>">
                                         </div>
                                     </div>
 
@@ -230,34 +229,40 @@
 
                             
                             <div class="tab-pane fade profile-change-password pt-3" id="profile-change-password">
-                                <form action="<?php echo e(route('student.update', auth()->user()->id)); ?>" method="POST"
-                                    enctype="multipart/form-data">
+                                <form action="<?php echo e(route('student.profile.password.update', auth()->user()->id)); ?>"
+                                    method="POST">
                                     <?php echo csrf_field(); ?>
 
                                     <div class="row mb-3">
-                                        <label for="new-pass" class="col-md-4 col-lg-3 col-form-label"> New
+                                        <label for="new_password" class="col-md-4 col-lg-3 col-form-label"> New
                                             Password</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="new-pass" type="text" class="form-control" id="new-pass"
-                                                value="">
+                                            <input name="new_password" type="password" class="form-control"
+                                                id="new_password" >
+                                                <?php if($errors->has('new_password')): ?>
+                                                <span class="text-danger"><?php echo e($errors->first('new_password')); ?></span>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div>
+
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="con-pass" class="col-md-4 col-lg-3 col-form-label"> Confirm
-                                            Password</label>
+                                        <label for="con-pass" class="col-md-4 col-lg-3 col-form-label"> Confirm Password</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="confirm-pass" type="text" class="form-control"
-                                                id="confirm-pass" value="">
+                                            <input name="new_password_confirmation" type="password" class="form-control" id="new_password_confirmation">
+
                                         </div>
+                                        <div></div>
                                     </div>
 
                                     <div class="row mb-3">
                                         <label for="old-pass" class="col-md-4 col-lg-3 col-form-label"> Old Password
                                         </label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="old-pass" type="text" class="form-control" id="old-pass"
-                                                value="">
+                                            <input name="old_password" type="password" class="form-control"
+                                                id="old-pass" value="">
                                         </div>
                                     </div>
 
@@ -283,4 +288,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH G:\laragon\www\temp_129\resources\views/frontend/student/student-profile.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('main_master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH G:\laragon\www\temp_129\resources\views/frontend/student/student-profile.blade.php ENDPATH**/ ?>
