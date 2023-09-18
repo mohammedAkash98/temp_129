@@ -10,6 +10,11 @@ use App\Models\Seminar;
 
 class FrontendController extends Controller
 {
+    public function index()
+    {
+        return view('home_page.home_page');
+    }
+
     public function dashboard()
     {
         return view('frontend.dashboard');
