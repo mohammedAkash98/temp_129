@@ -201,9 +201,9 @@ class QuizController extends Controller
         //     return view('frontend.certificate');
         // }
         $total_answers = $result->correct_ans + $result->wrong_ans + $result->skip_ans;
-        $correct_percentage = ($result->correct_ans / $total_answers) * 100;
-        $wrong_percentage = ($result->wrong_ans / $total_answers) * 100;
-        $skip_percentage = ($result->skip_ans / $total_answers) * 100;
+        $correct_percentage = round(($result->correct_ans / $total_answers) * 100);
+        $wrong_percentage = round(($result->wrong_ans / $total_answers) * 100);
+        $skip_percentage = round(($result->skip_ans / $total_answers) * 100);
 
         $star = 0;
         if ($correct_percentage >= 90) {

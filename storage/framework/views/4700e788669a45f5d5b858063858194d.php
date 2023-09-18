@@ -1,6 +1,5 @@
-@extends('frontend.courses__lessons.course_2')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/progressbar.js@1.0.1/dist/progressbar.min.css">
-@section('course_content')
+<?php $__env->startSection('course_content'); ?>
     <style>
         span {
             color: orangered;
@@ -30,7 +29,7 @@
     <div class="container bg-light py-5 px-4">
         <div class="row text-center ">
             <div class="col-md-12 mb-3">
-                @if ($star == 5)
+                <?php if($star == 5): ?>
                     <h2>
                         <span><i class="lni lni-star-fill"></i></span>
                         <span><i class="lni lni-star-fill"></i></span>
@@ -38,7 +37,7 @@
                         <span><i class="lni lni-star-fill"></i></span>
                         <span><i class="lni lni-star-fill"></i></span>
                     </h2>
-                @elseif ($star == 4)
+                <?php elseif($star == 4): ?>
                     <h2>
                         <span><i class="lni lni-star-fill"></i></span>
                         <span><i class="lni lni-star-fill"></i></span>
@@ -46,7 +45,7 @@
                         <span><i class="lni lni-star-fill"></i></span>
 
                     </h2>
-                @elseif ($star == 3)
+                <?php elseif($star == 3): ?>
                     <h2>
                         <span><i class="lni lni-star-fill"></i></span>
                         <span><i class="lni lni-star-fill"></i></span>
@@ -54,28 +53,28 @@
 
 
                     </h2>
-                @elseif ($star == 0)
+                <?php elseif($star == 0): ?>
                     <h2 class="text-center">আপনি নির্বাচিত হননি। </h2>
-                @endif
+                <?php endif; ?>
 
             </div>
             <div class="col-md-12 mb-5">
                 <img style="width: 100px; height:100px; border-radius:50%" class="mb-2"
-                    src="{{ asset('storage/student/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}">
-                <h4> {{ auth()->user()->name }}</h4>
+                    src="<?php echo e(asset('storage/student/' . auth()->user()->image)); ?>" alt="<?php echo e(auth()->user()->name); ?>">
+                <h4> <?php echo e(auth()->user()->name); ?></h4>
             </div>
             <div class="col-md-12 mb-4">
                 <h4 class="text-success font-weight-bold">আপনার মূল্যায়নে অংশগ্রহন সম্পন্ন হয়েছে!</h4>
             </div>
 
             <div class="progress col-md-12 mb-2">
-                <div class="progress-bar" role="progressbar" style="width: {{ $correct_percentage }}%;"
-                    aria-valuenow="{{ $correct_percentage }}" aria-valuemin="0" aria-valuemax="100">
-                    {{ $correct_percentage }}%
+                <div class="progress-bar" role="progressbar" style="width: <?php echo e($correct_percentage); ?>%;"
+                    aria-valuenow="<?php echo e($correct_percentage); ?>" aria-valuemin="0" aria-valuemax="100">
+                    <?php echo e($correct_percentage); ?>%
                 </div>
             </div>
             <div class="col-md-12 mb-5">
-                <h4 class="text-center"><strong> {{ $correct_percentage }}%</strong></h4>
+                <h4 class="text-center"><strong> <?php echo e($correct_percentage); ?>%</strong></h4>
             </div>
 
 
@@ -91,7 +90,7 @@
             <div class="col-md-4" id='myProgress_1'>
                 <div class="circular-progress" id="correct-progress">
                     <div class="circular-progress-bar"></div>
-                    <div class="circular-progress-text" id="correct-text">{{ $correct_percentage }}%</div>
+                    <div class="circular-progress-text" id="correct-text"><?php echo e($correct_percentage); ?>%</div>
                 </div>
 
                 <p class="font-weight-bold text-muted">সঠিক হয়েছে</p>
@@ -100,7 +99,7 @@
             <div class="col-md-4" id='myProgress_2'>
                 <div class="circular-progress" id="wrong-progress">
                     <div class="circular-progress-bar"></div>
-                    <div class="circular-progress-text" id="wrong-text">{{ $wrong_percentage }}%</div>
+                    <div class="circular-progress-text" id="wrong-text"><?php echo e($wrong_percentage); ?>%</div>
                 </div>
                 <p class="font-weight-bold text-muted">এড়িয়ে গিয়েছেন</p>
 
@@ -108,20 +107,20 @@
             <div class="col-md-4" id='myProgress_3'>
                 <div class="circular-progress" id="skip-progress">
                     <div class="circular-progress-bar"></div>
-                    <div class="circular-progress-text" id="skip-text">{{ $skip_percentage }}%</div>
+                    <div class="circular-progress-text" id="skip-text"><?php echo e($skip_percentage); ?>%</div>
                 </div>
                 <p class="font-weight-bold text-muted">ভুল হয়েছে</p>
 
             </div>
             <div class="col-md-12 mt-4">
-                <a href="{{ route('courses') }}" class="btn btn-success">পরবর্তী পাঠে যান</a>
+                <a href="<?php echo e(route('courses')); ?>" class="btn btn-success">পরবর্তী পাঠে যান</a>
             </div>
         </div>
     </div>
     <script>
-        const correct_percentage = @json($correct_percentage)
-        const wrong_percentage = @json($wrong_percentage)
-        const skip_percentage = @json($skip_percentage)
+        const correct_percentage = <?php echo json_encode($correct_percentage, 15, 512) ?>
+        const wrong_percentage = <?php echo json_encode($wrong_percentage, 15, 512) ?>
+        const skip_percentage = <?php echo json_encode($skip_percentage, 15, 512) ?>
 
         const progress = document.querySelector('.progress-done');
 
@@ -130,9 +129,9 @@
 
         document.addEventListener("DOMContentLoaded", function() {
     // Get the correct, wrong, and skip percentages from your PHP variables
-    const correctPercentage = @json($correct_percentage);
-    const wrongPercentage = @json($wrong_percentage);
-    const skipPercentage = @json($skip_percentage);
+    const correctPercentage = <?php echo json_encode($correct_percentage, 15, 512) ?>;
+    const wrongPercentage = <?php echo json_encode($wrong_percentage, 15, 512) ?>;
+    const skipPercentage = <?php echo json_encode($skip_percentage, 15, 512) ?>;
 
     // Update the correct progress bar
     const correctProgressBar = new ProgressBar.Circle('#correct-progress .circular-progress-bar', {
@@ -197,4 +196,6 @@
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/progressbar.js@1.0.1/dist/progressbar.min.js"></script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('frontend.courses__lessons.course_2', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH G:\laragon\www\temp_129\resources\views/frontend/courses__lessons/result.blade.php ENDPATH**/ ?>
