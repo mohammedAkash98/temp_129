@@ -4,7 +4,7 @@
 
     <div class="card-body">
         @if ($lesson->image)
-            <img class="w-100 mb-2" src="{{ asset('storage/lesson/' . $lesson->image) }}" alt="{{ $lesson->name }}">
+            <img class="w-100 mb-2" src="{{ asset('storage/lesson/' . $lesson->image) }}" alt="{{ $lesson->name .' img' }}">
         @endif
         @if ($lesson->audio)
             <audio class="w-100 mb-2" controls>
@@ -63,9 +63,4 @@
                 নিজেকে যাচাই করুন</a>
         </div>
     </div>
-        {{-- <p>{!! $lesson->description !!}</p>
-    <div style="text-align: right;">
-        <a href="{{ route('quiz.view', ['chapter_id' => $lesson->chapter->id, 'lesson_id' => $lesson->id]) }}"
-            class="btn btn-success btn-sm">নিজেকে যাচাই করুন</a>
-    </div> --}}
     @endsection
