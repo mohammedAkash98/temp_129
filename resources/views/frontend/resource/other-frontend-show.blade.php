@@ -8,9 +8,10 @@
                 <img class="w-100" src="{{ asset('storage/other/'. $other->image) }}" class="card-img-top" alt="{{ $other->name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $other->name ?? '' }}</h5>
-                    <div>
+                    <div class="card-text text-justify">
                         {!! $other->description ?? '' !!}
                     </div>
+                    <div class="card-text">Link: <a href="{{ $other->url }}">{{ $other->url }}</a></div>
                 </div>
 
             </div>

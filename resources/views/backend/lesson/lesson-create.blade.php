@@ -43,7 +43,7 @@
             @endif
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
             <label for="lesson_no_bangla">Lesson No(Bangla):</label>
             <input type="text" class="form-control" id="lesson_no_bangla" name="lesson_no_bangla">
             @if ($errors->has('lesson_no_bangla'))
@@ -68,9 +68,17 @@
             <input type="file" class="form-control-file my-3" id="lessonImage" name="audio">
         </div>
 
+        <div class="form-group mb-3">
+            <label for="editor">Header Description:</label>
+            <textarea class="form-control" id="editor" name="header_description" rows="4"></textarea>
+            @if ($errors->has('header_description'))
+                <span class="text-danger">{{ $errors->first('header_description') }}</span>
+            @endif
+        </div>
+
         <div class="form-group">
             <label for="editor">Description:</label>
-            <textarea class="form-control" id="editor" name="description" rows="4"></textarea>
+            <textarea class="form-control" id="editor_2" name="description" rows="4"></textarea>
             @if ($errors->has('description'))
                 <span class="text-danger">{{ $errors->first('description') }}</span>
             @endif

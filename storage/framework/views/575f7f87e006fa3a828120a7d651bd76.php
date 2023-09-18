@@ -5,7 +5,7 @@
 <?php $__env->startSection('page_content'); ?>
     <div class="container">
 
-        <!-- upper navbar -->
+        <!-- upper navbarr -->
         <nav class="navbar navbar-expand-lg bg-light mb-3 mt-3 top-nav">
             <div class="navbar-collapse" id="navbarNav">
                 <nav aria-label="breadcrumb">
@@ -21,14 +21,16 @@
 
         <div class="row m-0">
             <!-- side navbar -->
-          <?php echo $__env->make('frontend.courses__lessons.courses_sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
-
+            <?php echo $__env->make('frontend.courses__lessons.courses_sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
             <!-- Main content -->
             <main class="col-md-8 col-lg-8 ms-sm-auto px-md-4">
                 <div class="tab-content" id="v-pills-tabContent">
-                    <?php echo $__env->yieldContent('course_content'); ?>
+                    <div class="col-12" id="div1">
+                        <div class="card border-0">
+                            <?php echo $__env->yieldContent('course_content'); ?>
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>

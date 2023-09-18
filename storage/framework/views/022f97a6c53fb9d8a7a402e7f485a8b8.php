@@ -26,7 +26,7 @@
            </select>
 
         </div>
-        <div class="form-group">
+        <div class="form-group mb-3">
             <label for="lessonName">Lesson Name:</label>
             <input value="<?php echo e($lesson->name); ?>" type="text" class="form-control" id="lessonName" name="name">
             <?php if($errors->has('name')): ?>
@@ -43,10 +43,26 @@
         <?php endif; ?>
           </div>
         </div>
+        <div class="form-group">
+            <label for="lessonImage">Video:</label>
+            <input type="file" class="form-control-file my-3" id="lessonImage" name="video">
+        </div>
+        <div class="form-group">
+            <label for="lessonImage">Audio:</label>
+            <input type="file" class="form-control-file my-3" id="lessonImage" name="video">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="header_description">Header Description:</label>
+            <textarea class="form-control" id="editor" name="header_description" rows="4"><?php echo e($lesson->header_description); ?></textarea>
+            <?php if($errors->has('header_description')): ?>
+                <span class="text-danger"><?php echo e($errors->first('header_description')); ?></span>
+            <?php endif; ?>
+        </div>
 
         <div class="form-group">
             <label for="lessonDescription">Description:</label>
-            <textarea class="form-control" id="editor" name="description" rows="4"><?php echo e($lesson->description); ?></textarea>
+            <textarea class="form-control" id="editor_2" name="description" rows="4"><?php echo e($lesson->description); ?></textarea>
             <?php if($errors->has('description')): ?>
                 <span class="text-danger"><?php echo e($errors->first('description')); ?></span>
             <?php endif; ?>

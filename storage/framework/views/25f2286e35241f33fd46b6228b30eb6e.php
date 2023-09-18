@@ -13,7 +13,7 @@
                <tr>
                 <td><?php echo e(++$sl); ?></td>
 
-                <td><a href="<?php echo e(asset('storage/activity_sheet/'. $activity_sheet->pdf)); ?>" target="_blank"><?php echo e($activity_sheet->pdf); ?></a></td>
+                <td><a href="<?php echo e(asset('storage/activity_sheet/'. $activity_sheet->pdf)); ?>" target="_blank"><?php echo e($activity_sheet->pdf ?? ''); ?></a></td>
                 <td><a href="<?php echo e(asset('storage/activity_sheet/'. $activity_sheet->pdf)); ?>" target="_blank" class="btn btn-info btn-sm"><i class="lni lni-eye"></i> View</a></td>
                </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

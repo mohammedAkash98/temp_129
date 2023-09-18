@@ -77,7 +77,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#components-navQuiz" data-bs-toggle="collapse"
                 href="{{ route('quiz.index') }}">
-                <i class="fa-solid fa-person-chalkboard"></i><span>Quiz</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="fa-solid fa-question"></i><span>Quiz</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="components-navQuiz" class="nav-content collapse " data-bs-parent="#sidebar-navQuiz">
 
@@ -225,5 +225,26 @@
                     </li>
                 </ul>
             </li>
+{{-- seminar start --}}
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#components-navSeminar" data-bs-toggle="collapse"
+                    href="{{ route('seminar.index') }}">
+                    <i class="fa-solid fa-chess-board"></i><span>Seminar</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-navSeminar" class="nav-content collapse " data-bs-parent="#sidebar-navSeminar">
+
+                    <li>
+                        <a href="{{ route('seminar.index') }}">
+                            <i class="bi bi-circle"></i><span>Seminar List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('seminar.create') }}">
+                            <i class="bi bi-circle"></i><span>Add Seminar</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
 
 </aside>

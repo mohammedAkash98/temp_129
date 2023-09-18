@@ -6,14 +6,18 @@
             <div class="card">
                 <img src="<?php echo e(asset('storage/other/'. $other->image)); ?>" class="card-img-top" alt="<?php echo e($other->name); ?>">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo e($other->name); ?></h5>
-                    <div class="truncated-text" style="max-height: 80px; overflow: hidden;">
-                        <?php echo ($other->description); ?>
+                    <h5 class="card-title"><?php echo e($other->name ?? ''); ?></h5>
+                    <div class="truncated-text mb-2" style="max-height: 80px; overflow: hidden;">
+                        <?php echo ($other->description ?? ''); ?>
 
                     </div>
-                    <?php if(strlen(strip_tags($other->description)) > 160): ?>
-                        <a class="btn btn-primary btn-sm mt-4" href="<?php echo e(route('others.frontend.show',$other->id)); ?>">Read More</a>
-                    <?php endif; ?>
+
+                    <div class="card-text mb-2">Link: <a href="<?php echo e($other->url); ?>"><?php echo e($other->url); ?></a></div>
+                    <div class=" d-flex justify-content-end"> <!-- Added this line to align to the right -->
+                        <?php if(strlen(strip_tags($other->description)) > 160): ?>
+                            <a href="<?php echo e(route('others.frontend.show',$other->id)); ?>">Read More</a>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
         </div>

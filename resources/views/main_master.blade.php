@@ -10,12 +10,13 @@
         @yield('page_css')
 
     </head>
+
     <body class="antialiased">
         {{-- header --}}
         @include('frontend.layouts.header_design')
 
         @yield('page_content')
-    
+
     </body>
     {{-- script --}}
     @include('frontend.layouts.header_script')
