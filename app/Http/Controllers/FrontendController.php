@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Chapter;
 use App\Models\Result;
+use App\Models\Seminar;
 
 
 
@@ -48,5 +49,18 @@ class FrontendController extends Controller
         $chapters = Chapter::all();
         $result = Result::where('user_id', auth()->user()->id)->where('chapter_id', 1)->where('lesson_id', 1)->first(); //chapter_id,lesson_id dia search kora lagbe
         return view('frontend.courses__lessons.result', compact('chapters', 'result'));
+    }
+
+    public function seminar_index()
+    {
+
+        $seminars = Seminar::all();
+        return view('frontend.seminar.seminar-frontend-index', compact('seminars'));
+    }
+
+    public function seminar_show($id)
+    {
+        $seminar = Seminar::find($id);
+        return view('frontend.seminar.seminar-frontend-show', compact('seminar'));
     }
 }

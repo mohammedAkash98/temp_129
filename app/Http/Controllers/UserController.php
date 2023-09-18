@@ -16,6 +16,7 @@ class UserController extends Controller
 
     public function registerStore(Request $request)
     {
+
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
@@ -31,7 +32,7 @@ class UserController extends Controller
         ]);
 
         try {
-            $user = User::create([
+            User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'age' => $request->age,

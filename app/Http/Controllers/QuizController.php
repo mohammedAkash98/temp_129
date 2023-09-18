@@ -81,19 +81,21 @@ class QuizController extends Controller
             ->first();
 
         if ($completed_chapter) {
-            if($completed_chapter = Result::where('user_id', auth()->user()->id) ## Avoid This --rafi (start)
-            ->where('chapter_id', $chapter_id)
-            ->where('lesson_id', $lesson_id)
-            ->where('correct_ans', null)
-            ->where('wrong_ans', null)
-            ->where('skip_ans', null)
-            ->first()){
+            if (
+                $completed_chapter = Result::where('user_id', auth()->user()->id) ## Avoid This --rafi (start)
+                ->where('chapter_id', $chapter_id)
+                ->where('lesson_id', $lesson_id)
+                ->where('correct_ans', null)
+                ->where('wrong_ans', null)
+                ->where('skip_ans', null)
+                ->first()
+            ) {
                 $current_lesson_id = $lesson_id;
                 $quizzes = Quiz::where('lesson_id', $current_lesson_id)->get();
                 $chapters = Chapter::all();
                 $lesson = Lesson::all();
                 return view('frontend.courses__lessons.quiz', compact('quizzes', 'chapters', 'lesson'));
-            }                                                       ## Avoid This --rafi (end)
+            } ## Avoid This --rafi (end)
             return view('frontend.courses__lessons.return_course');
         }
         $current_lesson_id = auth()->user()->overview->current_lesson_id;
@@ -135,8 +137,6 @@ class QuizController extends Controller
                 'lesson_id' => $request->lesson_id,
                 'chapter_id' => $chapter_id,
             ]);
-
-
         }
 
         $quizzes = Quiz::where('chapter_id', $chapter_id)
@@ -145,7 +145,7 @@ class QuizController extends Controller
 
         $correct_ans = 0;
         $wrong_ans = 0;
-        $skip_ans =0;
+        $skip_ans = 0;
         if (count($submitted_answers) != 0) {
             foreach ($submitted_answers as $key => $submitted_answer) {
                 // echo $key;
@@ -161,7 +161,6 @@ class QuizController extends Controller
             }
             // dd($submitted_answers, $quizzes, $key, 'Correct_ans: '. $correct_ans, $wrong_ans);
         }
-
 
         if (count($submitted_answers) != 0) {
             $skip_ans = count($quizzes) - count($submitted_answers);
@@ -201,8 +200,23 @@ class QuizController extends Controller
         //     // ]);
         //     return view('frontend.certificate');
         // }
+        $total_answers = $result->correct_ans + $result->wrong_ans + $result->skip_ans;
+        $correct_percentage = ($result->correct_ans / $total_answers) * 100;
+        $wrong_percentage = ($result->wrong_ans / $total_answers) * 100;
+        $skip_percentage = ($result->skip_ans / $total_answers) * 100;
 
-        return view('frontend.courses__lessons.result', compact('chapters', 'result'));
+        $star = 0;
+        if ($correct_percentage >= 90) {
+            $star = 5;
+        } elseif ($correct_percentage < 90 && $correct_percentage >= 70) {
+            $star = 4;
+        } elseif ($correct_percentage < 70 && $correct_percentage >= 50) {
+            $star = 3;
+        } else {
+            $star = 0;
+        }
+
+        return view('frontend.courses__lessons.result', compact('chapters', 'result', 'correct_percentage', 'wrong_percentage', 'skip_percentage', 'star'));
     }
 
     // public function   quiz_result()

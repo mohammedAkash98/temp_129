@@ -1,5 +1,5 @@
-<div class="top-navbar">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="top-navbar ">
+    <nav class="navbar shadow-sm navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{{ Route('dashboard') }}">
                 <img src="{{asset("assets/img/Screenshot_9_1.png")}}" alt="Logo" width="50">
@@ -11,11 +11,11 @@
                 <ul class="navbar-nav ml-auto">
                 @if(!Auth::user())
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ Route('dashboard') }}">হোম</a>
+                        <a class="nav-link" href="{{ Route('dashboard') }}">প্রবেশ করুন</a>
                     </li>
                 @else
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ Route('dashboard') }}">হোম</a>
+                    <a class="nav-link" href="{{ Route('dashboard') }}">ড্যাশবোর্ড</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{Route('courses')}}">কোর্স</a>
@@ -24,14 +24,27 @@
                     <a class="nav-link" href="{{Route('video')}}">ভিডিও</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{Route('seminar')}}">সেমিনার</a>
+                    <a class="nav-link" href="{{Route('seminar.frontend.index')}}">সেমিনার</a>
                 </li>
                 <li class="nav-item">
+                    {{-- <a class="nav-link" href="#">রিসোর্স</a> --}}
+                    <div class="btn-group">
+                        <button type="button" class="nav-link bg-light border-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            রিসোর্স
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="{{ route('svcc.frontend.index') }}">SVCC</a>
+                          <a class="dropdown-item" href="{{ route('activity.sheet.frontend.index') }}">Activity Sheet</a>
+                          <a class="dropdown-item" href="{{ route('others.frontend.index') }}">Others</a>
+                        </div>
+                      </div>
+                </li>
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{Route('about-us')}}">আমাদের সম্পর্কে</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{Route('contact')}}">যোগাযোগ</a>
-                </li>
+                </li> --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <!-- Add a rounded image here -->
@@ -45,13 +58,13 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        @php 
-                        
+                        @php
+
                             $name = Auth::user()->name;
                             $words = explode(' ', $name);
                             $firstName = $words[0];
                             echo $firstName;
-                            
+
                         @endphp
                     </a>
                     <div class="dropdown-menu" aria-labelledby="profileDropdown">
@@ -62,7 +75,7 @@
                     </div>
                 </li>
                 @endif
-                    
+
                 </ul>
             </div>
         </div>

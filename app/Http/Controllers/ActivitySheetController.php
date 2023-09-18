@@ -48,11 +48,7 @@ class ActivitySheetController extends Controller
         return redirect()->back();
     }
 
-    public function info($id)
-    {
-        $activity_sheet = ActivitySheet::find($id);
-        return view('backend.activity_sheet.activity_sheet-info', compact('activity_sheet'));
-    }
+
 
     public function edit($id)
     {

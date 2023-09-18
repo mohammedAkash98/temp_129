@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('correct_ans')->nullable();
             $table->integer('wrong_ans')->nullable();
             $table->integer('skip_ans')->nullable();
+            // $table->integer('skip_ans')->default(-1);  // -1 = not attend on quiz, 1 = passed on quiz, 0 = fail on quiz
 
             $table->timestamps();
         });

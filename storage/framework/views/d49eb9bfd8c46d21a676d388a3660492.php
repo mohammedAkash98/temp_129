@@ -10,4 +10,6 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+
+
 <?php /**PATH G:\laragon\www\temp_129\resources\views/frontend/layouts/header_link.blade.php ENDPATH**/ ?>

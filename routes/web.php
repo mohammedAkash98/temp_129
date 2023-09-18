@@ -9,6 +9,8 @@ use App\Http\Controllers\LessonController;
 use App\Http\Controllers\OtherController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\SeminarController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SvccController;
 use App\Http\Controllers\TeamController;
@@ -34,6 +36,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/admin', [BackendController::class, 'admin'])->name('admin')->middleware(['auth', isAdmin::class]);
 
+
+
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register/store', [UserController::class, 'registerStore'])->name('register.store');
 Route::get('/login', [UserController::class, 'login'])->name('login');
@@ -55,7 +59,9 @@ Route::prefix('student')->middleware(['auth'])->group(function () {
     Route::get('/certificate', [StudentController::class, 'certificate'])->name('student.certificate');
     Route::get('/about-us', [FrontendController::class, 'about_us'])->name('about-us');
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
-    Route::get('/seminar', [FrontendController::class, 'seminar'])->name('seminar');
+    // Route::get('/seminar', [FrontendController::class, 'seminar'])->name('seminar');
+    Route::get('/seminar', [FrontendController::class, 'seminar_index'])->name('seminar.frontend.index');
+    Route::get('/seminar/show/{id}', [FrontendController::class, 'seminar_show'])->name('seminar.frontend.show');
     Route::get('/video', [FrontendController::class, 'video'])->name('video');
 });
 
@@ -166,7 +172,6 @@ Route::prefix('admin/activity_sheet')->middleware(['auth', isAdmin::class])->gro
     Route::get('/index', [ActivitySheetController::class, 'index'])->name('activity_sheet.index');
     Route::get('/create', [ActivitySheetController::class, 'create'])->name('activity_sheet.create');
     Route::post('/store', [ActivitySheetController::class, 'store'])->name('activity_sheet.store');
-    Route::get('/info/{id}', [ActivitySheetController::class, 'info'])->name('activity_sheet.info');
     Route::get('/delete/{id}', [ActivitySheetController::class, 'delete'])->name('activity_sheet.delete');
     Route::get('/edit/{id}', [ActivitySheetController::class, 'edit'])->name('activity_sheet.edit');
     Route::post('/update/{id}', [ActivitySheetController::class, 'update'])->name('activity_sheet.update');
@@ -181,4 +186,23 @@ Route::prefix('admin/others')->middleware(['auth', isAdmin::class])->group(funct
     Route::get('/delete/{id}', [OtherController::class, 'delete'])->name('other.delete');
     Route::get('/edit/{id}', [OtherController::class, 'edit'])->name('other.edit');
     Route::post('/update/{id}', [OtherController::class, 'update'])->name('other.update');
+});
+//admin seminar route
+Route::prefix('admin/seminar')->middleware(['auth', isAdmin::class])->group(function () {
+    Route::get('/index', [SeminarController::class, 'index'])->name('seminar.index');
+    Route::get('/create', [SeminarController::class, 'create'])->name('seminar.create');
+    Route::post('/store', [SeminarController::class, 'store'])->name('seminar.store');
+
+    Route::get('/info/{id}', [SeminarController::class, 'info'])->name('seminar.info');
+    Route::get('/delete/{id}', [SeminarController::class, 'delete'])->name('seminar.delete');
+    Route::get('/edit/{id}', [SeminarController::class, 'edit'])->name('seminar.edit');
+    Route::post('/update/{id}', [SeminarController::class, 'update'])->name('seminar.update');
+});
+
+//resource route
+Route::prefix('resource')->group(function () {
+    Route::get('/svcc/index', [ResourceController::class, 'svcc_index'])->name('svcc.frontend.index');
+    Route::get('/activity_sheet/index', [ResourceController::class, 'activity_sheet_index'])->name('activity.sheet.frontend.index');
+    Route::get('/others/index', [ResourceController::class, 'others_index'])->name('others.frontend.index');
+    Route::get('/others/show/{id}', [ResourceController::class, 'others_show'])->name('others.frontend.show');
 });

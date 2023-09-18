@@ -1,4 +1,6 @@
-<?php $__env->startSection('content'); ?>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<?php $__env->startSection('page_content'); ?>
     <section class="registrationPage">
         <div class="container mt-5">
             <div class="container-fluid">
@@ -83,4 +85,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH G:\laragon\www\temp_129\resources\views/frontend/user/login.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('main_master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH G:\laragon\www\temp_129\resources\views/frontend/user/login.blade.php ENDPATH**/ ?>

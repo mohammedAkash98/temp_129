@@ -30,6 +30,7 @@ class LessonController extends Controller
             'name' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif',
             'description' => 'required',
+            'header_description' => 'required',
         ]);
 
         $data = $request->all();
@@ -87,6 +88,7 @@ class LessonController extends Controller
             'name' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif',
             'description' => 'required',
+            'header_description' => 'required',
         ]);
 
         $data = $request->except('_token');
