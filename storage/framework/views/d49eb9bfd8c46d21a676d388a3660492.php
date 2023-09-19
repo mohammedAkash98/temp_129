@@ -12,4 +12,10 @@
 <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
 
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/bar/circular_bar.css')); ?>">
+
+
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/bar/line_bar.css')); ?>">
+
+
 <?php /**PATH G:\laragon\www\temp_129\resources\views/frontend/layouts/header_link.blade.php ENDPATH**/ ?>

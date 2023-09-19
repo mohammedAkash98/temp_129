@@ -21,16 +21,16 @@
                             <?php $__currentLoopData = $chapter->lessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key_l => $lesson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 
                                 <?php if(Auth::user()->overview->current_lesson_id >= $lesson->id): ?>
-                                    <a class="nav-link" href="<?php echo e(route('courses.view', $lesson->id)); ?>"
+                                    <a class="nav-link side-link" href="<?php echo e(route('courses.view', $lesson->id)); ?>"
                                         aria-selected="true" style="background: #58A435;">
 
                                         <span><i class="lni lni-checkmark-circle text-white"></i></span>
                                         পাঠ-<?php echo e($lesson->lesson_no_bangla ?? ''); ?>: <?php echo e($lesson->name ?? ''); ?>
 
-                                    
+
                                     </a>
                                 <?php else: ?>
-                                    <a class="nav-link" aria-selected="true">
+                                    <a class="nav-link side-link" aria-selected="true">
                                         <span><i class="lni lni-lock-alt h6" style="color: red"></i></span>
                                         পাঠ-<?php echo e($lesson->lesson_no_bangla ?? ''); ?>: <?php echo e($lesson->name ?? ''); ?>
 

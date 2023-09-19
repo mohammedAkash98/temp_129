@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Chapter;
 use App\Models\Lesson;
 use App\Models\Overview;
+use App\Models\Result;
 use Illuminate\Http\Request;
 
 class ChapterController extends Controller
@@ -27,10 +28,24 @@ class ChapterController extends Controller
 
     public function courses_name($id)
     {
+        $lesson_length = Lesson::all()->count();
+
+        $user = auth()->user();
+        $current_lesson_id = auth()->user()->overview->current_lesson_id;
+        $current_chapter_id = auth()->user()->overview->current_chapter_id;
+
+        $result = Result::where('user_id', $user->id)
+            ->where('lesson_id', $current_lesson_id)
+            ->where('chapter_id', $current_chapter_id)
+            ->first();
+
+        if ($result && $result->lesson_id && $result->lesson_id == $lesson_length) {
+            return view('frontend.certificate', compact('user'));
+        }
 
         $chapters = Chapter::all();
         // return $chapters;
-        return view('frontend.courses__lessons.course_2',  compact('chapters'));
+        return view('frontend.courses__lessons.course_2', compact('chapters'));
     }
     public function courses_view($id)
     {
@@ -59,9 +74,8 @@ class ChapterController extends Controller
         ]);
 
         Chapter::create([
-
             'name' => $request->name,
-            'chapter_no_bangla' => $request->chapter_no_bangla
+            'chapter_no_bangla' => $request->chapter_no_bangla,
         ]);
         toastr()->success('Chapter created successfully!', 'Congrats');
         return redirect()->route('chapter.index');
@@ -89,7 +103,6 @@ class ChapterController extends Controller
         $chapter = Chapter::where('id', $id)->first();
 
         $chapter->update([
-
             'name' => $request->name,
         ]);
         toastr()->success('Chapter updated successfully!', 'Congrats');

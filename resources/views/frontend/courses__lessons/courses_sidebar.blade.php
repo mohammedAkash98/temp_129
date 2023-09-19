@@ -20,15 +20,15 @@
                             @foreach ($chapter->lessons as $key_l => $lesson)
                                 {{-- {{ Auth::user()->overview->id <= $lesson->id}} --}}
                                 @if (Auth::user()->overview->current_lesson_id >= $lesson->id)
-                                    <a class="nav-link" href="{{ route('courses.view', $lesson->id) }}"
+                                    <a class="nav-link side-link" href="{{ route('courses.view', $lesson->id) }}"
                                         aria-selected="true" style="background: #58A435;">
 
                                         <span><i class="lni lni-checkmark-circle text-white"></i></span>
                                         পাঠ-{{ $lesson->lesson_no_bangla ?? '' }}: {{ $lesson->name ?? '' }}
-                                    
+
                                     </a>
                                 @else
-                                    <a class="nav-link" aria-selected="true">
+                                    <a class="nav-link side-link" aria-selected="true">
                                         <span><i class="lni lni-lock-alt h6" style="color: red"></i></span>
                                         পাঠ-{{ $lesson->lesson_no_bangla ?? '' }}: {{ $lesson->name ?? '' }}
                                     </a>
