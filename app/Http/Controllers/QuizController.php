@@ -193,16 +193,18 @@ class QuizController extends Controller
         $wrong_percentage = round(($result->wrong_ans / $total_answers) * 100);
         $skip_percentage = round(($result->skip_ans / $total_answers) * 100);
 
-        $lesson = Lesson::where('id', $lesson_id + 1)->first();
+        // $lesson = Lesson::where('id', $lesson_id + 1)->first();
+        $lesson = Lesson::where('id', '>', $lesson_id)->first();
+
         if (isset($lesson) && $correct_percentage >= 50) {
-            $marks = Overview::where('user_id', $user_id)
+            $overview = Overview::where('user_id', $user_id)
                 ->where('current_lesson_id', $lesson_id)
                 ->where('current_chapter_id', $chapter_id)
                 ->first();
 
-            $marks->update([
+            $overview->update([
                 'marks' => $correct_ans,
-                'current_lesson_id' => $lesson_id + 1,
+                'current_lesson_id' => $lesson->id,
                 'current_chapter_id' => $lesson->chapter_id,
             ]);
         }

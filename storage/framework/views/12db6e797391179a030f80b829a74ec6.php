@@ -1,3 +1,10 @@
+<?php
+$numto = new Rakibhstu\Banglanumber\NumberToBangla();
+$sl = 1;
+?>
+
+
+
 <?php $__env->startSection('page_content'); ?>
     <?php
         $current_chapter_id = auth()->user()->overview->current_chapter_id;
@@ -8,7 +15,7 @@
             <div class="row d-flex justify-content-center align-items-center">
                 <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="box col-md-3">
-                        <h1 class="box-title<?php echo e($key++); ?>" style="font-size:50px"><?php echo e($course->chapter_no_bangla ?? ''); ?>
+                        <h1 class="box-title<?php echo e($key++); ?>" style="font-size:50px"><?php echo e($numto->bnNum($sl++)?? ''); ?>
 
                         </h1>
                         <p class="box-text<?php echo e($key++); ?>"><?php echo e($course->name ?? ''); ?></p>
