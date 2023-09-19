@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Chapter;
 use App\Models\Lesson;
 use App\Models\Overview;
-use App\Models\Result;
 use Illuminate\Http\Request;
 
 class ChapterController extends Controller
@@ -28,20 +27,6 @@ class ChapterController extends Controller
 
     public function courses_name($id)
     {
-        $lesson_length = Lesson::all()->count();
-
-        $user = auth()->user();
-        $current_lesson_id = auth()->user()->overview->current_lesson_id;
-        $current_chapter_id = auth()->user()->overview->current_chapter_id;
-
-        $result = Result::where('user_id', $user->id)
-            ->where('lesson_id', $current_lesson_id)
-            ->where('chapter_id', $current_chapter_id)
-            ->first();
-
-        if ($result && $result->lesson_id && $result->lesson_id == $lesson_length) {
-            return view('frontend.certificate', compact('user'));
-        }
 
         $chapters = Chapter::all();
         // return $chapters;
