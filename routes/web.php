@@ -33,6 +33,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('dashboard');
 // });
+
+
 Route::get('/', [FrontendController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/admin', [BackendController::class, 'admin'])->name('admin')->middleware(['auth', isAdmin::class]);
 
@@ -45,6 +47,7 @@ Route::post('/login/store', [UserController::class, 'loginStore'])->name('login.
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 //student route
+
 Route::prefix('student')->middleware(['auth'])->group(function () {
     Route::get('/courses', [ChapterController::class, 'courses'])->name('courses');
     Route::get('/courses/{id}', [ChapterController::class, 'courses_name'])->name('courses.show');

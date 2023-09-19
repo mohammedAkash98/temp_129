@@ -117,6 +117,7 @@ class QuizController extends Controller
 
         $submitted_answers = $request->quiz;
 
+
         if (
             !Result::where('user_id', $user_id)
                 ->where('chapter_id', auth()->user()->overview->current_chapter_id)
@@ -148,23 +149,20 @@ class QuizController extends Controller
         $correct_ans = 0;
         $wrong_ans = 0;
         $skip_ans = 0;
-        if (count($submitted_answers) != 0) {
+
+        if (!empty($submitted_answers)) {
             foreach ($submitted_answers as $key => $submitted_answer) {
-                // echo $key;
-                // dd($submitted_answers[3]);
-                // continue;
                 $db_ans = Quiz::where('id', $key)->first()->correct_answer;
-                // dd(($submitted_answer == $db_ans), strcmp($submitted_answer, $db_ans));
                 if ($submitted_answer == $db_ans) {
                     $correct_ans++;
                 } elseif ($submitted_answer != $db_ans) {
                     $wrong_ans++;
                 }
             }
-            // dd($submitted_answers, $quizzes, $key, 'Correct_ans: '. $correct_ans, $wrong_ans);
         }
+
         // dd($quizzes, count($quizzes), $submitted_answers);
-        if (count($submitted_answers) != 0) {
+        if (!empty($submitted_answers)) {
             $skip_ans = count($quizzes) - count($submitted_answers);
         } else {
             $skip_ans = count($quizzes);
