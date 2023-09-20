@@ -25,7 +25,9 @@
 
             <!-- Main content -->
             <main class="col-md-8 col-lg-8 ms-sm-auto px-md-4">
+                <h4 id="first_view" class="text-center text-success font-weight-bold">* বাম পাশের মেনু থেকে অধ্যায় নির্বাচন করুন *</h4>
                 <div class="tab-content" id="v-pills-tabContent">
+
                     <div class="col-12" id="div1">
                         <div class="card border-0">
                             <?php echo $__env->yieldContent('course_content'); ?>
@@ -35,10 +37,19 @@
             </main>
         </div>
     </div>
+
+
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('page_js'); ?>
     <script src="<?php echo e(asset('assets/js/course.js')); ?>"></script>
+
+
+
+
+
+
+
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('main_master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH G:\laragon\www\temp_129\resources\views/frontend/courses__lessons/course_2.blade.php ENDPATH**/ ?>

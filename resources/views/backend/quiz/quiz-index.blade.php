@@ -1,3 +1,7 @@
+@php
+$numto = new Rakibhstu\Banglanumber\NumberToBangla();
+
+@endphp
 @extends('backend.layouts.master')
 @section('content')
     <div class="pagetitle">
@@ -39,7 +43,7 @@
                     @foreach ($quizzes as $quiz)
 
                         <tr>
-                            <td>{{ ++$sl }}</td>
+                            <td>{{ $numto->bnNum(++$sl) }}</td>
                             <td>{{ $quiz->chapter->name ?? '' }}</td>
                             <td>{{ $quiz->lesson->name ?? '' }}</td>
                             <td>{{ $quiz->question }}</td>

@@ -1,3 +1,6 @@
+@php
+$numto = new Rakibhstu\Banglanumber\NumberToBangla();
+@endphp
 @extends('backend.layouts.master')
 @section('content')
 
@@ -37,7 +40,7 @@
             <tbody>
                 @foreach ($chapters as $chapter)
                     <tr>
-                        <td>{{ $chapter->chapter_no_bangla }}</td>
+                        <td>{{ $numto->bnNum(++$sl) }}</td>
                         <td>{{ $chapter->name ?? '' }}</td>
                         <td>
                             <a href="{{ route('chapter.edit', $chapter->id) }}" class="btn btn-primary btn-sm text-white"> <i
@@ -51,6 +54,7 @@
                 <!-- Add more rows as needed -->
             </tbody>
         </table>
+        {{ $chapters->links('pagination::bootstrap-4') }}
     </div>
 
 @endif

@@ -1,3 +1,7 @@
+@php
+$numto = new Rakibhstu\Banglanumber\NumberToBangla();
+
+@endphp
 <nav id="sidebar" class="col-md-4 col-lg-4 d-md-block bg-light sidebar">
     <div class="position-sticky">
         <ul class="nav flex-column">
@@ -9,7 +13,7 @@
                         href="{{ '#collapseSideSubNav' . $key + 1 }}" role="button" aria-expanded="false"
                         aria-controls="{{ 'collapseSideSubNav' . $key + 1 }}">
                         <div class="arrow" id="arrow"></div>
-                        অধ্যায়-{{ $chapter->chapter_no_bangla ?? '' }}:{{ $chapter->name ?? '' }}
+                        অধ্যায়-{{ $numto->bnNum($key+1) ?? '' }}:{{ $chapter->name ?? '' }}
                     </a>
 
                     <!-- sub navbar -->
@@ -20,17 +24,17 @@
                             @foreach ($chapter->lessons as $key_l => $lesson)
                                 {{-- {{ Auth::user()->overview->id <= $lesson->id}} --}}
                                 @if (Auth::user()->overview->current_lesson_id >= $lesson->id)
-                                    <a class="nav-link mb-2" href="{{ route('courses.view', $lesson->id) }}"
+                                    <a class="nav-link side-link" href="{{ route('courses.view', $lesson->id) }}"
                                         aria-selected="true" style="background: #58A435;">
 
                                         <span><i class="lni lni-checkmark-circle text-white"></i></span>
-                                        পাঠ-{{ $lesson->lesson_no_bangla ?? '' }}: {{ $lesson->name ?? '' }}
-                                    
+                                        পাঠ-:{{ $numto->bnNum($key_l+1) ?? '' }}: {{ $lesson->name ?? '' }}
+
                                     </a>
                                 @else
-                                    <a class="nav-link mb-2" aria-selected="true">
+                                    <a class="nav-link side-link" aria-selected="true">
                                         <span><i class="lni lni-lock-alt h6" style="color: red"></i></span>
-                                        পাঠ-{{ $lesson->lesson_no_bangla ?? '' }}: {{ $lesson->name ?? '' }}
+                                        পাঠ-:{{ $numto->bnNum($key_l+1) ?? '' }}: {{ $lesson->name ?? '' }}
                                     </a>
                                 @endif
                             @endforeach

@@ -12,8 +12,8 @@ class LessonController extends Controller
     {
         $lessons = Lesson::paginate(10);
 
-
-        return view('backend.lesson.lesson-index', compact('lessons'));
+        $sl = !is_null(\request()->page) ? (\request()->page - 1) * 10 : 0;
+        return view('backend.lesson.lesson-index', compact('lessons', 'sl'));
     }
 
     public function create()

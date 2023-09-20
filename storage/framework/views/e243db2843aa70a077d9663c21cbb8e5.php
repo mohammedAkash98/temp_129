@@ -1,3 +1,7 @@
+<?php
+$numto = new Rakibhstu\Banglanumber\NumberToBangla();
+?>
+
 <?php $__env->startSection('content'); ?>
     <div class="pagetitle">
         <h1>Lesson</h1>
@@ -27,7 +31,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Lesson No</th>
+                        <th>SL No</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Chapter</th>
@@ -38,7 +42,7 @@
                 <tbody>
                     <?php $__currentLoopData = $lessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lesson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td><?php echo e($lesson->lesson_no_bangla); ?></td>
+                            <td><?php echo e($numto->bnNum(++$sl)); ?></td>
                             <td><?php echo e($lesson->name ?? ''); ?></td>
                             <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                                 <?php echo $lesson->description ?? ''; ?></td>

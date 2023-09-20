@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('chapter_id');
             $table->string('name');
-            $table->string('lesson_no_bangla')->nullable();
             $table->text('header_description')->nullable();
             $table->text('description');
             $table->string('image')->nullable();
