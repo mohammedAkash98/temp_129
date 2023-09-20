@@ -7,7 +7,7 @@ $numto = new Rakibhstu\Banglanumber\NumberToBangla();
         <ul class="nav flex-column">
             <li class="nav-item">
 
-                <!-- main side navbar -->
+                <!-- main side navbars -->
                 <?php $__currentLoopData = $chapters; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $chapter): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <a class="nav-link text-dark font-weight-bold sidebar-arrow" id="sidebar-arrow" data-toggle="collapse"
                         href="<?php echo e('#collapseSideSubNav' . $key + 1); ?>" role="button" aria-expanded="false"

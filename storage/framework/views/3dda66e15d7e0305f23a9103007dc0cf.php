@@ -1,6 +1,6 @@
 <?php $__env->startSection('page_content'); ?>
     <style>
-        /* Custom CSS for the certificate design */
+     /* custom css here */
     </style>
 
     <div class="container certificate-container text-center">
@@ -43,6 +43,9 @@
                 <p class="certificate-content pb3-">কৈশোরকালীন পুষ্টি ও সাস্থ্যসম্মত জীবনধারা</p>
             </div>
         </div>
+    </div>
+    <div class="text-center mb-3">
+        <a href="<?php echo e(route('student.pdf.certificate')); ?>" target="_blank" class="btn btn-success mx-auto">সার্টিফিকেট ডাউনলোড করুন</a>
     </div>
 <?php $__env->stopSection(); ?>
 

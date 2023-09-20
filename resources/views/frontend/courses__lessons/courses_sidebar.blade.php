@@ -7,7 +7,7 @@ $numto = new Rakibhstu\Banglanumber\NumberToBangla();
         <ul class="nav flex-column">
             <li class="nav-item">
 
-                <!-- main side navbar -->
+                <!-- main side navbars -->
                 @foreach ($chapters as $key => $chapter)
                     <a class="nav-link text-dark font-weight-bold sidebar-arrow" id="sidebar-arrow" data-toggle="collapse"
                         href="{{ '#collapseSideSubNav' . $key + 1 }}" role="button" aria-expanded="false"

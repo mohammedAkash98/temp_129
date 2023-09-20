@@ -21,11 +21,11 @@ $sl = 1;
                         @if ($key - 1 <= $current_chapter_id)
                             <a href="{{ route('courses.show', $course->id) }}">
                                 <button
-                                    class="bg-success text-black border border-success rounded-pill p-2 btn"><b>সম্পন্ন</b></button>
+                                    class="bg-success text-white border border-success rounded-pill p-2 btn"><b>সম্পন্ন</b></button>
                             </a>
                         @else
                             <a href="{{ route('courses.show', $course->id) }}">
-                                <button class="text-black border border-warning rounded-pill p-2 btn"><b>সম্পন্ন <i
+                                <button class="text-white border border-warning rounded-pill p-2 btn"><b>সম্পন্ন <i
                                             class="lni lni-lock-alt h6"></i> </b></button>
                             </a>
                         @endif

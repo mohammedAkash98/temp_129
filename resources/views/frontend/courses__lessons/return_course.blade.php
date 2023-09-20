@@ -18,7 +18,7 @@
 
                     if ($result && $result->lesson_id && $result->lesson_id == $lesson_length) {
                         echo '<h2 class="mb-4">আপনি সফলভাবে সকল অধ্যায় সম্পন্ন করেছেন।</h2>';
-                        echo '<a href="'.route('certificate').'" class="btn btn-success">সার্টিফিকেট ডাউনলোড করুন</a>';
+                        echo '<a href="'.route('student.certificate').'" class="btn btn-success">সার্টিফিকেট ডাউনলোড করুন</a>';
                     } else {
                         echo '<h2 class="mb-4">দুঃখিত আপনি ইতোমধ্যেই এই কুইজে অংশগ্রহণ করেছেন ।</h2>';
                         echo '<a href="'.route('courses').'" class="btn btn-success">কোর্সে ফিরে যান</a>';
