@@ -14,10 +14,17 @@ class ChapterController extends Controller
     {
         $courses = Chapter::all();
         if (!Overview::where('user_id', auth()->user()->id)->first()) {
+
+            $current_chapter_id =  Chapter::all()->first()->id;
+
+            $current_chapter_id = Lesson::where('chapter_id', $current_chapter_id)->first()->id;
+
+
+
             Overview::create([
                 'user_id' => auth()->user()->id,
-                'current_chapter_id' => 1,
-                'current_lesson_id' => 1,
+                'current_chapter_id' => $current_chapter_id,
+                'current_lesson_id' => $current_chapter_id,
                 'marks' => 0,
             ]);
         }
@@ -57,10 +64,14 @@ class ChapterController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
         ]);
+        $data = $request->all();
 
-        Chapter::create([
-            'name' => $request->name,
-        ]);
+        if ($request->image) {
+            $image = $this->uploadImage($request->name, $request->image);
+            $data['image'] = $image;
+        }
+        Chapter::create($data);
+
         toastr()->success('Chapter created successfully!', 'Congrats');
         return redirect()->route('chapter.index');
     }
@@ -68,7 +79,12 @@ class ChapterController extends Controller
     public function delete($id)
     {
         $chapter = Chapter::find($id);
+
+        if ($chapter->image) {
+            $this->unlink($chapter->image);
+        }
         $chapter->delete();
+
         toastr()->error('Chapter deleted!', 'Delete');
         return redirect()->back();
     }
@@ -84,12 +100,32 @@ class ChapterController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
         ]);
-        $chapter = Chapter::where('id', $id)->first();
+        $data = $request->except('_token');
+        if ($request->hasFile('image')) {
+            $category = Chapter::where('id', $id)->first();
 
-        $chapter->update([
-            'name' => $request->name,
-        ]);
+            $this->unlink($category->image);
+
+            $data['image'] = $this->uploadImage($request->name, $request->image);
+        }
+        $category = Chapter::where('id', $id)->update($data);
         toastr()->success('Chapter updated successfully!', 'Congrats');
         return redirect()->route('chapter.index');
+    }
+
+    //image function
+    public function uploadImage($title, $image)
+    {
+        $file_name = time() . '-' . $title . '.' . $image->getClientOriginalExtension();
+        $image->move('storage/chapter', $file_name);
+        return $file_name;
+    }
+
+    private function unlink($image)
+    {
+        $pathToUpload = storage_path() . '/app/public/chapter/';
+        if ($image != '' && file_exists($pathToUpload . $image)) {
+            @unlink($pathToUpload . $image);
+        }
     }
 }

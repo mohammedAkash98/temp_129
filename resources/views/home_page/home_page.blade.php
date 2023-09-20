@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{{-- @dd($chittagang->count()); --}}
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -10,6 +10,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
+
     @include('backend.layouts.partials.cdn')
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     @include('home_page.home_page_css')
@@ -136,24 +137,26 @@
                     <span class="line line-h2"></span>
                 </div>
             </div>
+{{-- english to bangla converter --}}
+@php
+$numto = new Rakibhstu\Banglanumber\NumberToBangla();
+@endphp
+            <div class="row align-items-center justify-content-center">
 
-            <div class="row align-items-center justify-content-center header-font-p">
-
-                @for ($i = 1; $i <= 5; $i++)
-                    <div
-                        class="col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center d-flex justify-content-center fadeInUp">
-                        <a href="#">
-                            <div class="card" style="width: 18rem;">
-                                <img src="{{ asset('assets/img/lesson1.jpg') }}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title header-font">১ঃ খাদ্য ও পুষ্টি বিষয়ক তথ্য</h5>
-                                    <button type="button" class="btn btn-bg text-dark"> <b>বিস্তারিত</b></button>
-                                </div>
-                            </div>
-                        </a>
+               @foreach ($chapters as $key=>$chapter )
+               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center d-flex justify-content-center fadeInUp">
+                <a href="{{ route('courses') }}">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ asset('storage/chapter/'. $chapter->image) }}"
+                        class="card-img-top" alt="{{ $chapter->name ?? '' }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $numto->bnNum(1+$key) }}: খাদ্য ও পুষ্টি বিষয়ক তথ্য</h5>
+                            <a href="{{ route('courses') }}" class="btn btn-bg text-dark">বিস্তারিত</a>
+                        </div>
                     </div>
-                @endfor
-
+                </a>
+            </div>
+               @endforeach
             </div>
         </div>
     </section>

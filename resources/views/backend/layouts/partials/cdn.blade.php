@@ -1,6 +1,5 @@
-<link href="{{ asset('ui/backend') }}/assets/img/favicon.png" rel="icon">
-<link href="{{ asset('ui/backend') }}/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
+{{-- favicon --}}
+<link rel="icon" href="{{ asset('assets/img/Screenshot_9_1.png') }}">
 <!-- Google Fonts -->
 <link href="https://fonts.gstatic.com" rel="preconnect">
 <link

@@ -15,7 +15,7 @@
 
   <div class="container">
     <h2>Edit Chapter</h2>
-    <form action="{{ route('chapter.update',$chapter->id) }}" method="POST">
+    <form action="{{ route('chapter.update',$chapter->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
 
@@ -25,6 +25,11 @@
             <span class="text-danger">{{ $errors->first('name') }}</span>
             @endif
         </div>
+        <div class="form-group">
+            <label for="image">Chapter Image:</label>
+            <input type="file" class="form-control" id="image" name="image" >
+        </div>
+
 
         <button type="submit" class="btn btn-primary btn-sm mt-3 text-white"><i class="fa-solid fa-floppy-disk"></i> Save</button>
     </form>

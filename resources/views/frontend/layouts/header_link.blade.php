@@ -5,7 +5,8 @@
 
 <!-- icon -->
 <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
-
+{{-- favicon --}}
+<link rel="icon" href="{{ asset('assets/img/Screenshot_9_1.png') }}">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.bunny.net">

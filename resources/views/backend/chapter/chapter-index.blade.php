@@ -34,6 +34,7 @@ $numto = new Rakibhstu\Banglanumber\NumberToBangla();
                 <tr>
                     <th>Sl No</th>
                     <th>Name</th>
+                    <th>Image</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -42,6 +43,7 @@ $numto = new Rakibhstu\Banglanumber\NumberToBangla();
                     <tr>
                         <td>{{ $numto->bnNum(++$sl) }}</td>
                         <td>{{ $chapter->name ?? '' }}</td>
+                        <td><img width="100" src="{{ asset('storage/chapter/'. $chapter->image) }}" alt=""></td>
                         <td>
                             <a href="{{ route('chapter.edit', $chapter->id) }}" class="btn btn-primary btn-sm text-white"> <i
                                     class="fa-solid fa-file-pen"></i> Edit</a>
