@@ -12,6 +12,9 @@ class FrontendController extends Controller
 {
     public function index()
     {
+        if (auth()->user()) {
+            return view('frontend.dashboard');
+        }
         return view('home_page.home_page');
     }
 
