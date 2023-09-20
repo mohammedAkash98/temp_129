@@ -1,15 +1,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <?php $__env->startSection('page_content'); ?>
-<?php if(session('register') === 'success'): ?>
-    <script>
-        $(document).ready(function() {
-            $('#exampleModal').modal('show'); // Show the modal with the ID 'exampleModal'
-        });
-    </script>
-<?php endif; ?>
+
 
     <section class="registrationPage">
         <div class="container mt-5">
@@ -88,24 +82,36 @@
     </section>
 
     
-    <button id="myButton" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Success message
-    </button>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    <!-- Your HTML modal code -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content p-4 border-round">
-
                 <div class="modal-body mx-auto">
                     <div class="mb-3 text-center">
                         <img src="<?php echo e(asset('assets/icon/success.png')); ?>" class="w-50" alt="">
                     </div>
                     <h4>রেজিস্ট্রেশন সফল হয়েছে!</h4>
+                    ggiuig
                 </div>
-
             </div>
         </div>
     </div>
 
+    <?php if(session('register') == 'success'): ?>
+    <script>
+     $(document).ready(function() {
+
+         $('#exampleModal').modal('show');
+         setTimeout(function() {
+                 location.reload();
+         }, 3000);
+     });
+ </script>
+ <?php endif; ?>
 
 <?php $__env->stopSection(); ?>
 
