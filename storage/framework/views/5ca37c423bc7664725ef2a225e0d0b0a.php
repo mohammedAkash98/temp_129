@@ -1,7 +1,8 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <?php $__env->startSection('page_content'); ?>
-    <section class="registrationPage">
+
+    <section class="registrationPage mb-4">
         <div class="container mt-5">
             <div class="container-fluid">
                 <div class="row justify-content-center align-items-center">
@@ -36,7 +37,15 @@
                                 <div class="row g-3">
 
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control border border-round p-3" id="name" name="name" placeholder='নাম'>
+                                        <div class="input-group shadow-sm border border-round border-0">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text border border-round"
+                                                    style="background-color: transparent;"><i
+                                                        class="fa-regular fa-user"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control border border-round" id="name"
+                                                name="name" placeholder='নাম'>
+                                        </div>
                                         <div>
                                             <?php if($errors->has('name')): ?>
                                                 <span class="text-danger"><?php echo e($errors->first('name')); ?></span>
@@ -49,8 +58,16 @@
 
                                     <!-- Age -->
                                     <div class="col-md-6">
+                                        <div class="input-group shadow-sm border border-round border-0">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text border border-round"
+                                                    style="background-color: transparent;"><i
+                                                        class="fa-regular fa-calendar"></i></span>
+                                            </div>
+                                            <input type="number" placeholder="বয়স" class="form-control border border-round"
+                                                id="age" name="age">
+                                        </div>
 
-                                        <input type="number" placeholder="বয়স" class="form-control border border-round p-3" id="age" name="age">
                                         <div>
                                             <?php if($errors->has('age')): ?>
                                                 <span class="text-danger"><?php echo e($errors->first('age')); ?></span>
@@ -61,8 +78,16 @@
 
                                     <!-- School Name -->
                                     <div class="col-md-6">
+                                        <div class="input-group shadow-sm border border-round border-0">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text border border-round"
+                                                    style="background-color: transparent;"><i
+                                                        class="fa-solid fa-building-columns"></i></span>
+                                            </div>
+                                            <input type="text" placeholder="বিদ্যালয়ের নাম"
+                                                class="form-control border border-round" id="school" name="school_name">
+                                        </div>
 
-                                        <input type="text" placeholder="বিদ্যালয়ের নাম" class="form-control border border-round p-3" id="school" name="school_name">
                                         <div>
                                             <?php if($errors->has('school_name')): ?>
                                                 <span class="text-danger"><?php echo e($errors->first('school_name')); ?></span>
@@ -73,8 +98,15 @@
 
                                     <!-- Class -->
                                     <div class="col-md-6">
+                                        <div class="input-group shadow-sm border border-round border-0">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text border border-round"
+                                                    style="background-color: transparent;"><i class="fa-solid fa-file-pen"></i></span>
+                                            </div>
+                                            <input type="text" placeholder="শ্রেনী"
+                                                class="form-control border border-round" id="class" name="class">
+                                        </div>
 
-                                        <input type="text" placeholder="শ্রেনী" class="form-control border border-round p-3" id="class" name="class">
                                         <div>
                                             <?php if($errors->has('class')): ?>
                                                 <span class="text-danger"><?php echo e($errors->first('class')); ?></span>
@@ -87,11 +119,20 @@
                                     <!-- Gender -->
                                     <div class="col-md-6">
 
-                                        <select class="form-control border border-round" name="gender" placeholder='লিঙ্গ'>
-                                            <option value="" selected disabled>লিঙ্গ</option>
-                                            <option value="পুরুষ">পুরুষ</option>
-                                            <option value="মহিলা">মহিলা</option>
-                                        </select>
+                                        <div class="input-group shadow-sm border border-round border-0">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text border border-round"
+                                                    style="background-color: transparent;"><i
+                                                        class="fa-solid fa-venus-mars"></i></span>
+                                            </div>
+                                            <select class="form-control border border-round" name="gender"
+                                                placeholder='লিঙ্গ'>
+                                                <option value="" selected disabled>লিঙ্গ</option>
+                                                <option value="পুরুষ">পুরুষ</option>
+                                                <option value="মহিলা">মহিলা</option>
+                                            </select>
+
+                                        </div>
                                         <div>
                                             <?php if($errors->has('gender')): ?>
                                                 <span class="text-danger"><?php echo e($errors->first('gender')); ?></span>
@@ -102,8 +143,15 @@
 
                                     <!-- Mobile Number -->
                                     <div class="col-md-6">
+                                        <div class="input-group shadow-sm border border-round border-0">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text border border-round"
+                                                    style="background-color: transparent;"><i class="fa-solid fa-phone"></i></span>
+                                            </div>
+                                            <input type="tel" placeholder="মোবাইল নাম্বার"
+                                                class="form-control border border-round " id="mobile" name="phone_no">
+                                        </div>
 
-                                        <input type="tel" placeholder="মোবাইল নাম্বার" class="form-control border border-round p-3" id="mobile" name="phone_no">
                                         <div>
                                             <?php if($errors->has('phone_no')): ?>
                                                 <span class="text-danger"><?php echo e($errors->first('phone_no')); ?></span>
@@ -115,8 +163,15 @@
 
                                     <!-- Email -->
                                     <div class="col-md-6">
+                                        <div class="input-group shadow-sm border border-round border-0">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text border border-round"
+                                                    style="background-color: transparent;"><i class="fa-regular fa-envelope"></i></span>
+                                            </div>
+                                            <input type="email" placeholder="ইমেইল"
+                                                class="form-control border border-round" id="email" name="email">
+                                        </div>
 
-                                        <input type="email" placeholder="ইমেইল" class="form-control border border-round p-3" id="email" name="email">
                                         <div>
                                             <?php if($errors->has('email')): ?>
                                                 <span class="text-danger"><?php echo e($errors->first('email')); ?></span>
@@ -128,8 +183,15 @@
 
                                     <!-- Password -->
                                     <div class="col-md-6">
+                                        <div class="input-group shadow-sm border border-round border-0">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text border border-round"
+                                                    style="background-color: transparent;"><i class="fa-solid fa-lock"></i></span>
+                                            </div>
+                                            <input type="password" placeholder="পাসওয়ার্ড"
+                                                class="form-control border border-round" id="password" name="password">
+                                        </div>
 
-                                        <input type="password" placeholder="পাসওয়ার্ড" class="form-control border border-round p-3" id="password" name="password">
                                         <div>
                                             <?php if($errors->has('password')): ?>
                                                 <span class="text-danger"><?php echo e($errors->first('password')); ?></span>
@@ -141,8 +203,16 @@
 
                                     <!-- Present Address -->
                                     <div class="col-md-12">
+                                        <div class="input-group shadow-sm border border-round border-0">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text border border-round"
+                                                    style="background-color: transparent;"><i class="fa-solid fa-map-location-dot"></i></span>
+                                            </div>
+                                            <input class="form-control border border-round p-3"
+                                                placeholder='বর্তমান ঠিকানা' id="presentAddress" name="present_address"
+                                                rows="3"></ই>
+                                        </div>
 
-                                        <input class="form-control border border-round p-3" placeholder='বর্তমান ঠিকানা' id="presentAddress" name="present_address" rows="3"></ই>
                                         <div>
                                             <?php if($errors->has('present_address')): ?>
                                                 <span class="text-danger"><?php echo e($errors->first('present_address')); ?></span>
@@ -153,17 +223,24 @@
 
                                     <!-- Division Address -->
                                     <div class="col-md-12">
-                                        <select class="form-control border border-round" name="division" placeholder='বিভাগ'>
-                                            <option value="" selected disabled>বিভাগ</option>
-                                            <option value="ঢাকা">ঢাকা</option>
-                                            <option value="চট্রগ্রাম">চট্রগ্রাম </option>
-                                            <option value="রাজশাহী">রাজশাহী</option>
-                                            <option value="খুলনা">খুলনা</option>
-                                            <option value="সিলেট">সিলেট</option>
-                                            <option value="বরিশাল">বরিশাল</option>
-                                            <option value="রংপুর">রংপুর</option>
-                                            <option value="ময়মনসিংহ">ময়মনসিংহ</option>
-                                        </select>
+                                        <div class="input-group shadow-sm border border-round border-0">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text border border-round"
+                                                    style="background-color: transparent;"><i class="fa-solid fa-location-dot"></i></span>
+                                            </div>
+                                            <select class="form-control border border-round" name="division">
+                                                <option value="" selected disabled>বিভাগ</option>
+                                                <option value="ঢাকা">ঢাকা</option>
+                                                <option value="চট্রগ্রাম">চট্রগ্রাম</option>
+                                                <option value="রাজশাহী">রাজশাহী</option>
+                                                <option value="খুলনা">খুলনা</option>
+                                                <option value="সিলেট">সিলেট</option>
+                                                <option value="বরিশাল">বরিশাল</option>
+                                                <option value="রংপুর">রংপুর</option>
+                                                <option value="ময়মনসিংহ">ময়মনসিংহ</option>
+                                            </select>
+                                        </div>
+
                                         <div>
                                             <?php if($errors->has('division')): ?>
                                                 <span class="text-danger"><?php echo e($errors->first('division')); ?></span>
@@ -172,19 +249,26 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Nutrition club সদস্য:</label>
-                                        <div class="form-check">
+                                        <label>Nutrition club সদস্য:</label><br>
+                                        <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="is_club_member"
-                                                id="nutritionMemberYes" value="yes" required>
-                                            <label class="form-check-label" for="nutritionMemberYes">হ্যাঁ</label>
+                                                id="inlineRadio1" value="option1">
+                                            <label class="form-check-label" for="inlineRadio1"
+                                                value="yes">হ্যাঁ</label>
                                         </div>
-                                        <div class="form-check">
+                                        <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="is_club_member"
-                                                id="nutritionMemberNo" value="no" required>
-                                            <label class="form-check-label" for="nutritionMemberNo">না</label>
+                                                id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2" value="no">না</label>
+                                        </div>
+                                        <div>
+                                            <?php if($errors->has('is_club_member')): ?>
+                                                <span class="text-danger"><?php echo e($errors->first('is_club_member')); ?></span>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-success border border-round p-2">একাউন্ট তৈরি করুন</button>
+                                    <button type="submit" class="btn btn-success border border-round p-2 shadow-sm">একাউন্ট তৈরি
+                                        করুন</button>
                                 </div>
                             </form>
                             <p class="text-center mt-3">একাউন্ট আছে? <a href="<?php echo e(route('login')); ?>">লগ ইন</a>
@@ -196,6 +280,9 @@
             </div>
         </div>
     </section>
+
+
+
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('main_master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH G:\laragon\www\temp_129\resources\views/frontend/user/register.blade.php ENDPATH**/ ?>

@@ -1,6 +1,16 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/js/bootstrap.bundle.min.js"></script>
 <?php $__env->startSection('page_content'); ?>
+<?php if(session('register') === 'success'): ?>
+    <script>
+        $(document).ready(function() {
+            $('#exampleModal').modal('show'); // Show the modal with the ID 'exampleModal'
+        });
+    </script>
+<?php endif; ?>
+
     <section class="registrationPage">
         <div class="container mt-5">
             <div class="container-fluid">
@@ -34,7 +44,14 @@
                                 <div class="form-group">
                                     <div class="form-group">
                                         <label for="mobile">মোবাইল নাম্বার:</label>
-                                        <input type="tel" class="form-control border border-round shadow-sm p-4" id="mobile" name="phone_no" placeholder='আপনার মোবাইল নাম্বার দিন'>
+                                        <div class="input-group shadow-sm border border-round border-0">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text border border-round"
+                                                    style="background-color: transparent;"><i class="fa-solid fa-phone"></i></span>
+                                            </div>
+                                            <input type="tel" placeholder="মোবাইল নাম্বার"
+                                                class="form-control border border-round" id="mobile" name="phone_no">
+                                        </div>
                                     </div>
                                     <div>
                                         <?php if($errors->has('phone_no')): ?>
@@ -44,14 +61,21 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="password">পাসওয়ার্ড:</label>
-                                    <input type="password" class="form-control border border-round shadow-sm p-4" id="password" name="password" placeholder="আপনার পাসওয়ার্ড দিন">
+                                    <div class="input-group shadow-sm border border-round border-0">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text border border-round"
+                                                style="background-color: transparent;"><i class="fa-solid fa-lock"></i></span>
+                                        </div>
+                                        <input type="password" placeholder="পাসওয়ার্ড"
+                                            class="form-control border border-round" id="password" name="password">
+                                    </div>
                                     <div>
                                         <?php if($errors->has('password')): ?>
                                             <span class="text-danger"><?php echo e($errors->first('password')); ?></span>
                                         <?php endif; ?>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-success btn-block border border-round">লগ ইন</button>
+                                <button type="submit" class="btn btn-success btn-block border border-round shadow-sm">লগ ইন</button>
                             </form>
                             <p class="text-center mt-3">একাউন্ট নেই? <a
                                     href="<?php echo e(route('register')); ?>">রেজিস্ট্রেশন</a></p>
