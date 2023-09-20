@@ -30,12 +30,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('dashboard');
-// });
 
-
-Route::get('/', [FrontendController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::get('/', [FrontendController::class, 'index'])->name('home_page');
+Route::get('/dashboard', [FrontendController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/admin', [BackendController::class, 'admin'])->name('admin')->middleware(['auth', isAdmin::class]);
 
 
