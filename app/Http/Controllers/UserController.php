@@ -45,8 +45,7 @@ class UserController extends Controller
                 'division' => $request->division,
                 'is_club_member' => $request->is_club_member,
             ]);
-            toastr()->success('একাউন্ট তৈরী করা হয়েছে!', 'অভিনন্দন');
-            return redirect()->route('login');
+            return redirect()->route('login')->with('register', 'success');
         } catch (Exception $e) {
             return redirect()->back();
         }
