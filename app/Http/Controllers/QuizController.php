@@ -109,11 +109,14 @@ class QuizController extends Controller
     public function quiz_answer_store(Request $request)
     {
         // dd($request->all());
+
         $chapters = Chapter::all();
         $user_id = auth()->user()->id;
-        $chapter_id = Lesson::where('id', $request->lesson_id)->first()->chapter->id;
+        $lesson_id = $request->lesson_id;
+        $chapter_id = Lesson::where('id', $lesson_id)->first()->chapter->id;
 
         $submitted_answers = $request->quiz;
+
 
         if (
             !Result::where('user_id', $user_id)
@@ -123,46 +126,43 @@ class QuizController extends Controller
         ) {
             $result = Result::create([
                 'user_id' => $user_id,
-                'lesson_id' => $request->lesson_id,
+                'lesson_id' => $lesson_id,
                 'chapter_id' => $chapter_id,
             ]);
         }
         $existing_student = Result::where('user_id', $user_id)
-            ->where('lesson_id', $request->lesson_id)
+            ->where('lesson_id', $lesson_id)
             ->where('chapter_id', $chapter_id)
             ->first();
         if ($existing_student) {
             $existing_student->update([
                 'user_id' => $user_id,
-                'lesson_id' => $request->lesson_id,
+                'lesson_id' => $lesson_id,
                 'chapter_id' => $chapter_id,
             ]);
         }
 
         $quizzes = Quiz::where('chapter_id', $chapter_id)
-            ->where('lesson_id', $request->lesson_id)
+            ->where('lesson_id', $lesson_id)
             ->get();
 
         $correct_ans = 0;
         $wrong_ans = 0;
         $skip_ans = 0;
-        if (count($submitted_answers) != 0) {
+
+        if (!empty($submitted_answers)) {
             foreach ($submitted_answers as $key => $submitted_answer) {
-                // echo $key;
-                // dd($submitted_answers[3]);
-                // continue;
                 $db_ans = Quiz::where('id', $key)->first()->correct_answer;
-                // dd(($submitted_answer == $db_ans), strcmp($submitted_answer, $db_ans));
                 if ($submitted_answer == $db_ans) {
                     $correct_ans++;
                 } elseif ($submitted_answer != $db_ans) {
                     $wrong_ans++;
                 }
             }
-            // dd($submitted_answers, $quizzes, $key, 'Correct_ans: '. $correct_ans, $wrong_ans);
         }
 
-        if (count($submitted_answers) != 0) {
+        // dd($quizzes, count($quizzes), $submitted_answers);
+        if (!empty($submitted_answers)) {
             $skip_ans = count($quizzes) - count($submitted_answers);
         } else {
             $skip_ans = count($quizzes);
@@ -170,7 +170,7 @@ class QuizController extends Controller
         }
 
         $result = Result::where('user_id', $user_id)
-            ->where('lesson_id', $request->lesson_id)
+            ->where('lesson_id', $lesson_id)
             ->where('chapter_id', $chapter_id)
             ->first();
         $result->update([
@@ -178,19 +178,7 @@ class QuizController extends Controller
             'wrong_ans' => $wrong_ans,
             'skip_ans' => $skip_ans,
         ]);
-        $lesson = Lesson::where('id', $request->lesson_id + 1)->first();
-        if (isset($lesson)) {
-            $marks = Overview::where('user_id', $user_id)
-                ->where('current_lesson_id', $request->lesson_id)
-                ->where('current_chapter_id', $chapter_id)
-                ->first();
 
-            $marks->update([
-                'marks' => $correct_ans,
-                'current_lesson_id' => $request->lesson_id + 1,
-                'current_chapter_id' => $lesson->chapter_id,
-            ]);
-        }
         // else {
         //     // $marks = Overview::where('user_id', $user_id)->where('lesson_id', $request->lesson_id)->where('chapter_id', $chapter_id)->first();
         //     // $marks->update([
@@ -201,10 +189,32 @@ class QuizController extends Controller
         //     return view('frontend.certificate');
         // }
         $total_answers = $result->correct_ans + $result->wrong_ans + $result->skip_ans;
-        $correct_percentage = ($result->correct_ans / $total_answers) * 100;
-        $wrong_percentage = ($result->wrong_ans / $total_answers) * 100;
-        $skip_percentage = ($result->skip_ans / $total_answers) * 100;
+        $correct_percentage = round(($result->correct_ans / $total_answers) * 100);
+        $wrong_percentage = round(($result->wrong_ans / $total_answers) * 100);
+        $skip_percentage = round(($result->skip_ans / $total_answers) * 100);
 
+        // $lesson = Lesson::where('id', $lesson_id + 1)->first();
+        $lesson = Lesson::where('id', '>', $lesson_id)->first();
+
+        if (isset($lesson) && $correct_percentage >= 50) {
+            $overview = Overview::where('user_id', $user_id)
+                ->where('current_lesson_id', $lesson_id)
+                ->where('current_chapter_id', $chapter_id)
+                ->first();
+
+            $overview->update([
+                'marks' => $correct_ans,
+                'current_lesson_id' => $lesson->id,
+                'current_chapter_id' => $lesson->chapter_id,
+            ]);
+        }
+        if ($correct_percentage < 50) {
+            Result::where('user_id', $user_id)
+                ->where('chapter_id', $chapter_id)
+                ->where('lesson_id', $lesson_id)
+                ->first()
+                ->delete();
+        }
         $star = 0;
         if ($correct_percentage >= 90) {
             $star = 5;

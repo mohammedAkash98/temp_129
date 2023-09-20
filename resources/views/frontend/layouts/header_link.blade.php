@@ -11,4 +11,10 @@
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
+{{-- circualr bar --}}
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/bar/circular_bar.css') }}">
+
+{{-- line bar --}}
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/bar/line_bar.css') }}">
+
 

@@ -43,14 +43,6 @@
             @endif
         </div>
 
-        <div class="form-group mb-3">
-            <label for="lesson_no_bangla">Lesson No(Bangla):</label>
-            <input type="text" class="form-control" id="lesson_no_bangla" name="lesson_no_bangla">
-            @if ($errors->has('lesson_no_bangla'))
-                <span class="text-danger">{{ $errors->first('lesson_no_bangla') }}</span>
-            @endif
-        </div>
-
         <div class="form-group">
             <label for="lessonImage">Image:</label>
             <input type="file" class="form-control-file my-3" id="lessonImage" name="image">

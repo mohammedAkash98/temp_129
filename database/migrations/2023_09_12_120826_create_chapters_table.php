@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('chapters', function (Blueprint $table) {
             $table->id();
-            $table->string('chapter_no_bangla');
             $table->string('name');
             $table->timestamps();
         });

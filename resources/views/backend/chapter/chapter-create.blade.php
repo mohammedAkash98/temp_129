@@ -18,11 +18,6 @@
     <form action="{{ route('chapter.store') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label for="chapter_no_bangla">Chapter No (Bangla):</label>
-            <input type="text" class="form-control" id="chapter_no_bangla" name="chapter_no_bangla" >
-            @if ($errors->has('chapter_no_bangla'))
-            <span class="text-danger">{{ $errors->first('chapter_no_bangla') }}</span>
-            @endif
             <label for="chapterName">Chapter Name:</label>
             <input type="text" class="form-control" id="chapterName" name="name" >
             @if ($errors->has('name'))

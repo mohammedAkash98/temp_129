@@ -27,7 +27,9 @@
 
             <!-- Main content -->
             <main class="col-md-8 col-lg-8 ms-sm-auto px-md-4">
+                <h4 id="first_view" class="text-center text-success font-weight-bold">* বাম পাশের মেনু থেকে অধ্যায় নির্বাচন করুন *</h4>
                 <div class="tab-content" id="v-pills-tabContent">
+
                     <div class="col-12" id="div1">
                         <div class="card border-0">
                             @yield('course_content')
@@ -37,8 +39,17 @@
             </main>
         </div>
     </div>
+
+
 @endsection
 
 @section('page_js')
     <script src="{{ asset('assets/js/course.js') }}"></script>
+
+
+
+
+
+
+
 @endsection

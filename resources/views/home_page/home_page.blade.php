@@ -9,6 +9,21 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"
+    rel="stylesheet"
+    />
     <!-- Favicons -->
     @include('backend.layouts.partials.cdn')
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -503,9 +518,7 @@
     </section>
 
     <!-- ======= Footer ======= -->
-    {{-- @include('backend.layouts.partials.footer') --}}
-
-    <!-- End Footer -->
+    @include('home_page.home_footer')
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>

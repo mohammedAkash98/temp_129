@@ -30,7 +30,7 @@ class ChapterController extends Controller
 
         $chapters = Chapter::all();
         // return $chapters;
-        return view('frontend.courses__lessons.course_2',  compact('chapters'));
+        return view('frontend.courses__lessons.course_2', compact('chapters'));
     }
     public function courses_view($id)
     {
@@ -42,9 +42,9 @@ class ChapterController extends Controller
 
     public function index()
     {
-        $chapters = Chapter::all();
-
-        return view('backend.chapter.chapter-index', compact('chapters'));
+        $chapters = Chapter::paginate(10);
+        $sl = !is_null(\request()->page) ? (\request()->page - 1) * 10 : 0;
+        return view('backend.chapter.chapter-index', compact('chapters', 'sl'));
     }
 
     public function create()
@@ -59,9 +59,7 @@ class ChapterController extends Controller
         ]);
 
         Chapter::create([
-
             'name' => $request->name,
-            'chapter_no_bangla' => $request->chapter_no_bangla
         ]);
         toastr()->success('Chapter created successfully!', 'Congrats');
         return redirect()->route('chapter.index');
@@ -89,7 +87,6 @@ class ChapterController extends Controller
         $chapter = Chapter::where('id', $id)->first();
 
         $chapter->update([
-
             'name' => $request->name,
         ]);
         toastr()->success('Chapter updated successfully!', 'Congrats');
