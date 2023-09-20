@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Chapter;
 use App\Models\Lesson;
+use App\Models\Overview;
 use App\Models\Result;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -50,6 +51,21 @@ class StudentController extends Controller
     }
     public function certificate()
     {
+        if (!Overview::where('user_id', auth()->user()->id)->first()) {
+
+            $chapters =  Chapter::all();
+            $chapter = $chapters->first()->id;
+            $lesson = Lesson::where('chapter_id', $chapter)->first();
+
+
+            Overview::create([
+                'user_id' => auth()->user()->id,
+                'current_chapter_id' => $chapter,
+                'current_lesson_id' => $lesson->id,
+                'marks' => 0,
+            ]);
+        }
+
         $lesson_length = Lesson::all()->count();
 
         $user = auth()->user();

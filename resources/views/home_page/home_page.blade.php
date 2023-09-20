@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{{-- @dd($chittagang->count()); --}}
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -46,6 +46,7 @@
 
 
     <section class="banner">
+
         <div class="banner-in position-relative w-100">
             <div class="svg position-absolute w-100">
                 <img src="{{ asset('assets/icon/wave2.svg') }}" class="w-100" alt="">
@@ -140,64 +141,26 @@
                     <span class="line line-h2"></span>
                 </div>
             </div>
-
+{{-- english to bangla converter --}}
+@php
+$numto = new Rakibhstu\Banglanumber\NumberToBangla();
+@endphp
             <div class="row align-items-center justify-content-center">
 
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center d-flex justify-content-center fadeInUp">
-                    <a href="#">
-                        <div class="card" style="width: 18rem;">
-                            <img src="{{ asset('assets/img/lesson1.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">১ঃ খাদ্য ও পুষ্টি বিষয়ক তথ্য</h5>
-                                <button type="button" class="btn btn-bg text-dark">বিস্তারিত</button>
-                            </div>
+               @foreach ($chapters as $key=>$chapter )
+               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center d-flex justify-content-center fadeInUp">
+                <a href="{{ route('courses') }}">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ asset('storage/chapter/'. $chapter->image) }}"
+                        class="card-img-top" alt="{{ $chapter->name ?? '' }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $numto->bnNum(1+$key) }}: খাদ্য ও পুষ্টি বিষয়ক তথ্য</h5>
+                            <a href="{{ route('courses') }}" class="btn btn-bg text-dark">বিস্তারিত</a>
                         </div>
-                    </a>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center d-flex justify-content-center fadeInUp">
-                    <a href="#">
-                        <div class="card" style="width: 18rem;">
-                            <img src="{{ asset('assets/img/lesson1.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">১ঃ খাদ্য ও পুষ্টি বিষয়ক তথ্য</h5>
-                                <button type="button" class="btn btn-bg text-dark">বিস্তারিত</button>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center d-flex justify-content-center fadeInUp">
-                    <a href="#">
-                        <div class="card" style="width: 18rem;">
-                            <img src="{{ asset('assets/img/lesson1.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">১ঃ খাদ্য ও পুষ্টি বিষয়ক তথ্য</h5>
-                                <button type="button" class="btn btn-bg text-dark">বিস্তারিত</button>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center d-flex justify-content-center fadeInUp">
-                    <a href="#">
-                        <div class="card" style="width: 18rem;">
-                            <img src="{{ asset('assets/img/lesson1.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">১ঃ খাদ্য ও পুষ্টি বিষয়ক তথ্য</h5>
-                                <button type="button" class="btn btn-bg text-dark">বিস্তারিত</button>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center d-flex justify-content-center fadeInUp">
-                    <a href="#">
-                        <div class="card" style="width: 18rem;">
-                            <img src="{{ asset('assets/img/lesson1.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">১ঃ খাদ্য ও পুষ্টি বিষয়ক তথ্য</h5>
-                                <button type="button" class="btn btn-bg text-dark">বিস্তারিত</button>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
+            </div>
+               @endforeach
             </div>
         </div>
     </section>

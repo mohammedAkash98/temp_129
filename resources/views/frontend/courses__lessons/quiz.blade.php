@@ -9,7 +9,14 @@
                 @foreach ($quizzes as $key => $quiz)
                     <input type="text" name="lesson_id" value={{ $quiz->lesson_id }} hidden>
                     <div class="col-md-12 my-2" id={{ 'question' . $key }} style="display: none">
-                        <div id="timer{{ $key }}"></div>
+                      <div class="font-weight-bold mt-4">
+
+                            <p class="text-center">*সময় শেষ হবার পর পরবর্তী প্রশ্নে নিয়ে যাওয়া হবে।*</p>
+                           <div class="d-flex text-danger justify-content-center">
+                            <p>সময় বাকি আছেঃ </p>&nbsp; <p id="timer{{ $key }}"></p>&nbsp<p>সেকেন্ড</p>
+
+                           </div>
+                      </div>
                         <h3><b> Question {{ $key + 1 }}/{{ count($quizzes) }}
                             </b></h3>
                         <div class="col-md-12 my-4">
@@ -99,7 +106,7 @@
         // end
 
         // the timer value to 60 seconds
-        let timeLeft = 10;
+        let timeLeft = 600;
         let id = 0;
         let timerInterval;
 
@@ -110,10 +117,10 @@
         function startTimer() {
             console.log('2-timer' + id);
             timerInterval = setInterval(function() {
-                
+
                 timeLeft--;
                 updateTimer();
-                
+
                 if (timeLeft == 0) {
                     clearInterval(timerInterval);
                     if (isNextQues) {
