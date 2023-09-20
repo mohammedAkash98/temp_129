@@ -263,3 +263,4 @@
         }
     }
 </style>
+<?php /**PATH F:\xampp\htdocs\129_2\temp_129\resources\views/home_page/home_page_css.blade.php ENDPATH**/ ?>

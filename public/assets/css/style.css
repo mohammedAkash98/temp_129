@@ -159,9 +159,9 @@ body.loaded {
 /* cloud background */
 .cloud-bg {
     background-color: #fff;
-    background-image: url("../img/clouds-bg.png");
+    background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)),  url("../img/5.png");
     background-repeat: repeat;
-    animation: cloudMove 100s linear infinite;
+    animation: cloudMove 30s linear infinite;
 }
 
 @keyframes cloudMove {
