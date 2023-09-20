@@ -92,7 +92,6 @@
         </div>
     </section>
 
-    {{-- course info --}}
     <section class="course position-relative mt-20 mb-10">
         {{-- <div class="side-img position-absolute bottom-0 end-0">
             <img src="{{asset('assets/img/Characters/14.png')}}" class="w-10" alt="">
@@ -113,10 +112,43 @@
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center d-flex justify-content-center fadeInUp">
                     <a href="#">
                         <div class="card" style="width: 18rem;">
+                            <img src="{{ asset('images/home_content/chapter_1.jpeg') }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h3 class="card-title">কৈশোরকালীন পুষ্টি ও স্বাস্থ্যসম্মত জীবনধারা</h3>
+                                <button type="button" class="btn btn-bg text-dark">শুরু করুন</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- chapter info --}}
+    <section class="course position-relative mt-5 mb-10">
+        {{-- <div class="side-img position-absolute bottom-0 end-0">
+            <img src="{{asset('assets/img/Characters/14.png')}}" class="w-10" alt="">
+        </div> --}}
+        <div class="container">
+            <h2 class="text-center">
+                অধ্যায়সমূহ
+            </h2>
+            <div class="d-flex justify-content-center">
+                <div class="mb-4 line-design d-grid text-center">
+                    <span class="line line-h1"></span>
+                    <span class="line line-h2"></span>
+                </div>
+            </div>
+
+            <div class="row align-items-center justify-content-center">
+
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center d-flex justify-content-center fadeInUp">
+                    <a href="#">
+                        <div class="card" style="width: 18rem;">
                             <img src="{{ asset('assets/img/lesson1.jpg') }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">১ঃ খাদ্য ও পুষ্টি বিষয়ক তথ্য</h5>
-                                <button type="button" class="btn btn-bg text-dark">শুরু করুন</button>
+                                <button type="button" class="btn btn-bg text-dark">বিস্তারিত</button>
                             </div>
                         </div>
                     </a>
@@ -127,7 +159,7 @@
                             <img src="{{ asset('assets/img/lesson1.jpg') }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">১ঃ খাদ্য ও পুষ্টি বিষয়ক তথ্য</h5>
-                                <button type="button" class="btn btn-bg text-dark">শুরু করুন</button>
+                                <button type="button" class="btn btn-bg text-dark">বিস্তারিত</button>
                             </div>
                         </div>
                     </a>
@@ -138,7 +170,7 @@
                             <img src="{{ asset('assets/img/lesson1.jpg') }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">১ঃ খাদ্য ও পুষ্টি বিষয়ক তথ্য</h5>
-                                <button type="button" class="btn btn-bg text-dark">শুরু করুন</button>
+                                <button type="button" class="btn btn-bg text-dark">বিস্তারিত</button>
                             </div>
                         </div>
                     </a>
@@ -149,7 +181,7 @@
                             <img src="{{ asset('assets/img/lesson1.jpg') }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">১ঃ খাদ্য ও পুষ্টি বিষয়ক তথ্য</h5>
-                                <button type="button" class="btn btn-bg text-dark">শুরু করুন</button>
+                                <button type="button" class="btn btn-bg text-dark">বিস্তারিত</button>
                             </div>
                         </div>
                     </a>
@@ -160,7 +192,7 @@
                             <img src="{{ asset('assets/img/lesson1.jpg') }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">১ঃ খাদ্য ও পুষ্টি বিষয়ক তথ্য</h5>
-                                <button type="button" class="btn btn-bg text-dark">শুরু করুন</button>
+                                <button type="button" class="btn btn-bg text-dark">বিস্তারিত</button>
                             </div>
                         </div>
                     </a>
