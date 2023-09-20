@@ -85,9 +85,7 @@ class UserController extends Controller
     {
         Auth::logout();
 
-        return redirect()
-            ->to('https://e-pushti.netlify.app/')
-            ->send();
+        return redirect()->route('home_page');
     }
 
     public function index()

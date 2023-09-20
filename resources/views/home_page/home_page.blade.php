@@ -44,7 +44,7 @@
     <!-- End Header -->
 
 
-    <section class="banner">
+    <section class="banner" id="home_section">
         <div class="banner-in position-relative w-100">
             <div class="svg position-absolute w-100">
                 <img src="{{ asset('assets/icon/wave2.svg') }}" class="w-100" alt="">
@@ -92,7 +92,7 @@
         </div>
     </section>
 
-    <section class="course position-relative mt-20 mb-10">
+    <section class="course position-relative mt-20 mb-10" id="course_section">
         {{-- <div class="side-img position-absolute bottom-0 end-0">
             <img src="{{asset('assets/img/Characters/14.png')}}" class="w-10" alt="">
         </div> --}}

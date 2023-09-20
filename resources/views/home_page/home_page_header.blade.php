@@ -14,12 +14,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#!">
+                    <a class="nav-link text-dark" href="#home_section">
                         <img class="img-fluid" src="{{ asset('assets/icon/house.png') }}" alt="">
                         হোম</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#!">
+                    <a class="nav-link text-dark" href="#course_section">
                         <img class="img-fluid" src="{{ asset('assets/icon/course.png') }}" alt="">
                         কোর্স সমূহ</a>
                 </li>
@@ -58,14 +58,14 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">বাংলা</a></li>
-                            <li><a class="dropdown-item" href="#">ইংরেজী</a></li>
+                            {{-- <li><a class="dropdown-item" href="#">ইংরেজী</a></li> --}}
                         </ul>
                     </div>
                 </li>
 
             </ul>
             <div class="text-center">
-                <button type="button" class="btn btn-color">Login / Register</button>
+                <a href="{{ route('login') }}" class="btn btn-color">Login / Register</a>
             </div>
         </div>
     </div>
