@@ -28,7 +28,7 @@ class UserController extends Controller
             'password' => 'required|string|min:8',
             'present_address' => 'required|string',
             'division' => 'required',
-            'is_club_member' => 'required|in:yes,no',
+            'is_club_member' => 'required',
         ]);
 
         try {
@@ -45,8 +45,7 @@ class UserController extends Controller
                 'division' => $request->division,
                 'is_club_member' => $request->is_club_member,
             ]);
-            toastr()->success('একাউন্ট তৈরী করা হয়েছে!', 'অভিনন্দন');
-            return redirect()->route('login');
+            return redirect()->route('login')->with('register', 'success');
         } catch (Exception $e) {
             return redirect()->back();
         }
@@ -113,18 +112,10 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'is_class_member' => 'required|in:yes,no',
-            'type' => 'required',
-            'enrolled' => 'required|in:0,1',
-        ]);
+        $data = $request->except('_token');
         $user = User::where('id', $id)->first();
         // dd($user);
-        $user->update([
-            'is_club_member' => $request->is_class_member,
-            'enrolled' => $request->enrolled,
-            'type' => $request->type,
-        ]);
+        $user->update($data);
         toastr()->success('User updated successfully!', 'Congrats');
         return redirect()->route('user.index');
     }
@@ -141,11 +132,11 @@ class UserController extends Controller
             'age' => 'required|integer|min:1',
             'school_name' => 'required|string',
             'class' => 'required|string',
-            'gender' => 'required|in:male,female',
-            'phone_no' => 'required|string|max:20',
+            'gender' => 'required',
+            'phone_no' => 'required|string|max:20|unique:users',
             'password' => 'required|string|min:8',
             'present_address' => 'required|string',
-            'division' => 'required|string',
+            'division' => 'required',
             'is_club_member' => 'required|in:yes,no',
         ]);
 
