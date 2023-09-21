@@ -10,7 +10,7 @@
       </ol>
     </nav>
     <hr>
-  </div><!-- End Page Title -->
+  </div>
 
 
   <div class="container">
@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
             <label for="image">Chapter Image:</label>
-            <input type="file" class="form-control" id="image" name="image" >
+            <input type="file" class="form-control" id="image" name="image" required>
         </div>
 
 
