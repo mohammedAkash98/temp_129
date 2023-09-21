@@ -10,7 +10,7 @@
       </ol>
     </nav>
     <hr>
-  </div><!-- End Page Title -->
+  </div>
 
 
   <div class="container">
