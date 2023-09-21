@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         /* Custom styles for FAQ */
+        body {
+    background-color: #f5f5f5; /* Add your desired background color here */
+}
         .faq-answer {
             display: none;
         }
@@ -42,7 +45,7 @@
         }
 
         /* Custom styles for the FAQ question */
-        .faq-question {
+        .accordion-header {
             font-size: 24px; /* Decreased font size */
             font-weight: bold; /* Added bold style */
             margin-bottom: 10px; /* Added margin for spacing */
@@ -86,6 +89,40 @@
                             <li>ব্লগ (ভিডিও)</li>
                             <li>নিউট্রিশন ক্লাব বিষয়ক তথ্য</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeading5">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse2">
+                    কিভাবে নিবন্ধন করবেন?
+                    </button>
+                </h2>
+                <div id="faqCollapse5" class="accordion-collapse collapse" aria-labelledby="faqHeading5" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <li>নিবন্ধিত না হলে নিবন্ধনে যান, অন্যথায় লগইন করুন</li>
+                        <li>রেজিস্ট্রেশন করার সময় আপনার সঠিক তথ্য দিন</li>
+                        <li>একটি সুরক্ষিত পাসওয়ার্ড দিন</li>
+                        <li>সফলভাবে লগ ইন করার পরে, কোর্সগুলি প্রদর্শিত হবে</li>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeading6">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse6" aria-expanded="false" aria-controls="faqCollapse2">
+                    ই-পুষ্টি প্ল্যাটফর্মে কি কি কোর্স আছে?
+                    </button>
+                </h2>
+                <div id="faqCollapse6" class="accordion-collapse collapse" aria-labelledby="faqHeading6" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <li>খাদ্য ও পুষ্টি</li>
+                        <li>স্বাস্থ্যসম্মত জীবনধারা</li>
+                        <li>মানসিক স্বাস্থ্য</li>
+                        <li>নেতৃত্ব</li>
+                        <li>সামাজিক ক্ষেত্র</li>
+                        
                     </div>
                 </div>
             </div>
@@ -148,7 +185,7 @@
         });
 
         function goBack() {
-            window.location.href = 'index';
+            window.location.href = 'home_page.blade.php';
         }
     </script>
 </body>
