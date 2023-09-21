@@ -153,3 +153,4 @@
     </script>
 </body>
 </html>
+<?php /**PATH C:\xampp\htdocs\epushtiN\temp_129\resources\views/home_page/home_faq.blade.php ENDPATH**/ ?>
