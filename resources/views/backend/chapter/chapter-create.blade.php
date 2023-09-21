@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
             <label for="image">Chapter Image:</label>
-            <input type="file" class="form-control" id="image" name="image" >
+            <input type="file" class="form-control" id="image" name="image" required>
         </div>
 
         <button type="submit" class="btn btn-primary btn-sm mt-3 text-white"><i class="fa-solid fa-floppy-disk"></i> Save</button>
