@@ -41,6 +41,10 @@ class FrontendController extends Controller
         );
     }
 
+    public function home_faq(){
+        return view('home_page.home_faq');
+    }
+
     public function dashboard()
     {
         return view('frontend.dashboard');
