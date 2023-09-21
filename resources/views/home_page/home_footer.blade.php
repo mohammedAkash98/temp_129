@@ -21,13 +21,23 @@
                 <div class="row">
                     <!--Grid column-->
                     <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase">FOOTER CONTENT</h5>
+                        <h5 class="text-uppercase">INFORMATION</h5>
 
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Molestiae modi cum ipsam ad, illo possimus laborum ut
-                            reiciendis obcaecati. Ducimus, quas. Corrupti, pariatur eaque?
-                            Reiciendis assumenda iusto sapiente inventore animi?
+                            
+                            <br>
+                            <b>Email:</b> info@biid.org.bd
+                            <br>
+                            <b>Call us</b> (+880) 2 8714169, (+880) 2 9845909
+                            <br>
+                            Bangladesh Institute of ICT in Development (BIID)
+                            <br>
+                            House No. 174, Level-2, Apt.B3, Road No. 02,
+                            <br>
+                            Mohakhali DOHS, Dhaka- 1206
+                            <br>
+                            Bangladesh
+                            <br>
                         </p>
                     </div>
                     <!--Grid column-->
@@ -87,15 +97,27 @@
             </section>
             <!-- Section: Links -->
 
+
             <hr class="mb-4" />
 
             <!-- Section: CTA -->
             <section class="">
                 <p class="d-flex justify-content-center align-items-center">
-                    <span class="me-3">Register for free</span>
+                    <span class="me-3">News Alert</span>
                     <button type="button" class="btn btn-outline-light btn-rounded">
-                        Sign up!
+                        Sign up with email!
                     </button>
+                </p>
+            </section>
+            <!-- Section: CTA -->
+
+            <hr class="mb-4" />
+
+            <!-- Section: CTA -->
+            <section class="" style="background-color: rgba(222, 222, 222, 0.745) ">
+                <p class="d-flex justify-content-center align-items-center">
+                    <span class="me-5 h1" style="color: green">Partners</span>
+                    <img class="p-2" src="https://e-pushti.netlify.app/static/media/partners.8b938f8d07452f431bd3.png" alt="" >
                 </p>
             </section>
             <!-- Section: CTA -->
