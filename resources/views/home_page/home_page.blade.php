@@ -70,7 +70,7 @@
                     <a href="#" class="btn btn-bg text-dark mb-3 d-flex align-items-center">
                         <img src="{{ asset('assets/icon/youtube.png') }}" class="me-2" style="width: 35px"
                             alt="">
-                        <h5 class="m-0"> <b>আমাদের কোর্সসমূহ দেখুন</b> </h5>
+                        <h5 class="m-0"> <b>কোর্সসমূহ দেখুন</b> </h5>
                     </a>
 
                 </div>
@@ -79,7 +79,7 @@
     </section>
 
     {{-- platform --}}
-    <section class="platform position-relative mb-10" style="margin-top: 25%" id="platform">
+    <section class="platform position-relative mb-10" style="margin-top: 25%" id="course_section">
         {{-- <div class="side-img position-absolute bottom-0 end-0">
             <img src="{{asset('assets/img/Characters/14.png')}}" class="w-10" alt="">
         </div> --}}
@@ -110,6 +110,7 @@
                         <div class="col">
                             <img src="{{ asset('images/home_content/chapter_1.jpeg') }}"
                                 class="card-img-top mb-3 w-100 rounded-4" alt="...">
+                                <h3>কৈশোরকালীন পুষ্টি ও স্বাস্থ্যসম্মত জীবনধারা</h3>
                         </div>
 
                         <div class="card-body">
@@ -129,7 +130,7 @@
         </div> --}}
         <div class="container">
             <h1 class="text-center header-font">
-                আমাদের অধ্যায়সমূহ
+                অধ্যায়সমূহ
             </h1>
             <div class="d-flex justify-content-center">
                 <div class="mb-4 line-design d-grid text-center">
@@ -168,7 +169,7 @@ $numto = new Rakibhstu\Banglanumber\NumberToBangla();
         </div> --}}
         <div class="container py-5">
             <h2 class="text-center text-white pt-5 header-font">
-                আমাদের উপদেষ্টা
+                উপদেষ্টা
             </h2>
             <div class="d-flex justify-content-center pb-3">
                 <div class="mb-4 line-design d-grid text-center">
@@ -238,7 +239,7 @@ $numto = new Rakibhstu\Banglanumber\NumberToBangla();
         </div> --}}
         <div class="container pb-5">
             <h2 class="text-center text-white pt-5 header-font">
-                আমাদের টীম মেম্বার
+                টীম মেম্বার
             </h2>
             <div class="d-flex justify-content-center pb-3">
                 <div class="mb-4 line-design d-grid text-center">
@@ -346,7 +347,7 @@ $numto = new Rakibhstu\Banglanumber\NumberToBangla();
             <div class="row align-items-center justify-content-center">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 my-3 fadeInUp">
                     <h1 class="header-font">
-                        আমাদের সম্পর্কে
+                        সম্পর্কে
                     </h1>
                     <div class="d-flex justify-content-start">
                         <div class="mb-4 line-design d-grid text-center">
@@ -417,7 +418,7 @@ $numto = new Rakibhstu\Banglanumber\NumberToBangla();
     </section>
 
     {{-- Nutrition club --}}
-    <section class="club position-relative mb-10" id="club">
+    <section class="club position-relative mb-10" id="sohaika_section">
         {{-- <div class="side-img position-absolute bottom-0 end-0">
                 <img src="{{asset('assets/img/Characters/14.png')}}" class="w-10" alt="">
             </div> --}}
@@ -554,14 +555,104 @@ $numto = new Rakibhstu\Banglanumber\NumberToBangla();
         </div>
     </section>
 
-    {{-- webiner --}}
-    <section class="webiner position-relative mb-10">
+
+    {{-- blogs --}}
+    <section class="webiner position-relative mb-10" id="blog_section">
         {{-- <div class="side-img position-absolute bottom-0 end-0">
             <img src="{{asset('assets/img/Characters/14.png')}}" class="w-10" alt="">
         </div> --}}
         <div class="container">
             <h1 class="text-center pt-5 header-font">
-                আমাদের ওয়েবিনার
+                ব্লগ
+            </h1>
+            <div class="d-flex justify-content-center pb-3">
+                <div class="mb-4 line-design d-grid text-center">
+                    <span class="line line-h1"></span>
+                    <span class="line line-h2"></span>
+                </div>
+            </div>
+
+            {{-- carousal team --}}
+            <div id="carousalWebiner" class="carousel slide carousel-dark slide header-font-p">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carousalWebiner" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carousalWebiner" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                </div>
+
+                <div class="carousel-inner py-4">
+                    <div class="carousel-item active">
+                        <div class="row align-items-center justify-content-center mb-4">
+
+                            @for ($i = 1; $i <= 3; $i++)
+                                <div
+                                    class="col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center d-flex justify-content-center webiner-content">
+                                    <div class="card card-border rounded-4" style="width: 18rem;">
+                                        <img src="{{ asset('assets/img/webiner/web1.jpg') }}"
+                                            class="card-img-top rounded-4 mb-3" alt="...">
+                                        <div class="card-body">
+                                            <h6>Lorem ipsum dolor sit amet.</h6>
+                                            <p>{{ '9/20/2023' }}</p>
+                                            <button type="button" class="btn btn-bg text-dark"> <b>শুরু
+                                                    করুন</b></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endfor
+
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row align-items-center justify-content-center mb-4">
+
+                            @for ($i = 1; $i <= 3; $i++)
+                                <div
+                                    class="col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center d-flex justify-content-center webiner-content">
+                                    <div class="card rounded-4 card-border" style="width: 18rem;">
+                                        <img src="{{ asset('assets/img/webiner/web1.jpg') }}"
+                                            class="card-img-top rounded-4 mb-3" alt="...">
+                                        <div class="card-body">
+                                            <button type="button" class="btn btn-bg text-dark"> <b>শুরু
+                                                    করুন</b></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endfor
+
+                        </div>
+                    </div>
+                </div>
+
+                {{-- prev --}}
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousalWebiner"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+
+                {{-- next --}}
+                <button class="carousel-control-next" type="button" data-bs-target="#carousalWebiner"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+
+            </div>
+
+
+        </div>
+    </section>
+
+    {{-- webiner --}}
+    <section class="webiner position-relative mb-10" id="webiner_section">
+        {{-- <div class="side-img position-absolute bottom-0 end-0">
+            <img src="{{asset('assets/img/Characters/14.png')}}" class="w-10" alt="">
+        </div> --}}
+        <div class="container">
+            <h1 class="text-center pt-5 header-font">
+                ওয়েবিনার
             </h1>
             <div class="d-flex justify-content-center pb-3">
                 <div class="mb-4 line-design d-grid text-center">

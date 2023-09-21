@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-white navbar_top">
+<nav class="navbar navbar-expand-lg bg-white navbar_top fixed-top">
 
     <div class="container-fluid">
 
@@ -21,30 +21,30 @@
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="#course_section">
                         <img class="img-fluid" src="{{ asset('assets/icon/course.png') }}" alt="">
-                        কোর্স সমূহ</a>
+                        কোর্স</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#!">
+                    <a class="nav-link text-dark" href="#blog_section">
                         <img class="img-fluid" src="{{ asset('assets/icon/blogging.png') }}" alt="">
                         ব্লগ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#!">
+                    <a class="nav-link text-dark" href="#webiner_section">
                         <img class="img-fluid" src="{{ asset('assets/icon/webinar.png') }}" alt="">
                         ওয়েবিনার</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#!">
+                    <a class="nav-link text-dark" href="#sohaika_section">
                         <img class="img-fluid" src="{{ asset('assets/icon/help.png') }}" alt="">
                         সহায়িকা</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#!">
+                    <a class="nav-link text-dark" href="#about_us">
                         <img class="img-fluid" src="{{ asset('assets/icon/teamwork.png') }}" alt="">
                         আমাদের সম্পর্কে</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#!">
+                    <a class="nav-link text-dark" href="#footer_section">
                         <img class="img-fluid" src="{{ asset('assets/icon/contact.png') }}" alt="">
                         যোগাযোগ</a>
                 </li>
